@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "5f289a39cc1e6eb6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a034605ec11a73a5",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "your-own-scheme-compiler/README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cb2b7f14a78c9ea0",
+    "type": "split",
+    "children": [
+      {
+        "id": "f739c17f7c4569ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76d0a06be86873a6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f4fb6d7dd28821a2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "80dcab2dcc77f375",
+    "type": "split",
+    "children": [
+      {
+        "id": "f698841393ffb30b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95d1094e830bdac6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "your-own-scheme-compiler/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "a034605ec11a73a5",
+  "lastOpenFiles": [
+    "your-own-scheme-compiler/README.md",
+    "typescript-gym/README.md"
+  ]
+}
