@@ -8,7 +8,7 @@ const App = () => {
   const monthDiff = now.getMonth() - birthDate.getMonth(); 
 
   let age = now.getFullYear() - birthDate.getFullYear(); 
-  if (monthDiff < 0 || (monthDiff == 0 && now.getDate() < birthDate.getDate())){
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < birthDate.getDate())){
 	  age--; 
   }
   
