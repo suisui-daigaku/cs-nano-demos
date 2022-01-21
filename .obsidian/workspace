@@ -7,8 +7,12 @@
         "id": "706a47d8d6321f1c",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "react-exercises/README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "react-exercises/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +89,7 @@
   },
   "active": "706a47d8d6321f1c",
   "lastOpenFiles": [
+    "react-exercises/README.md",
     "llvm-exercises/legacy-pass-manager/llvm-transform-helloworld/README.md",
     "your-own-scheme-compiler/README.md",
     "your-own-scheme-compiler/Pasted image 20220118174709.png",
