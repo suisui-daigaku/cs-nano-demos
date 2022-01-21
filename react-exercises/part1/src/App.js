@@ -5,7 +5,7 @@ const App = () => {
   const name = 'Maaya Uchida'
   const birthDate = new Date('1989-12-27');
   const now = new Date(); 
-  const age_orin = today.getFullYear() - birthDate.getFullYear(); 
+  const age_orin = now.getFullYear() - birthDate.getFullYear(); 
   const monthDiff = now.getMonth() - birthDate.getMonth(); 
   if (monthDiff < 0 || (monthDiff == 0 && now.getDate() < birthDate.getDate())){
 	  const age = age_orin; 
