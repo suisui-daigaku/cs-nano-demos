@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.1)
 
 # project name 
 project(LLVMHello)
+set(LLVM_VERSION "12" CACHE STRING "LLVM Version")
+set(LLVM_VERSION_SUFFIX "-${LLVM_VERSION}")
 
 # tell CMake where LLVM is 
 # (otherwise VS Code will keep complaining LLVM headers not found)
