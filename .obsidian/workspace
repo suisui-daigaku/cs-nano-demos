@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "706a47d8d6321f1c",
+        "id": "3b8811b0baa2d017",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "react-exercises/README.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "react-exercises/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,7 +82,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "706a47d8d6321f1c",
+  "active": "3b8811b0baa2d017",
   "lastOpenFiles": [
     "react-exercises/README.md",
     "llvm-exercises/legacy-pass-manager/llvm-transform-helloworld/README.md",
