@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "54a69c24eb80100e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f9b3c4ba85ce532",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8ff1fba13dc8699a",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e4c45bfff01a110",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02a794c27287112c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "af539c043d80afd5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "105bd2bf3cf3b5b8",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f74b9016cddb14d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "349d679e4b558aa9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "9f9b3c4ba85ce532",
+  "lastOpenFiles": [
+    "README.md",
+    "legacy-pass-manager/llvm-transform-helloworld/README.md"
+  ]
+}
