@@ -3,10 +3,9 @@ add_library(LLVMHello MODULE
     Hello.cpp
 )   
 
-# Use C++11 to compile our pass (i.e., supply -std=c++14).
-set(CMAKE_CXX_STANDARD 17)
-# target_compile_features(LLVMHello PRIVATE cxx_range_for cxx_auto_type)
-
+# Use C++11 to compile our pass (i.e., supply -std=c++11).
+# set(CMAKE_CXX_STANDARD 17)
+target_compile_features(LLVMHello PRIVATE cxx_range_for cxx_auto_type)
 
 # LLVM is (typically) built with no C++ RTTI. We need to match that.
 #   more details in https://llvm.org/docs/HowToSetUpLLVMStyleRTTI.html

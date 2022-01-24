@@ -4,11 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "3b8811b0baa2d017",
+        "id": "7b6e3905adec07fd",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "llvm-exercises/README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "llvm-exercises/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -82,13 +87,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "3b8811b0baa2d017",
+  "active": "7b6e3905adec07fd",
   "lastOpenFiles": [
-    "react-exercises/README.md",
-    "llvm-exercises/legacy-pass-manager/llvm-transform-helloworld/README.md",
-    "your-own-scheme-compiler/README.md",
-    "your-own-scheme-compiler/Pasted image 20220118174709.png",
     "llvm-exercises/README.md",
-    "typescript-gym/README.md"
+    "type-py/Pasted image 20220124220933.png",
+    "llvm-exercises/Pasted image 20220124224736.png",
+    "llvm-exercises/Pasted image 20220122122557.png",
+    "type-py/README.md",
+    "llvm-exercises/legacy-pass-manager/README.md",
+    "sicp/README.md",
+    "sicp/Pasted image 20220123160505.png",
+    "sicp/Pasted image 20220123160540.png",
+    "react-exercises/README.md"
   ]
 }
