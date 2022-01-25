@@ -5,6 +5,7 @@
 - 基于 AST 的静态检测工具
 	- clang-tidy 
 	- llvm-format 
+	- [NASA-SW-VnV/ikos: Static analyzer for C/C++ based on the theory of Abstract Interpretation. (github.com)](https://github.com/NASA-SW-VnV/ikos)
 - 基于 Regular Expression 的检测工具
 	- Google 的 cpplint 
 都非常值得研究。

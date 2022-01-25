@@ -6,7 +6,9 @@
 书中代码可以在 https://github.com/PacktPublishing/Learn-LLVM-12 下载。
 
 
-
+Make Your Own Language 课程
+[Home Page of Toby Ho](https://tobyho.com/)
+Make a Programming languages from Scratch 
 
 
 ### 安装 LLVM 
@@ -16,3 +18,6 @@
 [LLVM安装 (haohua-li.github.io)](https://haohua-li.github.io/2022/01/18/llvm-installation.html)
 
 
+
+### LLVM Tutorial 
+[LLVM Tutorial #1: Introduction - YouTube](https://www.youtube.com/watch?v=DWHDjVI5juo)
