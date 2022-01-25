@@ -79,8 +79,6 @@ if(NOT LLVM_ENABLE_RTTI)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
 endif()
 
-message("${LLVM_ENABLE_RTTI}")
-
 # only Intel has SGX, we force the it to X86
 set(LLVM_TARGETS_TO_BUILD "X86" CACHE STRING "Intel SGX as target machine" FORCE)
 
@@ -97,8 +95,8 @@ endif()
 # Doing this at the end so that all definitions and link/include paths are
 # available for the sub-projects.
 #===============================================================================
-add_subdirectory(lib)
-add_subdirectory(tools)
+#add_subdirectory(lib)
+#add_subdirectory(tools)
 add_subdirectory(HelloWorld)
 
 # =============================================
