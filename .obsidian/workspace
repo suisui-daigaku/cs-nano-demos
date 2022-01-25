@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Tinylang/README.md",
+            "file": "cmake-exercises/cmake-source-dir/README.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tinylang/README.md",
+                "file": "cmake-exercises/cmake-source-dir/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +89,15 @@
   },
   "active": "7b6e3905adec07fd",
   "lastOpenFiles": [
+    "cmake-exercises/cmake-source-dir/README.md",
+    "cmake-exercises/README.md",
+    "llvm-exercises/llvm-helloworld/HelloWorld/README.md",
     "Tinylang/README.md",
     "README.md",
     "your-own-scheme-compiler/README.md",
     "type-py/README.md",
     "llvm-exercises/README.md",
     "type-py/Pasted image 20220124220933.png",
-    "llvm-exercises/Pasted image 20220124224736.png",
-    "llvm-exercises/Pasted image 20220122122557.png",
-    "llvm-exercises/legacy-pass-manager/README.md",
-    "sicp/README.md"
+    "llvm-exercises/Pasted image 20220124224736.png"
   ]
 }
