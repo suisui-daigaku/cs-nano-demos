@@ -23,21 +23,23 @@ make
 
 ### 编译 ByteCode 
 ```
-clang++ -emit-llvm ./test/main.cpp -o ./test/main.bc
+clang++ -emit-llvm -S ./test/a_plus_b_simple_addition.cpp -o ./test/output/a_plus_b_simple_addition.bc
 ```
-原函数故意只写了一个，否则 LLVM Pass 会运行很多次。
+- [clang -Xclang -cc1 -O3 mips.c -emit-llvm , clang error: -emit-llvm cannot be used when linking - Stack Overflow](https://stackoverflow.com/questions/30730600/clang-xclang-cc1-o3-mips-c-emit-llvm-clang-error-emit-llvm-cannot-be-use)
+  - 现在还有疑问，为什么一定要加 `-S` ，否则就会出现 `-emit-llvm cannot be used when linking`
+- 原函数故意只写了一个，否则 LLVM Pass 会运行很多次。
 
 
 ### 使用 LLVM Pass 分析
 因为这个 LLVM 什么都不做，仅仅只是在屏幕输出 Hello World 
 ```bash
-opt -load Hello.so -hello ./test/main.bc -o ./test/mainOpt.bc -enable-new-pm=0
+opt -load ./build/HelloWorld/libLLVMHello.so -hello ./test/output/a_plus_b_simple_addition.bc -o ./test/optimized_output/a_plus_b_simple_addition.bc -enable-new-pm=0
 ```
 记得禁用 `enable-new-pm=0`  ，教程在一开始就说 Legacy LLVM Pass Manager.... 
 
 如果被处理过的 ByteCode 不太重要，可以丢弃给 `/dev/null`
 ```bash
-opt -load Hello.so -hello <hello.bc> -o /dev/null -enable-new-pm=0 
+opt -load ./build/HelloWorld/libLLVMHello.so -hello ./test/output/a_plus_b_simple_addition.bc -o /dev/null -enable-new-pm=0 
 ```
 其中 `<>` 符号是 BNF 语法中常见内容，里面填入文件名即可。
 
@@ -67,7 +69,7 @@ OPTIONS:
 ### Pass 运行时间
 可以查看 Pass 运行了多久。
 ```bash
-opt -load Hello.so -hello ./test/main.bc -o /dev/null -enable-new-pm=0 -time-passes
+opt -load ./build/HelloWorld/libLLVMHello.so -hello ./test/output/a_plus_b_simple_addition.bc -o /dev/null -enable-new-pm=0 -time-passes
 ```
 其中 Module Verifer 是保证在你的 Pass 之后，程序不会崩溃 ? (不清楚)
 ```
