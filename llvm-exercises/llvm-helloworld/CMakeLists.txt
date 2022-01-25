@@ -1,14 +1,11 @@
 cmake_minimum_required(VERSION 3.1)
+project(LLVMHelloWorld)
 
-# project name 
-# project(LLVMHello)
-set(LLVM_VERSION "12" CACHE STRING "LLVM Version")
-set(LLVM_VERSION_SUFFIX "-${LLVM_VERSION}")
+# LLVM 12 implemented in C++14 
+set(CMAKE_CXX_STANDARD 14 CACHE STRING "")
 
-
-# Obtain the build flags from `llvm-config --cxxflags` and forward them to
-# variable CMAKE_CXX_FLAGS.
-execute_process(COMMAND llvm-config${LLVM_VERSION_SUFFIX} --cxxflags
+# Obtain the build flags from `llvm-config --cxxflags` and forward them to variable CMAKE_CXX_FLAGS.
+execute_process(COMMAND llvm-config --cxxflags
                 OUTPUT_VARIABLE LLVM_CXXFLAGS
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
 set(CMAKE_CXX_FLAGS "${LLVM_CXXFLAGS} -Wall -Werror")

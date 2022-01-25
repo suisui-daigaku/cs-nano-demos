@@ -1,5 +1,19 @@
 
 
+
+目前主要有两种静态检查工具
+- 基于 AST 的静态检测工具
+	- clang-tidy 
+	- llvm-format 
+- 基于 Regular Expression 的检测工具
+	- Google 的 cpplint 
+都非常值得研究。
+[深入研究Clang(十三) clang-tidy简介 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/102248131)
+[MaskRay/ccls: C/C++/ObjC language server supporting cross references, hierarchies, completion and semantic highlighting (github.com)](https://github.com/MaskRay/ccls)
+
+
+
+
 即然有 TypeScript ，为什么没有 TypePy ? 
 
 第一种想法是 Static Type Checker/Validator ，相关项目有

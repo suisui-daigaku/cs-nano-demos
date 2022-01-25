@@ -1,6 +1,13 @@
 # Your Own Scheme Compiler 
 这应该是编译原理的最好的作业了。
 
+
+编译器课程
+- [TTT: TeleTeachingTool (tum.de)](https://ttt.in.tum.de/lectures/)
+- [天上地下 - 知乎 (zhihu.com)](https://www.zhihu.com/people/cai-peng-xiang-71/posts)
+
+
+
 网上有很多教程，比如
 - The 90 minute Scheme to C compiler
 - [（如何（用Python）写一个（Lisp）解释器（上）） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/28989326)
