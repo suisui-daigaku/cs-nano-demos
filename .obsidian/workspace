@@ -7,12 +7,8 @@
         "id": "7b6e3905adec07fd",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "llvm-exercises/llvm-tutorial/README.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "llvm-exercises/llvm-tutorial/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
