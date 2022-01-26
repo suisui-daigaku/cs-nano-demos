@@ -39,8 +39,7 @@
 
 add_library(HelloWorld SHARED
     # List your source files here.  
-    HelloLegacy.cpp
-    HelloNew.cpp
+    HelloWorld.cpp
 )   
 
 # Allow undefined symbols in shared objects on Darwin (this is the default behaviour on Linux)

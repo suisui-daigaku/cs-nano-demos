@@ -1,6 +1,8 @@
-#include "llvm/Pass.h"
-#include "llvm/IR/Function.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Passes/PassBuilder.h"
+#include "llvm/Passes/PassPlugin.h"
 #include "llvm/Support/raw_ostream.h"
+
 
 using namespace llvm;
 // the "static" keyword to file in C, which means the anonymous namespace is only visible to the current file. 
@@ -25,6 +27,18 @@ struct HelloWorld : public FunctionPass{
     }
 }; 
 
+//-----------------------------------------------------------------------------
+// New PM implementation 
+//-----------------------------------------------------------------------------
+struct HelloWorldNew : PassInfoMixin<HelloWorldNew>{
+    // Main entry point, takes IR unit to run the pass on (&F) and the corresponding pass manager (to be queried if need be)
+    PreservedAnalyses run(Function &F, FunctionAnalysisManager &){
+        errs() << ">>>> The New PM <<<<\n"; 
+        visitor(F);
+        return PreservedAnalyses::all(); 
+    }
+};
+
 } // namespace (without ; )
 
 //-----------------------------------------------------------------------------
@@ -41,3 +55,28 @@ RegisterPass<HelloWorld>
     false  // This pass is not a pure analysis pass(since it actually doing nothing and printing) => false
 );
 
+//-----------------------------------------------------------------------------
+// New PM Registration
+//-----------------------------------------------------------------------------
+llvm::PassPluginLibraryInfo getHelloWorldPluginInfo() {
+  return {LLVM_PLUGIN_API_VERSION, "Hello World(New)", LLVM_VERSION_STRING,
+          [](PassBuilder &PB) {
+            PB.registerPipelineParsingCallback(
+                [](StringRef Name, FunctionPassManager &FPM,
+                   ArrayRef<PassBuilder::PipelineElement>) {
+                  if (Name == "hello-new") {
+                    FPM.addPass(HelloWorldNew());
+                    return true;
+                  }
+                  return false;
+                });
+          }};
+}
+
+// This is the core interface for pass plugins. It guarantees that 'opt' will
+// be able to recognize HelloWorld when added to the pass pipeline on the
+// command line, i.e. via '-passes=hello-world'
+extern "C" LLVM_ATTRIBUTE_WEAK ::llvm::PassPluginLibraryInfo
+llvmGetPassPluginInfo() {
+  return getHelloWorldPluginInfo();
+}
