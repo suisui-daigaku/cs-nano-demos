@@ -13,16 +13,27 @@ project(llvm-tutorial)
 # 1. VERIFY LLVM INSTALLATION DIR
 # This is just a bit of a sanity checking.
 #===============================================================================
-# LLVM installation 
-execute_process(COMMAND llvm-config --prefix
-                RESULT_VARIABLE STATUS
-                OUTPUT_VARIABLE LT_LLVM_INSTALL_DIR
-                OUTPUT_STRIP_TRAILING_WHITESPACE
-                ERROR_QUIET)
-if(STATUS AND NOT STATUS EQUAL 0)
-    message(FATAL_ERROR "LLVM may be not installed as llvm-config is not a valid command.") 
-endif()
+
+# Use the command llvm-config to find LLVM install prefix....
+# execute_process(COMMAND llvm-config --prefix
+#                RESULT_VARIABLE STATUS
+#                OUTPUT_VARIABLE LT_LLVM_INSTALL_DIR
+#                OUTPUT_STRIP_TRAILING_WHITESPACE
+#                ERROR_QUIET)
+# if(STATUS AND NOT STATUS EQUAL 0)
+#   message(FATAL_ERROR "LLVM may be not installed as llvm-config is not a valid command.") 
+# endif()
+
+# tell CMake where LLVM is 
+#   https://github.com/banach-space/llvm-tutor#building
+set(LT_LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
 set(LT_LLVM_INCLUDE_DIR "${LT_LLVM_INSTALL_DIR}/include/llvm")
+
+# if not specified, then run llvm-config
+if(NOT EXISTS "${LT_LLVM_INCLUDE_DIR}")
+  message(FATAL_ERROR "The value -DLT_LLVM_INSTALL_DIR given to CMake is invalid. Please clean the CMakeCache and Re-built. The command llvm-config --prefix may help.")
+endif()
+
 # cmake and its LLVMConfig.cmake 
 list(APPEND CMAKE_PREFIX_PATH "${LT_LLVM_INSTALL_DIR}/lib/cmake/llvm/")
 
