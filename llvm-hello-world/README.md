@@ -6,6 +6,16 @@
 From the repository <https://github.com/banach-space/llvm-tutor>. 
 This repository is for leaarning and studying. The orginal license is MIT. 
 
+
+## 如何运行
+```
+mkdir build & cd build 
+cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
+make
+
+```
+
+
 ## To Do list
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
 - [ ] 写完所有 LLVM Pass 的练习。    
