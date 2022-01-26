@@ -6,12 +6,14 @@ import pathlib
 import glob
 import re
 
-# python3 runTest.py hello.cpp HelloWorld hello-legacy 
+# python3 runTest.py hello.cpp HelloWorld hello-legacy -oldPM
 
 if __name__ == "__main__":
     src_fullpath = sys.argv[1]
     pass_subdir = sys.argv[2]
     pass_option = sys.argv[3]
+    which_pm = sys.argv[4]
+
 
     src_file_name, src_file_extension = os.path.splitext(src_fullpath)
     if src_file_extension == ".cpp":
@@ -21,13 +23,15 @@ if __name__ == "__main__":
     else:
         print("ERROR: file extension wrong.")
         exit(1)
-    
+
+    # 
+    print("Compiling...")
     bc_fullpath = src_file_name + ".bc"
-    if not os.path.isfile(bc_fullpath):
-        print("Compiling...")
-        # compile the source code to bytecode (check -S by clang --help, it only compile without linking????)
-        #   https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
-        subprocess.run([cxx, "-S", "-emit-llvm", src_fullpath, "-o", bc_fullpath])
+    # compile the source code to bytecode (check -S by clang --help, it only compile without linking????)
+    #   https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
+    #   https://stackoverflow.com/questions/67505662/the-llvm-helloworld-pass-from-the-tutorial-does-not-run-if-the-ir-is-produced-by
+    # (clang with -O0 adds optnone attribute that disables any further processing of the IR by transformation passes.)
+    subprocess.run([cxx, "-O1", "-S", "-emit-llvm", src_fullpath, "-o", bc_fullpath])
 
     # load passes 
     pass_rootpath = pathlib.Path(__file__).parent.parent
@@ -49,9 +53,9 @@ if __name__ == "__main__":
 
     # load the pass (use the legacy PM)
     #   https://github.com/banach-space/llvm-tutor/blob/main/test/hello.ll
-    subprocess.run(["opt", "-enable-new-pm=0", "-load", pass_fullpath, "-"+pass_option, bc_fullpath, "-disable-output"])
-
-    
-
-
-
+    if which_pm == "-oldPM":
+        subprocess.run(["opt", "-enable-new-pm=0", "-load", pass_fullpath, "-"+pass_option, bc_fullpath, "-disable-output"])
+    elif which_pm == "-newPM":
+        subprocess.run(["opt", "-load-pass-plugin="+pass_fullpath, "-passes="+pass_option, "-disable-output", bc_fullpath])
+    else:
+        print("Which pass PM ???? ")    

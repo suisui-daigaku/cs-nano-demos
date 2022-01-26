@@ -2,7 +2,6 @@
 #include "llvm/IR/Function.h"
 #include "llvm/Support/raw_ostream.h"
 
-
 using namespace llvm;
 // the "static" keyword to file in C, which means the anonymous namespace is only visible to the current file. 
 namespace {
@@ -40,5 +39,5 @@ RegisterPass<HelloWorld>
     X("hello-legacy", "Hello World Pass (Legacy)", 
     true,  // This pass doesn't modify the CFG => true
     false  // This pass is not a pure analysis pass(since it actually doing nothing and printing) => false
-); 
- 
+);
+
