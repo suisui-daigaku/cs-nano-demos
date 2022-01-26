@@ -90,6 +90,7 @@
   "active": "7b6e3905adec07fd",
   "lastOpenFiles": [
     "llvm-hello-world/README.md",
+    "llvm-hello-world/Examples/README.md",
     "llvm-exercises/llvm-tutorial/README.md",
     "llvm-exercises/Pasted image 20220122122557.png",
     "Tinylang/README.md",
@@ -97,7 +98,6 @@
     "cmake-exercises/cmake-source-dir/README.md",
     "cmake-exercises/README.md",
     "llvm-exercises/llvm-helloworld/HelloWorld/README.md",
-    "README.md",
-    "your-own-scheme-compiler/README.md"
+    "README.md"
   ]
 }
