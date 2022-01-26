@@ -7,8 +7,12 @@
         "id": "7b6e3905adec07fd",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "llvm-hello-world/README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "llvm-hello-world/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,6 +89,7 @@
   },
   "active": "7b6e3905adec07fd",
   "lastOpenFiles": [
+    "llvm-hello-world/README.md",
     "llvm-exercises/llvm-tutorial/README.md",
     "llvm-exercises/Pasted image 20220122122557.png",
     "Tinylang/README.md",
@@ -92,7 +98,6 @@
     "cmake-exercises/README.md",
     "llvm-exercises/llvm-helloworld/HelloWorld/README.md",
     "README.md",
-    "your-own-scheme-compiler/README.md",
-    "llvm-exercises/README.md"
+    "your-own-scheme-compiler/README.md"
   ]
 }
