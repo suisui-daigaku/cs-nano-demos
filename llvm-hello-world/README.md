@@ -63,5 +63,10 @@ LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多
 
 按照 LLVM 的官方教程安装好 LLVM 之后，install 会把 `build` 文件夹里面的二进制文件，header files 全部复制到 **目标目录**，默认是 `/usr/local/` 。如果 VS Code 发神经找不到 `<llvm>` 的文件，就去 `includePath` 把 `/usr/local` 加进去。
 
+## 写个 Hello World 
 
+- LLVM 官方教程: [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
+- 基于官方教程的笔记 [LLVM安装 (haohua-li.github.io)](https://haohua-li.github.io/2022/01/18/llvm-installation.html)
+- LLVM tutor 的教程 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
+- 
 
