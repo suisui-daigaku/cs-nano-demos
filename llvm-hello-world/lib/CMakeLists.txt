@@ -1,11 +1,12 @@
 # THE LIST OF PLUGINS AND THE CORRESPONDING SOURCE FILES
 # ======================================================
 set(LLVM_TUTOR_PLUGINS
-    OpcodeCounter
-    )
+  OpcodeCounter
+  InjectFuncCall
+)
 
-set(OpcodeCounter_SOURCES
-  OpcodeCounter.cpp)
+set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
+set(InjectFuncCall_SOURCES InjectFuncCall.cpp)
 
 
 # CONFIGURE THE PLUGIN LIBRARIES

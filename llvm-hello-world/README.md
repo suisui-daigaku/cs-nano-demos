@@ -17,14 +17,40 @@ make
 
 
 ## To Do list
-- [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
-- [ ] 写完所有 LLVM Pass 的练习。    
+- [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
+  - [x] HelloWorld - Analysis 
+  - [x] OpcodeCounter - Analysis 
+  - [ ] InjectFuncCall - Transformation (如果插入函数，每次运行程序都会 HelloWorld) 
+  - [ ] StaticCallCounter - Analysis 
+  - [ ] DynamicCallCounter - Tranformation 
+  - [ ] MBASub - Transformation 
+  - [ ] MBAdd - Transformation 
+  - [ ] FindFCmpEq - Analysis 
+  - [ ] ConvertCmpEq - Transformation 
+  - [ ] RIV - Analysis 
+  - [ ] DuplicateBB - CFG 
+  - [ ] MergeBB - CFG 
+
+- [ ] LLVM New Pass Manager
+  - [ ] HelloWorld - Analysis 
+  - [ ] OpcodeCounter - Analysis 
+  - [ ] InjectFuncCall 
+  - [ ] StaticCallCounter 
+  - [ ] DynamicCallCounter 
+  - [ ] MBASub
+  - [ ] MBAdd 
+  - [ ] FindFCmpEq
+  - [ ] ConvertCmpEq
+  - [ ] RIV
+  - [ ] DuplicateBB
+  - [ ] MergeBB  
+
 - [ ] **backend pass**
-- [ ] 之后了解 IR
-- [ ] 每个 Module 都写一下作业。。。。
-- [ ] LLVM 如何插入指令(插代码)
-- [ ] 比如数据的存储/读取。
-- [ ] ***插入指令以后，要观察运行状况 (如何检验 LLVM Pass 真的在 Backend 部分给程序插入了指令....)***
+  - [ ] LLVM 如何插入指令(插代码)
+  - [ ] 之后了解 IR
+  - [ ] 比如数据的存储/读取。
+  - [ ] ***插入指令以后，要观察运行状况 (如何检验 LLVM Pass 真的在 Backend 部分给程序插入了指令....)***
+
 - [ ] LLVM Class 的**模块依赖关系**。
 
 ## 参考资料
@@ -106,11 +132,23 @@ LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多
 有关于各种基础的详细介绍。值得读完。
 [banach-space/llvm-tutor: A collection of out-of-tree LLVM passes for teaching and learning (github.com)](https://github.com/banach-space/llvm-tutor#overview-of-the-passes)
 
-## LLVM Pass Manager 
-教程也有
+## LLVM Pass Registration 
+
+一般而言，Pass是动态加载的 (例如 `opt`)，但是也可以把 Pass 加入到**系统的 Optimization Piplelines.** 具体看 https://github.com/banach-space/llvm-tutor#auto-registration-with-optimisation-pipelines 
+
+然后就可以 `-O{1|2|3}` 等等都可以顺带启动你的 Pass 。
+
+顺序也可以调整，在 Write An Pass 的 LLVM 教程就有 https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required
 
 ## Analysis and Transform Passes 
+
 教程有
+
+## LLVM Pass Manager 
+
+管理 Passes 的运行顺序。 因为某些 Passes 是依赖关系的 (流水线) 。
+
+
 
 ## Dynamic & Static 
 可能要学什么是 Shared Object 。
@@ -123,7 +161,6 @@ CMake 也有问是 Static, Shared, 还是 Module 。
 
  ## 比较值得学习的源码
 - LLVM 官方的优化 https://github.com/banach-space/llvm-tutor#optimisation-passes-inside-llvm
-
 
 
 
