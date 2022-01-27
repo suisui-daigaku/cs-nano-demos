@@ -15,8 +15,19 @@ make
 
 ```
 
+## 疑问
+
+- 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
+- 
+
+## 大佬们
+
+[Enna1 (Enna1) (github.com)](https://github.com/Enna1)
+
+在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
 
 ## To Do list
+
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
   - [x] HelloWorld - Analysis 
   - [x] OpcodeCounter - Analysis 

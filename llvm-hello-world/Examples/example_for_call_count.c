@@ -1,9 +1,9 @@
 //=============================================================================
 // FILE:
 //      input_for_cc.c
-//
 // DESCRIPTION:
-//      Sample input file for CallCounter analysis.
+//      Sample input file for CallCounter analysis .
+//      (the 'opcodeCounter', 'staticCallCounter', 'dynamicCallCounter')
 //
 // License: MIT
 //=============================================================================
@@ -15,6 +15,9 @@ int main() {
   foo();
   bar();
   fez();
+
+  void (*p) () = &foo; 
+  p(); 
 
   int ii = 0;
   for (ii = 0; ii < 10; ii++)
