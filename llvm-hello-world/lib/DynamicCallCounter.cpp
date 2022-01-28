@@ -8,19 +8,16 @@ using namespace llvm;
 
 #define DEBUG_TYPE "dynamic-cc"
 
-Constant *CreateGlobalCounter(Module &M, StringRef GlobalVarName) {
+Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   auto &CTX = M.getContext();
-
   // This will insert a declaration into M
-  Constant *NewGlobalVar =
+  Constant *NewGlobalVar = 
       M.getOrInsertGlobal(GlobalVarName, IntegerType::getInt32Ty(CTX));
-
   // This will change the declaration into definition (and initialise to 0)
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
-  // NewGV->setLinkage(GlobalValue::CommonLinkage);
+  NewGV->setLinkage(GlobalValue::ExternalLinkage);
   NewGV->setAlignment(MaybeAlign(4));
   NewGV->setInitializer(llvm::ConstantInt::get(CTX, APInt(32, 0)));
-
   return NewGlobalVar;
 }
 
