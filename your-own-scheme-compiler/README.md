@@ -15,12 +15,13 @@
 - [(How to Write a (Lisp) Interpreter (in Python)) (norvig.com)](http://norvig.com/lispy.html)
 
 ---
-![[Pasted image 20220118174709.png]]
+![](./Pasted%20image%2020220118174709.png)
 
-伯克利大学直接封神了，CS61A Introduction 的课就开始写这么硬核好玩的东西。
+[Project 4: Scheme Interpreter | CS 61A Spring 2020 (berkeley.edu)](https://inst.eecs.berkeley.edu/~cs61a/sp20/proj/scheme/)
 
-其他课还不更好玩。
+开始我还不太信，结果 CS 61A 还真的有这个 Project 。
 
+![image-20220128162834368](https://raw.githubusercontent.com/haohua-li/photo-asset-repo/main/imgs/image-20220128162834368.png)
 
 
 
