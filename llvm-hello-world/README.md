@@ -19,7 +19,6 @@ make
 
 - 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
 - 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
--  
 
 ## 大佬们
 
