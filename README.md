@@ -6,7 +6,7 @@
 
 [如何学得更快? (haohua-li.github.io)](https://haohua-li.github.io/2022/01/12/learn-fast.html)
 
-我还记得我导师在我 FYP 的时候 (如雷贯耳)，跟我说
+我还记得我导师 Akan 在我 FYP 的时候 (如雷贯耳)，跟我说
 
 > You have done ***nothing***.... 
 
