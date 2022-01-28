@@ -1,8 +1,3 @@
-/***********************************
- * The source code from 
- *  https://github.com/banach-space/llvm-tutor#injectfunccall
-************************************/ 
-
 #ifndef LLVM_TUTOR_INSTRUMENT_BASIC_H
 #define LLVM_TUTOR_INSTRUMENT_BASIC_H
 

@@ -18,7 +18,8 @@ make
 ## 疑问
 
 - 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
-- 
+- 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
+-  
 
 ## 大佬们
 
@@ -31,9 +32,10 @@ make
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
   - [x] HelloWorld - Analysis 
   - [x] OpcodeCounter - Analysis 
-  - [ ] InjectFuncCall - Transformation (如果插入函数，每次运行程序都会 HelloWorld) 
-  - [ ] StaticCallCounter - Analysis 
-  - [ ] DynamicCallCounter - Tranformation 
+  - [x] InjectFuncCall - Transformation (如果插入函数，每次运行程序都会 HelloWorld) 
+  - [x] StaticCallCounter - Analysis (编译的时候计数)
+    - [ ] 研究 [StaticMain.cpp](https://github.com/banach-space/llvm-tutor/blob/main/tools/StaticMain.cpp) 源码。**这个是 Pass Manager 的不需要 `opt` 的例子。**
+  - [ ] DynamicCallCounter - Tranformation (插入计数函数)
   - [ ] MBASub - Transformation 
   - [ ] MBAdd - Transformation 
   - [ ] FindFCmpEq - Analysis 
@@ -41,7 +43,7 @@ make
   - [ ] RIV - Analysis 
   - [ ] DuplicateBB - CFG 
   - [ ] MergeBB - CFG 
-
+  
 - [ ] LLVM New Pass Manager
   - [ ] HelloWorld - Analysis 
   - [ ] OpcodeCounter - Analysis 

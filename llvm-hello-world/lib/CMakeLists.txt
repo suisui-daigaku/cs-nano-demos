@@ -4,11 +4,14 @@ set(LLVM_TUTOR_PLUGINS
   OpcodeCounter
   InjectFuncCall
   StaticCallCounter 
+  DynamicCallCounter 
 )
 
 set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
 set(InjectFuncCall_SOURCES InjectFuncCall.cpp)
 set(StaticCallCounter_SOURCES StaticCallCounter.cpp)
+set(DynamicCallCounter_SOURCES DynamicCallCounter.cpp)
+
 
 
 # CONFIGURE THE PLUGIN LIBRARIES

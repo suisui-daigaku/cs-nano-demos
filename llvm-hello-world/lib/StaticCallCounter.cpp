@@ -41,11 +41,7 @@ ResultStaticCC LegacyStaticCallCounter::auxFuncCounter(Module& M){
             
                 // If CB is a direct function call then DirectInvoc will be not null 
                 auto DirectInvoc = CB->getCalledFunction();
-                if (nullptr == DirectInvoc){
-                    auto v = 
-                    continue; 
-                }
-                
+                if (nullptr == DirectInvoc) continue; 
 
                 // update the countfor the callee. 
                 auto callCount = result.find(DirectInvoc); 
