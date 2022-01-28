@@ -27,22 +27,18 @@ entry:
 define i32 @main() #0 {
 entry:
   %retval = alloca i32, align 4
-  %p = alloca void (...)*, align 8
   %ii = alloca i32, align 4
   store i32 0, i32* %retval, align 4
   call void @foo()
   call void @bar()
   call void @fez()
-  store void (...)* bitcast (void ()* @foo to void (...)*), void (...)** %p, align 8
-  %0 = load void (...)*, void (...)** %p, align 8
-  call void (...) %0()
   store i32 0, i32* %ii, align 4
   store i32 0, i32* %ii, align 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, i32* %ii, align 4
-  %cmp = icmp slt i32 %1, 10
+  %0 = load i32, i32* %ii, align 4
+  %cmp = icmp slt i32 %0, 10
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
@@ -50,8 +46,8 @@ for.body:                                         ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %2 = load i32, i32* %ii, align 4
-  %inc = add nsw i32 %2, 1
+  %1 = load i32, i32* %ii, align 4
+  %inc = add nsw i32 %1, 1
   store i32 %inc, i32* %ii, align 4
   br label %for.cond, !llvm.loop !6
 

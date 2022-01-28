@@ -14,9 +14,13 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   Constant *NewGlobalVar = 
       M.getOrInsertGlobal(GlobalVarName, IntegerType::getInt32Ty(CTX));
   // This will change the declaration into definition (and initialise to 0)
+  // ***********************************************************************
+  // The LLVM Essential has the section about how to create global variable
+  //  --- Emitting a global variable
+  // ***********************************************************************
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
   NewGV->setLinkage(GlobalValue::ExternalLinkage);
-  NewGV->setAlignment(MaybeAlign(4));
+  NewGV->setAlignment(MaybeAlign(8)); // is64Bit() ? 8 : 4 ... as X86 is no longer used....
   NewGV->setInitializer(llvm::ConstantInt::get(CTX, APInt(32, 0)));
   return NewGlobalVar;
 }
