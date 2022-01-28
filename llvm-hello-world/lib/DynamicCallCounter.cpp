@@ -164,7 +164,6 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
   // STEP 5: Call `printf_wrapper` at the very end of this module
   // ------------------------------------------------------------
   appendToGlobalDtors(M, PrintfWrapperF, /*Priority=*/0);
-
   return true;
 }
 
