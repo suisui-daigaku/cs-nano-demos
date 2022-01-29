@@ -6,6 +6,7 @@ set(LLVM_TUTOR_PLUGINS
         StaticCallCounter
         DynamicCallCounter
         MBASub
+        RIV
 )
 
 set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
@@ -13,6 +14,8 @@ set(InjectFuncCall_SOURCES InjectFuncCall.cpp)
 set(StaticCallCounter_SOURCES StaticCallCounter.cpp)
 set(DynamicCallCounter_SOURCES DynamicCallCounter.cpp)
 set(MBASub_SOURCES MBASub.cpp)
+set(RIV_SOURCES RIV.cpp)
+
 
 
 
