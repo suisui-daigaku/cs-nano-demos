@@ -93,9 +93,9 @@ endif()
 # only Intel has SGX, we force the it to X86
 set(LLVM_TARGETS_TO_BUILD "X86" CACHE STRING "Intel SGX as target machine" FORCE)
 
-if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
-  message(FATAL_ERROR "In-source builds are not allowed. ")
-endif()
+#if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+#  message(FATAL_ERROR "In-source builds are not allowed. ")
+#endif()
 
 # Set the build directories
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
