@@ -12,4 +12,14 @@ CMake 是魔法🔮
 
 - [Ubpa/UCMake: Ubpa CMake (github.com)](https://github.com/Ubpa/UCMake)
 
----
+
+### 动态链接
+[我的经验书十年磨一剑 (blinkenshell.org)](http://nicephil.blinkenshell.org/my_book/index.html)
+[MacOS 下的动态链接 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/331750226)
+
+### CMake 教程
+[cmake--动态库之配置（第一篇） | 金宝的博客 (jinbaotang.cn)](https://jinbaotang.cn/2021/06/20/cmake1/)
+
+
+
+
