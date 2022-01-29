@@ -7,7 +7,8 @@ int main(int argc, char *argv[]){
 
     // to make obfuscation to the subtraction.... 
     int e = a - b; 
-    int f = c - d; 
+    int f = c - d;
+    printf("e = %d and f = %d\n", e, f);
 
-    return 0; 
+    return 0;
 }

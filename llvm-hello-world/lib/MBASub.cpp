@@ -12,7 +12,7 @@ using namespace llvm;
 
 
 #define DEBUG_TYPE "mba-sub"
-STATISTIC(SubstCount, "The # of substituted instructions")
+STATISTIC(SubstCount, "The # of substituted instructions");
 
 
 //-----------------------------------------------------------------------------
@@ -43,8 +43,7 @@ bool LegacyMBASub::auxRunOnBasicBlock(llvm::BasicBlock &BB) {
                 );
 
 
-        // The following is visible only if you pass -debug on the command line
-        // *and* you have an assert build.
+        // The following is visible only if you pass -debug on the command line *and* you have an assert build.
         LLVM_DEBUG(dbgs() << *BinOp << " -> " << *NewValue << "\n");
 
         // replace `(a-b)` with `(a + ~b) + 1`
@@ -72,4 +71,9 @@ bool LegacyMBASub::runOnFunction(llvm::Function &F) {
 //-----------------------------------------------------------------------------
 // Legacy PM Registration
 //-----------------------------------------------------------------------------
-
+char LegacyMBASub::ID = 0;
+// Register the pass - required for (among others) opt
+static RegisterPass<LegacyMBASub> X(/*PassArg=*/"legacy-mba-sub",
+                                    /*Name=*/"MBASub",
+                                    /*CFGOnly=*/true,
+                                    /*is_analysis=*/false);
