@@ -12,7 +12,7 @@ set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
 set(InjectFuncCall_SOURCES InjectFuncCall.cpp)
 set(StaticCallCounter_SOURCES StaticCallCounter.cpp)
 set(DynamicCallCounter_SOURCES DynamicCallCounter.cpp)
-set(MBASub_SOURCE MBASub.cpp)
+set(MBASub_SOURCES MBASub.cpp)
 
 
 
@@ -24,7 +24,7 @@ foreach(plugin ${LLVM_TUTOR_PLUGINS}) # traverse each item in the LLVM_TUTOR_PLU
         ${plugin}
         SHARED
         ${${plugin}_SOURCES}
-            MBASub.cpp ../include/MBASub.h)
+    )
 
     # configure include directories for 'plugin'
     target_include_directories(

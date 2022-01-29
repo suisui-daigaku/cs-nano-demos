@@ -34,7 +34,6 @@ bool LegacyMBASub::auxRunOnBasicBlock(llvm::BasicBlock &BB) {
 
         // LLVM API for creating instructions and inserting into basic block..
         IRBuilder<> Builder(BinOp);
-
         // create an instruction representing (a + ~b) + 1
         Instruction *NewValue = BinaryOperator::CreateAdd(
                 Builder.CreateAdd(BinOp->getOperand(0),
