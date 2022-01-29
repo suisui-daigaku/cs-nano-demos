@@ -2,31 +2,31 @@
 
 写小作业是最快的学习方法。
 
-## Copyright 
-From the repository <https://github.com/banach-space/llvm-tutor>. 
-This repository is for leaarning and studying. The orginal license is MIT. 
+## 主要资料
+主要是 <https://github.com/banach-space/llvm-tutor> 的作业。
+
+## 疑问
+- 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
+- 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
+
+## 其他
+[Enna1 (Enna1) (github.com)](https://github.com/Enna1)
+
+在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
+
+[Andrzej Warzyński](https://github.com/banach-space)
+
+在 ARM 工作的大佬。
 
 
-## 如何运行
+### 如何运行
 ```
 mkdir build & cd build 
 cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
 make
 
 ```
-
-## 疑问
-
-- 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
-- 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
-
-## 大佬们
-
-[Enna1 (Enna1) (github.com)](https://github.com/Enna1)
-
-在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
-
-## To Do list
+### To Do list
 
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
   - [x] HelloWorld - Analysis 
@@ -65,7 +65,7 @@ make
 
 - [ ] LLVM Class 的**模块依赖关系**。
 
-## 参考资料
+### 参考资料
 参考 LLVM Tutor 足够了 https://github.com/banach-space/llvm-tutor
 这个文档会解释各种问题 (比如 `clang` 的参数，LLVM IR 到底有哪些，等等) 
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
@@ -116,19 +116,19 @@ Below is a list of LLVM resources available outside the official online document
 - [PacktPublishing/Learn-LLVM-12: Learn LLVM 12, published by Packt (github.com)](https://github.com/PacktPublishing/Learn-LLVM-12)
 
 
-## 什么是 Pass 
+### 什么是 Pass 
 LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多个 Pass 顺序构成。
 图片来自《Engineering a Compiler》 ，属于 Fair Use 。
 
-## 如何配置 VS Code 
+### 如何配置 VS Code 
 按照 LLVM 的官方教程安装好 LLVM 之后，install 会把 `build` 文件夹里面的二进制文件，header files 全部复制到 **目标目录**，默认是 `/usr/local/` 。如果 VS Code 发神经找不到 `<llvm>` 的文件，就去 `includePath` 把 `/usr/local` 加进去。
 
-## 写个 Hello World 
+### 写个 Hello World 
 - LLVM 官方教程: [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
 	- 基于官方教程的笔记 [LLVM安装 (haohua-li.github.io)](https://haohua-li.github.io/2022/01/18/llvm-installation.html)
 - LLVM tutor 的教程 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass
 
-## 创建项目
+### 创建项目
 - build ***out-of-tree*** : as known as ***standalone*** , builds against a binary LLVM installation (no need to modify the LLVM source code directly)
   - more flexible, no need to synchronize with LLVM 
   - more clear, as only important changes would be kept (though GitHub can show the differences in the fork).  
@@ -136,15 +136,15 @@ LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多
 - CMake building system  
   - including the CMake build scripts, test cases (Python testing???). 
 
-## 关于 Clang 
+### 关于 Clang 
 不能用 `-O0` ，否则不会启动任何优化。
 [banach-space/llvm-tutor: A collection of out-of-tree LLVM passes for teaching and learning (github.com)](https://github.com/banach-space/llvm-tutor#overview-of-the-passes)
 
-## 项目的文件
+### 项目的文件
 有关于各种基础的详细介绍。值得读完。
 [banach-space/llvm-tutor: A collection of out-of-tree LLVM passes for teaching and learning (github.com)](https://github.com/banach-space/llvm-tutor#overview-of-the-passes)
 
-## LLVM Pass Registration 
+### LLVM Pass Registration 
 
 一般而言，Pass是动态加载的 (例如 `opt`)，但是也可以把 Pass 加入到**系统的 Optimization Piplelines.** 具体看 https://github.com/banach-space/llvm-tutor#auto-registration-with-optimisation-pipelines 
 
@@ -152,17 +152,17 @@ LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多
 
 顺序也可以调整，在 Write An Pass 的 LLVM 教程就有 https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required
 
-## Analysis and Transform Passes 
+### Analysis and Transform Passes 
 
 教程有
 
-## LLVM Pass Manager 
+### LLVM Pass Manager 
 
 管理 Passes 的运行顺序。 因为某些 Passes 是依赖关系的 (流水线) 。
 
 
 
-## Dynamic & Static 
+### Dynamic & Static 
 可能要学什么是 Shared Object 。
 - <https://github.com/banach-space/llvm-tutor#llvm-plugins-as-shared-objecs>
 - [Linux Tutorial - Static, Shared Dynamic and Loadable Linux Libraries (yolinux.com)](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
@@ -171,7 +171,7 @@ CMake 也有问是 Static, Shared, 还是 Module 。
  [Dynamic vs Static Plugins](https://github.com/banach-space/llvm-tutor#dynamic-vs-static-plugins)
 
 
- ## 比较值得学习的源码
+ ### 比较值得学习的源码
 - LLVM 官方的优化 https://github.com/banach-space/llvm-tutor#optimisation-passes-inside-llvm
 
 
