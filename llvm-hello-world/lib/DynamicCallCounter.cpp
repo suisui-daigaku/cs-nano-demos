@@ -19,7 +19,7 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   //  --- Emitting a global variable
   // ***********************************************************************
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
-  NewGV->setLinkage(GlobalValue::ExternalLinkage);
+  NewGV->setLinkage(GlobalValue::PrivateLinkage);
   NewGV->setAlignment(MaybeAlign(8)); // is64Bit() ? 8 : 4 ... as X86 is no longer used....
   NewGV->setInitializer(llvm::ConstantInt::get(CTX, APInt(32, 0)));
   return NewGlobalVar;
@@ -37,7 +37,6 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
   llvm::StringMap<Constant *> FuncNameMap;
 
   auto &CTX = M.getContext();
-  errs() << "Pigenan\n"; 
 
   // STEP 1: For each function in the module, inject a call-counting code
   // --------------------------------------------------------------------
