@@ -17,6 +17,7 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   // ***********************************************************************
   // The LLVM Essential has the section about how to create global variable
   //  --- Emitting a global variable
+  //  --- how to choose linkage type https://llvm.org/docs/LangRef.html#linkage-types
   // ***********************************************************************
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
   NewGV->setLinkage(GlobalValue::PrivateLinkage);

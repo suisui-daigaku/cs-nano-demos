@@ -4,15 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ea2144b728cd72b9",
+        "id": "c2e029bb962c172e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "llvm-hello-world/README.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "llvm-hello-world/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,17 +82,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "ea2144b728cd72b9",
+  "active": "c2e029bb962c172e",
   "lastOpenFiles": [
+    "numerical-method/root-finding.md",
+    "your-own-scheme-compiler/README.md",
     "llvm-hello-world/README.md",
     "llvm-hello-world/Examples/README.md",
     "cmake-exercises/README.md",
     "LIT-exercises/README.md",
     "your-own-c-compiler/README.md",
-    "your-own-scheme-compiler/README.md",
     "llvm-hello-world/Examples/未命名.md",
     "llvm-exercises/llvm-tutorial/README.md",
-    "llvm-exercises/Pasted image 20220122122557.png",
-    "Tinylang/README.md"
+    "llvm-exercises/Pasted image 20220122122557.png"
   ]
 }

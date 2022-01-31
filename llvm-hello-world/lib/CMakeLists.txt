@@ -7,6 +7,7 @@ set(LLVM_TUTOR_PLUGINS
         DynamicCallCounter
         MBASub
         RIV
+        FindFCmpEq
 )
 
 set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
@@ -15,6 +16,7 @@ set(StaticCallCounter_SOURCES StaticCallCounter.cpp)
 set(DynamicCallCounter_SOURCES DynamicCallCounter.cpp)
 set(MBASub_SOURCES MBASub.cpp)
 set(RIV_SOURCES RIV.cpp)
+set(FindFCmpEq_SOURCES FindFCmpEq.cpp)
 
 
 
