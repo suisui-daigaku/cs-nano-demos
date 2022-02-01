@@ -55,10 +55,10 @@ list(APPEND CMAKE_PREFIX_PATH "${LT_LLVM_INSTALL_DIR}/lib/cmake/llvm/")
 # find_package(SGX REQUIRED)
 
 # LLVM configuration for using CMake 
-find_package(LLVM 13 REQUIRED CONFIG)
+find_package(LLVM 14 REQUIRED CONFIG)
 
 # LLVM version checking...
-if(NOT "13" VERSION_EQUAL "${LLVM_VERSION_MAJOR}")
+if(NOT "14" VERSION_EQUAL "${LLVM_VERSION_MAJOR}")
   message(FATAL_ERROR "Found LLVM ${LLVM_VERSION_MAJOR}, but need LLVM 13")
 endif()
 

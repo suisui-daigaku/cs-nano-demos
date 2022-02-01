@@ -20,8 +20,8 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   //  --- how to choose linkage type https://llvm.org/docs/LangRef.html#linkage-types
   // ***********************************************************************
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
-  NewGV->setLinkage(GlobalValue::CommonLinkage);
-  NewGV->setAlignment(MaybeAlign(8)); // is64Bit() ? 8 : 4 ... as X86 is no longer used....
+  NewGV->setLinkage(GlobalValue::PrivateLinkage);
+  NewGV->setAlignment(MaybeAlign(4)); // is64Bit() ? 8 : 4 ... as X86 is no longer used....
   NewGV->setInitializer(llvm::ConstantInt::get(CTX, APInt(32, 0)));
   return NewGlobalVar;
 }
@@ -64,7 +64,7 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
     Builder.CreateStore(Inc2, Var);
 
     // The following is visible only if you pass -debug on the command line
-    // *and* you have an assert build.
+    // *and* you have  build.
     LLVM_DEBUG(dbgs() << " Instrumented: " << F.getName() << "\n");
 
     Instrumented = true;
@@ -162,7 +162,6 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
   Builder.CreateRetVoid();
 
   // STEP 5: Call `printf_wrapper` at the very end of this module
-  // ------------------------------------------------------------
   appendToGlobalDtors(M, PrintfWrapperF, /*Priority=*/0);
   return true;
 }
