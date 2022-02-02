@@ -7,8 +7,12 @@
         "id": "c2e029bb962c172e",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "cmake-exercises/README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "cmake-exercises/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,15 +89,15 @@
   },
   "active": "c2e029bb962c172e",
   "lastOpenFiles": [
+    "cmake-exercises/README.md",
+    "cmake-exercises/Pasted image 20220202150334.png",
     "numerical-method/root-finding.md",
     "your-own-scheme-compiler/README.md",
     "llvm-hello-world/README.md",
     "llvm-hello-world/Examples/README.md",
-    "cmake-exercises/README.md",
     "LIT-exercises/README.md",
     "your-own-c-compiler/README.md",
     "llvm-hello-world/Examples/未命名.md",
-    "llvm-exercises/llvm-tutorial/README.md",
-    "llvm-exercises/Pasted image 20220122122557.png"
+    "llvm-exercises/llvm-tutorial/README.md"
   ]
 }
