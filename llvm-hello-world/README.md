@@ -9,15 +9,6 @@
 - 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
 - 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
 
-## 其他
-[Enna1 (Enna1) (github.com)](https://github.com/Enna1)
-
-在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
-
-[Andrzej Warzyński](https://github.com/banach-space)
-
-在 ARM 工作的大佬。
-
 
 ### 如何运行
 ```
@@ -26,6 +17,17 @@ cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
 make
 
 ```
+## 小作业
+
+1. 《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator* - [md](./docs/write_llvm_ir_generator.md)
+2. 
+
+
+
+
+
+
+
 ### To Do list
 
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
@@ -79,6 +81,18 @@ make
 这个文档会解释各种问题 (比如 `clang` 的参数，LLVM IR 到底有哪些，等等) 
 
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
+
+### 大佬们
+
+[Enna1 (Enna1) (github.com)](https://github.com/Enna1)
+
+在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
+
+[Andrzej Warzyński](https://github.com/banach-space)
+
+在 ARM 工作的大佬。
+
+### 其他
 
 教程末尾的参考资料，非常有用。
 Below is a list of LLVM resources available outside the official online documentation that I have found very helpful. Where possible, the items are sorted by date.
