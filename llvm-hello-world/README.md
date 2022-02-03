@@ -2,9 +2,6 @@
 
 写小作业是最快的学习方法。
 
-## 主要资料
-主要是 <https://github.com/banach-space/llvm-tutor> 的作业。
-
 ## 疑问
 - 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
 - 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
@@ -21,8 +18,6 @@ make
 
 1. 《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator* - [md](./docs/write_llvm_ir_generator.md)
 2. 
-
-
 
 
 
@@ -68,18 +63,20 @@ make
 - [ ] LLVM Class 的**模块依赖关系**。
 
  ## LLVM 学习资料
+
 官方的用户手册永远都是最好的参考资料。
 - [User Guides — LLVM 13 documentation](https://llvm.org/docs/UserGuides.html)
-	- 主要介绍了 Optimization 和 Code Generation 。
+  - 主要介绍了 Optimization 和 Code Generation 。
+-  [LLVM Programmer’s Manual — LLVM 15.0.0git documentation](https://llvm.org/docs/ProgrammersManual.html)
+  - 从入门到入坟都需要捧着的参考手册 (programming manual) 
+
+- **LLVM Tutor** <https://github.com/banach-space/llvm-tutor> 
+  - 这个文档会解释各种问题 (比如 `clang` 的参数，LLVM IR 到底有哪些，等等) 
 - [Free Compiler Camp](https://freecompilercamp.org/#Class)
-	- 比较简单的几个例子
+  - LLVM 小作业
 - [LLVM Tutorial: Table of Contents — LLVM 15.0.0git documentation](https://llvm.org/docs/tutorial/index.html)
-	- LLVM 官方的辅导例子 (讲述了如何发明一门编程语言)
-	- [LLVM | Tutorial IR Generator (seanforfun.github.io)](https://seanforfun.github.io/llvm/2019/07/31/LLVMKaleidoscopeChap2.html)
-
-参考 LLVM Tutor 足够了 https://github.com/banach-space/llvm-tutor
-这个文档会解释各种问题 (比如 `clang` 的参数，LLVM IR 到底有哪些，等等) 
-
+  - LLVM 官方的辅导例子 (讲述了如何发明一门编程语言)
+  - [LLVM | Tutorial IR Generator (seanforfun.github.io)](https://seanforfun.github.io/llvm/2019/07/31/LLVMKaleidoscopeChap2.html)
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
 
 ### 大佬们
@@ -92,7 +89,7 @@ make
 
 在 ARM 工作的大佬。
 
-### 其他
+### 更多资料
 
 教程末尾的参考资料，非常有用。
 Below is a list of LLVM resources available outside the official online documentation that I have found very helpful. Where possible, the items are sorted by date.
@@ -140,8 +137,10 @@ Below is a list of LLVM resources available outside the official online document
 - [ikos/CMakeLists.txt at master · NASA-SW-VnV/ikos (github.com)](https://github.com/NASA-SW-VnV/ikos/blob/master/CMakeLists.txt)
 - [PacktPublishing/Learn-LLVM-12: Learn LLVM 12, published by Packt (github.com)](https://github.com/PacktPublishing/Learn-LLVM-12)
 
+## 其他
 
 ### 什么是 Pass 
+
 LLVM Pass 的 Pass 是 “趟/遍" 的意思。因为优化阶段实际上由多个 Pass 顺序构成。
 图片来自《Engineering a Compiler》 ，属于 Fair Use 。
 
