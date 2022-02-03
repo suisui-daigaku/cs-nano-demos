@@ -123,7 +123,8 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 # Doing this at the end so that all definitions and link/include paths are
 # available for the sub-projects.
 #===============================================================================
-add_subdirectory(HelloWorld)
+add_subdirectory(LLVM_HelloWorld)
+add_subdirectory(LLVM_Core_Libraries_Book)
 # -------------------------------------
 add_subdirectory(lib)
 #add_subdirectory(tools)

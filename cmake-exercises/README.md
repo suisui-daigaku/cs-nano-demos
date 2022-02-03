@@ -25,7 +25,7 @@ CMake 是魔法🔮
 ### Specify Compiler in CMake 
 [FAQ · Wiki · CMake / Community · GitLab (kitware.com)](https://gitlab.kitware.com/cmake/community/-/wikis/FAQ#how-do-i-use-a-different-compiler)
 [How to specify new GCC path for CMake - Stack Overflow](https://stackoverflow.com/questions/17275348/how-to-specify-new-gcc-path-for-cmake)
-- 方法1 :  使用系统变量 
+- 方法1 :  使用系统变量 `CC` 和 `CXX` 
 ```bash 
 `CC=gcc-4.2 CXX=/usr/bin/g++-4.2 cmake -G "Your Generator" path/to/your/source`
 ```

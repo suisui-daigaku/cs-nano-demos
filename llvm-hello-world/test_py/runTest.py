@@ -6,7 +6,7 @@ import pathlib
 import glob
 import re
 
-# python3 runTest.py hello.cpp HelloWorld hello-legacy -oldPM
+# python3 runTest.py hello.cpp LLVM_HelloWorld hello-legacy -oldPM
 
 if __name__ == "__main__":
     src_fullpath = sys.argv[1]

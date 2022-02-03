@@ -65,13 +65,24 @@ make
 
 - [ ] LLVM Class 的**模块依赖关系**。
 
-### 参考资料
+ ## LLVM 学习资料
+官方的用户手册永远都是最好的参考资料。
+- [User Guides — LLVM 13 documentation](https://llvm.org/docs/UserGuides.html)
+	- 主要介绍了 Optimization 和 Code Generation 。
+- [Free Compiler Camp](https://freecompilercamp.org/#Class)
+	- 比较简单的几个例子
+- [LLVM Tutorial: Table of Contents — LLVM 15.0.0git documentation](https://llvm.org/docs/tutorial/index.html)
+	- LLVM 官方的辅导例子 (讲述了如何发明一门编程语言)
+	- [LLVM | Tutorial IR Generator (seanforfun.github.io)](https://seanforfun.github.io/llvm/2019/07/31/LLVMKaleidoscopeChap2.html)
+
 参考 LLVM Tutor 足够了 https://github.com/banach-space/llvm-tutor
 这个文档会解释各种问题 (比如 `clang` 的参数，LLVM IR 到底有哪些，等等) 
+
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
 
 教程末尾的参考资料，非常有用。
 Below is a list of LLVM resources available outside the official online documentation that I have found very helpful. Where possible, the items are sorted by date.
+
 -   **LLVM IR**
     -   _”LLVM IR Tutorial-Phis,GEPs and other things, ohmy!”_, V.Bridgers, F. Piovezan, EuroLLVM, ([slides](https://llvm.org/devmtg/2019-04/slides/Tutorial-Bridgers-LLVM_IR_tutorial.pdf), [video](https://www.youtube.com/watch?v=m8G_S5LwlTo&feature=youtu.be))
     -   _"Mapping High Level Constructs to LLVM IR"_, M. Rodler ([link](https://mapping-high-level-constructs-to-llvm-ir.readthedocs.io/en/latest/))

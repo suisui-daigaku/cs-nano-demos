@@ -18,7 +18,7 @@
 # FIXME: This is a warkaround for #25. Remove once resolved and use find_package(LLVM 11.0.0 REQUIRED CONFIG) instead.
 # find_package(LLVM REQUIRED CONFIG)
 
-# HelloWorld includes headers from LLVM - update the include paths accordingly
+# LLVM_HelloWorld includes headers from LLVM - update the include paths accordingly
 # include_directories(SYSTEM ${LLVM_INCLUDE_DIRS})
 
 #===============================================================================
@@ -48,7 +48,7 @@ target_link_libraries(HelloWorld
 
 # Get proper shared-library behavior (where symbols are not necessarily resolved when the shared library is linked) on OS X.
 # if(APPLE)
-#    set_target_properties(HelloWorld PROPERTIES
+#    set_target_properties(LLVM_HelloWorld PROPERTIES
 #        LINK_FLAGS "-undefined dynamic_lookup"
 #    )
 # endif(APPLE)
