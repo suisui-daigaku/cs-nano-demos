@@ -27,8 +27,7 @@
 
 using namespace llvm;
 
-Module *makeLLVMModule(){
-    LLVMContext CTX; // Question: should I use static ?? (may not thread-safe)
+Module *makeLLVMModule(LLVMContext &CTX){
     Module *m = new Module("sum.ll", CTX);
     // mod->setDataLayout("..."); // the datalayout is not impportant...
     m->setTargetTriple("x86_64-apple-macosx12.0.0");
@@ -103,9 +102,13 @@ Module *makeLLVMModule(){
 
 /* to test our function  */
 int main(){
-    Module *mod = makeLLVMModule();
+    LLVMContext CTX; // Question: should I use static ?? (may not thread-safe)
+    Module *mod = makeLLVMModule(CTX);
     // https://freecompilercamp.org/llvm-ir-func1/
-    
+
+    raw_fd_ostream r(fileno(stdout), false);
+    verifyModule(*mod, &r);
+
     std::error_code err;
     raw_fd_ostream out("./sum.bc", err, sys::fs::OF_None); // llvm file system...
     WriteBitcodeToFile(*mod,out);
