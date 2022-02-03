@@ -15,3 +15,6 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+llvm-hello-world/LLVM_Core_Libraries_Book/toy
+llvm-hello-world/LLVM_Core_Libraries_Book/toy.dSYM/Contents/Info.plist
+llvm-hello-world/LLVM_Core_Libraries_Book/toy.dSYM/Contents/Resources/DWARF/toy
