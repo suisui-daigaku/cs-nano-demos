@@ -16,7 +16,7 @@ make
 ```
 ## 小作业
 
-1. 《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator* - [md](./docs/write_llvm_ir_generator.md)
+1. [《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./docs/write_llvm_ir_generator.md)
 2. 
 
 
