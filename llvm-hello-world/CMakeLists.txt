@@ -1,6 +1,7 @@
 # ==============================================================================
 # LLVM Pass:  https://github.com/quarkslab/llvm-passes/blob/master/CMakeLists.txt
 # LLVM Tutor: https://github.com/banach-space/llvm-tutor/blob/main/CMakeLists.txt
+# LLVM CSCD70: https://github.com/UofT-EcoSystem/CSCD70/blob/2021S/Assignment1-Introduction_to_LLVM/FunctionInfo/CMakeLists.txt
 # LLVM Pathces : https://github.com/intel/llvm-patches/blob/master/CMakeLists.txt
 # SGX Example: 
 # SGX CMake : https://github.com/xzhangxa/SGX-CMake/blob/master/sample/CMakeLists.txt
@@ -17,10 +18,19 @@ project(llvm-tutorial)
 #   https://github.com/banach-space/llvm-tutor#building
 set(LT_LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
 
+
 # LLVM installation validation....
 set(LT_LLVM_INCLUDE_DIR "${LT_LLVM_INSTALL_DIR}/include/llvm")
 if(NOT EXISTS "${LT_LLVM_INCLUDE_DIR}")
-  message(FATAL_ERROR "The value -DLT_LLVM_INSTALL_DIR given to CMake is invalid. Please clean the CMakeCache and Re-built. The command llvm-config --prefix may help.")
+  message(STATUS "The value -DLT_LLVM_INSTALL_DIR is not specified. Use llvm-config --prefix instead.")
+  # Obtain the build flags from `llvm-config --cxxflags` and forward them to variable CMAKE_CXX_FLAGS.
+  execute_process(COMMAND llvm-config --prefix
+          OUTPUT_VARIABLE LLVMCONFIG_INSTALL_PREFIX
+          OUTPUT_STRIP_TRAILING_WHITESPACE)
+  # set(CMAKE_CXX_FLAGS "${LLVM_CXXFLAGS} -Wall -Werror")
+  # set(CMAKE_CXX_CLANG_TIDY clang-tidy${LLVM_VERSION_SUFFIX})
+  set(LT_LLVM_INSTALL_DIR "${LLVMCONFIG_INSTALL_PREFIX}" CACHE PATH "LLVM installation directory" FORCE)
+  message(STATUS "found LLVM installed at ${LT_LLVM_INSTALL_DIR}")
 endif()
 
 # 1.2 Check that the LLVMConfig.cmake file exists (the location depends on the OS)
