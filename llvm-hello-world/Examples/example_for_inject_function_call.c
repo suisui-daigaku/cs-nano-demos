@@ -3,7 +3,7 @@
 //      input_for_hello.c
 //
 // DESCRIPTION:
-//      Sample input file for LLVM_HelloWorld and InjectFuncCall
+//      Sample input file for HelloWorld and InjectFuncCall
 //
 // License: MIT
 //=============================================================================

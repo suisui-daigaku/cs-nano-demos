@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "cmake-exercises/README.md",
+            "file": "llvm-hello-world/README.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cmake-exercises/README.md",
+                "file": "llvm-hello-world/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,12 +89,12 @@
   },
   "active": "c2e029bb962c172e",
   "lastOpenFiles": [
+    "llvm-hello-world/README.md",
+    "llvm-hello-world/Examples/README.md",
     "cmake-exercises/README.md",
     "cmake-exercises/Pasted image 20220202150334.png",
     "numerical-method/root-finding.md",
     "your-own-scheme-compiler/README.md",
-    "llvm-hello-world/README.md",
-    "llvm-hello-world/Examples/README.md",
     "LIT-exercises/README.md",
     "your-own-c-compiler/README.md",
     "llvm-hello-world/Examples/未命名.md",
