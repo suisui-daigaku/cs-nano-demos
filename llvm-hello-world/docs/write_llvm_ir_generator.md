@@ -19,7 +19,7 @@
 需要链接 LLVM 的核心库，否则会 symbol not found。还需要 include header files. 
 
 ```bash
-usr/bin/clang++ -g -std=c++14 sum_ll_without_builder.cpp `llvm-config --cxxflags --ldflags --system-libs --libs core bitwriter` -o toy
+clang++ -g -std=c++14 sum_ll_without_builder.cpp `llvm-config --cxxflags --ldflags --system-libs --libs core bitwriter` -o toy
 ```
 
 构建时间会比较久(不知道为什么)，然后会生成一个非常大的二进制(估计是因为静态的关系)。

@@ -12,8 +12,15 @@
 mkdir build & cd build 
 cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
 make
-
 ```
+### 关于 CMake Profile 
+
+![image-20220204202339822](https://raw.githubusercontent.com/haohua-li/photo-asset-repo/main/imgs/image-20220204202339822.png) 
+
+
+
+
+
 ## 小作业
 
 1. [《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./docs/write_llvm_ir_generator.md)
