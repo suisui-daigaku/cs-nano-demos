@@ -38,13 +38,22 @@
 #===============================================================================
 
 add_library(HelloWorld SHARED
-    # List your source files here.  
-    HelloWorld.cpp
-)   
-
+        # List your source files here.
+        HelloWorld.cpp
+)
 # Allow undefined symbols in shared objects on Darwin (this is the default behaviour on Linux)
 target_link_libraries(HelloWorld
-  "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
+        "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
+
+# --------------------------------------------------------------------------------------
+add_library(RemoveUnreachableFunctionsOLD SHARED # List your source files here.
+        RemoveUnreachableFunctionsOLD.cpp
+)
+target_link_libraries(RemoveUnreachableFunctionsOLD
+        "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
+
+
+
 
 # Get proper shared-library behavior (where symbols are not necessarily resolved when the shared library is linked) on OS X.
 # if(APPLE)
