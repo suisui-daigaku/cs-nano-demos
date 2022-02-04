@@ -23,7 +23,6 @@ usr/bin/clang++ -g -std=c++14 sum_ll_without_builder.cpp `llvm-config --cxxflags
 ```
 
 构建时间会比较久(不知道为什么)，然后会生成一个非常大的二进制(估计是因为静态的关系)。
-
 运行后可以用 `llvm-dis` 解码，跟想象中确实差不多。
 
 ```cpp
@@ -55,6 +54,5 @@ entry:
 由于篇幅关系，可以直接看 [`sum_ll_without_builder.cpp` ](../LLVM_Core_Libraries_Book/sum_ll_without_builder.cpp) 
 
 ## 使用 IR Builder 
-
 使用 IR Builder 会更快捷。
 
