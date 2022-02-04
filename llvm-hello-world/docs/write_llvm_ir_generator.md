@@ -22,7 +22,7 @@
 clang++ -g -std=c++14 sum_ll_without_builder.cpp `llvm-config --cxxflags --ldflags --system-libs --libs core bitwriter` -o toy
 ```
 
-构建时间会比较久(不知道为什么)，然后会生成一个非常大的二进制(估计是因为静态的关系)。
+**(如果 building 速度过慢，可以看看 clang 是 Release 还是 Debug Mode。如果是 Debug Mode, 生成文件会非常大，而且速度巨慢)**
 运行后可以用 `llvm-dis` 解码，跟想象中确实差不多。
 
 ```cpp
