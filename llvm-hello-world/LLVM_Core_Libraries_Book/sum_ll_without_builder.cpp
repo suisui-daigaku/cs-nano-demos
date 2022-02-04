@@ -1,7 +1,5 @@
 //
 // Created by haohua on 3/2/2022.
-// llvm学习日记七：编写一个LLVM IR生成器
-//   https://www.codenong.com/js9ac199bf1815/
 //
 
 #include <iostream>
@@ -12,7 +10,6 @@
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Instructions.h"
 
-
 #include "llvm/Support/Alignment.h"
 
 #include "llvm/IR/Verifier.h"
@@ -21,14 +18,13 @@
 #include "llvm/Support/ToolOutputFile.h"
 #include "llvm/Support/raw_ostream.h"
 
-
 #include "llvm/Support/FileSystem.h"
-
 
 using namespace llvm;
 
 Module *makeLLVMModule(LLVMContext &CTX){
-    Module *m = new Module("sum.ll", CTX);
+    //
+    Module *m = new Module("sum.bc", CTX);
     // mod->setDataLayout("..."); // the datalayout is not impportant...
     m->setTargetTriple("x86_64-apple-macosx12.0.0");
 
@@ -36,13 +32,13 @@ Module *makeLLVMModule(LLVMContext &CTX){
     SmallVector<Type*, 2> FuncArgsTy;
     FuncArgsTy.push_back(IntegerType::get(m->getContext(), 32));
     FuncArgsTy.push_back(IntegerType::get(m->getContext(), 32));
-
+    //
     FunctionType *FuncTy = FunctionType::get(
             /* Result= */ IntegerType::get(m->getContext(), 32),
             /* Params= */ FuncArgsTy,
             /* isVarArgs */ false
     );
-
+    //
     Function *funcSum = Function::Create(
             /* Type= */ FuncTy,
             /* Linkage= */ GlobalValue::PrivateLinkage,
@@ -50,13 +46,13 @@ Module *makeLLVMModule(LLVMContext &CTX){
             /* Module= */ m
     );
     funcSum->setCallingConv(CallingConv::C);
-
+    //
     Function::arg_iterator args_iter = funcSum->arg_begin();
     Value *int32_a = args_iter++;
     int32_a->setName("a");
     Value *int32_b = args_iter++;
     int32_b->setName("b");
-
+    //
     BasicBlock *labelEntry = BasicBlock::Create(
             m->getContext(),
             "entry",
@@ -64,8 +60,7 @@ Module *makeLLVMModule(LLVMContext &CTX){
             0
     );
 
-    // insert new instructions into the basic block we just created
-    // Block entry (label_entry)
+    // insert new instructions into the basic block we just created. Block entry (label_entry)
     // LLVM Programmer's manual is your best friend: https://llvm.org/docs/ProgrammersManual.html
 
     // AllocaInst: to allocate memory space in the stack frame...
@@ -83,7 +78,6 @@ Module *makeLLVMModule(LLVMContext &CTX){
     StoreInst *st1 = new StoreInst(int32_b, ptrB, false, labelEntry);
     st1->setAlignment(Align(4));
 
-
     // load from the stack frame to the stack location..
     LoadInst *ld0 = new LoadInst(IntegerType::get(m->getContext(), 32),
                                  ptrA, "", false, labelEntry);
@@ -96,15 +90,13 @@ Module *makeLLVMModule(LLVMContext &CTX){
     BinaryOperator *addRes = BinaryOperator::Create(Instruction::Add, ld0, ld1, "add", labelEntry);
     ReturnInst::Create(m->getContext(), addRes, labelEntry);
 
-
     return m;
 }
 
 /* to test our function  */
 int main(){
-    LLVMContext CTX; // Question: should I use static ?? (may not thread-safe)
+    LLVMContext CTX;
     Module *mod = makeLLVMModule(CTX);
-    // https://freecompilercamp.org/llvm-ir-func1/
 
     raw_fd_ostream r(fileno(stdout), false);
     verifyModule(*mod, &r);
@@ -114,7 +106,6 @@ int main(){
     WriteBitcodeToFile(*mod,out);
 
     delete mod;
-
     return 0;
 }
 
