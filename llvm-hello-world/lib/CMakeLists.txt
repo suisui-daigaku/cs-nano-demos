@@ -8,6 +8,7 @@ set(LLVM_TUTOR_PLUGINS
         MBASub
         RIV
         FindFCmpEq
+        RemoveUnreachableFunctions
 )
 
 set(OpcodeCounter_SOURCES OpcodeCounter.cpp)
@@ -17,6 +18,7 @@ set(DynamicCallCounter_SOURCES DynamicCallCounter.cpp)
 set(MBASub_SOURCES MBASub.cpp)
 set(RIV_SOURCES RIV.cpp)
 set(FindFCmpEq_SOURCES FindFCmpEq.cpp)
+set(RemoveUnreachableFunctions_SOURCES RemoveUnreachableFunctions.cpp)
 
 
 

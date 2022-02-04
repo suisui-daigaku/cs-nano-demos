@@ -6,6 +6,8 @@
 #include "llvm/IR/Function.h"
 #include "llvm/Pass.h"
 
+#include "llvm/Support/raw_ostream.h"
+
 
 namespace {
     struct RemoveUnreachableFunctionsOLD : public llvm::FunctionPass {
@@ -14,8 +16,11 @@ namespace {
 
         bool runOnFunction(llvm::Function &F) override {
             bool changed = false;
+            llvm::errs() << F.getName() << "\n";
             if (F.getName() == "f3") {
                 F.eraseFromParent();
+                changed = true;
+                llvm::errs() << "deleted\n";
             }
             return changed;
         }

@@ -46,15 +46,6 @@ target_link_libraries(HelloWorld
         "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
 
 
-# --------------------------------------------------------------------------------------
-# Remove the function f3...
-add_library(RemoveUnreachableFunctionsOLD SHARED # List your source files here.
-        RemoveUnreachableFunctionsOLD.cpp
-        )
-target_link_libraries(RemoveUnreachableFunctionsOLD
-        "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>")
-
-
 # Get proper shared-library behavior (where symbols are not necessarily resolved when the shared library is linked) on OS X.
 # if(APPLE)
 #    set_target_properties(HelloWorld PROPERTIES

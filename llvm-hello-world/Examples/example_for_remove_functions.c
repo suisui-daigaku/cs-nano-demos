@@ -2,7 +2,7 @@
 // Created by haohua on 4/2/2022.
 //
 
-#include <iostream>
+#include "stdio.h"
 
 int f1(int a){
     return a;
@@ -17,9 +17,8 @@ int f3(int a, int b, int c){
 }
 
 int main(){
-    std::cout << f1(1) << "\n";
-    std::cout << f2(100, 1) << "\n";
-    // and remove f3 since f3 is not called.
+    printf("%d\n", f1(1));
+    printf("%d\n", f2(1, 100));
 
     return 0;
 }
