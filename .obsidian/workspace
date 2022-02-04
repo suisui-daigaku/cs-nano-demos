@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "llvm-hello-world/README.md",
+            "file": "llvm-hello-world/docs/write_llvm_ir_generator.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "llvm-hello-world/README.md",
+                "file": "llvm-hello-world/docs/write_llvm_ir_generator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +89,7 @@
   },
   "active": "c2e029bb962c172e",
   "lastOpenFiles": [
+    "llvm-hello-world/docs/write_llvm_ir_generator.md",
     "llvm-hello-world/README.md",
     "llvm-hello-world/Examples/README.md",
     "cmake-exercises/README.md",
@@ -97,7 +98,6 @@
     "your-own-scheme-compiler/README.md",
     "LIT-exercises/README.md",
     "your-own-c-compiler/README.md",
-    "llvm-hello-world/Examples/未命名.md",
-    "llvm-exercises/llvm-tutorial/README.md"
+    "llvm-hello-world/Examples/未命名.md"
   ]
 }

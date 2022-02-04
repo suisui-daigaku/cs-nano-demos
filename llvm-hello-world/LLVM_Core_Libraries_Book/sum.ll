@@ -1,5 +1,5 @@
 ; ModuleID = 'sum.bc'
-source_filename = "sum.ll"
+source_filename = "sum.bc"
 target triple = "x86_64-apple-macosx12.0.0"
 
 define private i32 @sum(i32 %a, i32 %b) {
