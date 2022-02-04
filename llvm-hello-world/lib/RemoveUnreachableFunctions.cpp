@@ -5,23 +5,31 @@
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/Function.h"
 #include "llvm/Pass.h"
+#include "llvm/ADT/TinyPtrVector.h"
 
 #include "llvm/Support/raw_ostream.h"
 
 
 namespace {
-    struct RemoveUnreachableFunctionsOLD : public llvm::FunctionPass {
+    struct RemoveUnreachableFunctionsOLD : public llvm::ModulePass {
         static char ID;
-        RemoveUnreachableFunctionsOLD() : llvm::FunctionPass(ID) {}
+        RemoveUnreachableFunctionsOLD() : llvm::ModulePass(ID) {}
 
-        bool runOnFunction(llvm::Function &F) override {
+        bool runOnModule(llvm::Module &M) override {
+            llvm::TinyPtrVector<llvm::Function*> toDelete;
+
             bool changed = false;
-            llvm::errs() << F.getName() << "\n";
-            if (F.getName() == "f3") {
-                F.eraseFromParent();
-                changed = true;
-                llvm::errs() << "deleted\n";
+            for (auto it = M.begin(); it != M.end(); it++){
+                if (it->getName() == "f3") {
+                    toDelete.push_back(&*it);
+                    changed = true;
+                }
             }
+
+            for (auto func : toDelete){
+                func->eraseFromParent();
+            }
+
             return changed;
         }
     };
