@@ -20,7 +20,7 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
   //  --- how to choose linkage type https://llvm.org/docs/LangRef.html#linkage-types
   // ***********************************************************************
   GlobalVariable *NewGV = M.getNamedGlobal(GlobalVarName);
-  NewGV->setLinkage(GlobalValue::PrivateLinkage);
+  NewGV->setLinkage(GlobalValue::CommonLinkage);
   NewGV->setAlignment(MaybeAlign(4)); // is64Bit() ? 8 : 4 ... as X86 is no longer used....
   NewGV->setInitializer(llvm::ConstantInt::get(CTX, APInt(32, 0)));
   return NewGlobalVar;
