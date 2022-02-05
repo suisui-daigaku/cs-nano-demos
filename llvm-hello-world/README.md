@@ -33,32 +33,14 @@ make
 
 具体Xcode 的版本号要查，这是 System Libraries. 
 
-## 预备知识
-- [Linux Tutorial - Static, Shared Dynamic and Loadable Linux Libraries (yolinux.com)](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
-- [Dynamic vs Static Plugins](https://github.com/banach-space/llvm-tutor#dynamic-vs-static-plugins)
-- Pass执行顺序 <https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required>
-- 加入到系统的 Pipeline (不推荐) <https://github.com/banach-space/llvm-tutor#auto-registration-with-optimisation-pipelines>
-- `-O0` 可能会遇到的禁用Pass的问题 <https://github.com/banach-space/llvm-tutor#overview-of-the-passes>
-- [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
-- LLVM-tutor 教程 <https://github.com/banach-space/llvm-tutor>
-- [LLVM中的pass及其管理机制_大头蚂蚁的窝-CSDN博客_llvm pass](https://blog.csdn.net/mamamama811/article/details/110165333)
-- [Writing an LLVM Backend — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMBackend.html)
-- [2019 LLVM Developers’ Meeting: A. Warzynski “Writing an LLVM Pass: 101” - YouTube](https://www.youtube.com/watch?v=ar7cJl2aBuU)
-- [Free Compiler Camp](https://freecompilercamp.org/#Class)
-  - LLVM 小作业
-- [LLVM Tutorial: Table of Contents — LLVM 15.0.0git documentation](https://llvm.org/docs/tutorial/index.html)
-  - LLVM 官方的辅导例子 (讲述了如何发明一门编程语言)
-- [User Guides — LLVM 13 documentation](https://llvm.org/docs/UserGuides.html)
-  - 主要介绍了 Optimization 和 Code Generation 。
-- [LLVM Programmer’s Manual — LLVM 15.0.0git documentation](https://llvm.org/docs/ProgrammersManual.html)
-  - 从入门到入坟都需要捧着的参考手册 (programming manual) 
-
 ## 小作业
 
 1. [《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./docs/write_llvm_ir_generator.md)
 2. 
 
 
+
+---
 
 ### To Do list
 
@@ -113,6 +95,25 @@ make
 
 教程末尾的参考资料，非常有用。
 Below is a list of LLVM resources available outside the official online documentation that I have found very helpful. Where possible, the items are sorted by date.
+
+- [Linux Tutorial - Static, Shared Dynamic and Loadable Linux Libraries (yolinux.com)](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
+- [Dynamic vs Static Plugins](https://github.com/banach-space/llvm-tutor#dynamic-vs-static-plugins)
+- Pass执行顺序 <https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required>
+- 加入到系统的 Pipeline (不推荐) <https://github.com/banach-space/llvm-tutor#auto-registration-with-optimisation-pipelines>
+- `-O0` 可能会遇到的禁用Pass的问题 <https://github.com/banach-space/llvm-tutor#overview-of-the-passes>
+- [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
+- LLVM-tutor 教程 <https://github.com/banach-space/llvm-tutor>
+- [LLVM中的pass及其管理机制_大头蚂蚁的窝-CSDN博客_llvm pass](https://blog.csdn.net/mamamama811/article/details/110165333)
+- [Writing an LLVM Backend — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMBackend.html)
+- [2019 LLVM Developers’ Meeting: A. Warzynski “Writing an LLVM Pass: 101” - YouTube](https://www.youtube.com/watch?v=ar7cJl2aBuU)
+- [Free Compiler Camp](https://freecompilercamp.org/#Class)
+  - LLVM 小作业
+- [LLVM Tutorial: Table of Contents — LLVM 15.0.0git documentation](https://llvm.org/docs/tutorial/index.html)
+  - LLVM 官方的辅导例子 (讲述了如何发明一门编程语言)
+- [User Guides — LLVM 13 documentation](https://llvm.org/docs/UserGuides.html)
+  - 主要介绍了 Optimization 和 Code Generation 。
+- [LLVM Programmer’s Manual — LLVM 15.0.0git documentation](https://llvm.org/docs/ProgrammersManual.html)
+  - 从入门到入坟都需要捧着的参考手册 (programming manual) 
 
 - [PacktPublishing/Learn-LLVM-12: Learn LLVM 12, published by Packt (github.com)](https://github.com/PacktPublishing/Learn-LLVM-12)
 - [quarkslab/llvm-passes: Collection of various llvm passes (github.com)](https://github.com/quarkslab/llvm-passes)
