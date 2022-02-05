@@ -63,19 +63,6 @@ make
   - [ ] RIV - Analysis 
   - [ ] DuplicateBB - CFG 
   - [ ] MergeBB - CFG 
-- [ ] LLVM New Pass Manager
-  - [ ] HelloWorld - Analysis 
-  - [ ] OpcodeCounter - Analysis 
-  - [ ] InjectFuncCall 
-  - [ ] StaticCallCounter 
-  - [ ] DynamicCallCounter 
-  - [ ] MBASub
-  - [ ] MBAdd 
-  - [ ] FindFCmpEq
-  - [ ] ConvertCmpEq
-  - [ ] RIV
-  - [ ] DuplicateBB
-  - [ ] MergeBB  
 - [ ] **backend pass**
   - [ ] LLVM 如何插入指令(插代码)
   - [ ] 之后了解 IR
@@ -93,9 +80,6 @@ make
 
 ### 更多资料
 
-教程末尾的参考资料，非常有用。
-Below is a list of LLVM resources available outside the official online documentation that I have found very helpful. Where possible, the items are sorted by date.
-
 - [Linux Tutorial - Static, Shared Dynamic and Loadable Linux Libraries (yolinux.com)](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
 - [Dynamic vs Static Plugins](https://github.com/banach-space/llvm-tutor#dynamic-vs-static-plugins)
 - Pass执行顺序 <https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required>
@@ -103,6 +87,7 @@ Below is a list of LLVM resources available outside the official online document
 - `-O0` 可能会遇到的禁用Pass的问题 <https://github.com/banach-space/llvm-tutor#overview-of-the-passes>
 - [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
 - LLVM-tutor 教程 <https://github.com/banach-space/llvm-tutor>
+  - [LLVM tutor 的扩展资料](https://github.com/banach-space/llvm-tutor#references)
 - [LLVM中的pass及其管理机制_大头蚂蚁的窝-CSDN博客_llvm pass](https://blog.csdn.net/mamamama811/article/details/110165333)
 - [Writing an LLVM Backend — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMBackend.html)
 - [2019 LLVM Developers’ Meeting: A. Warzynski “Writing an LLVM Pass: 101” - YouTube](https://www.youtube.com/watch?v=ar7cJl2aBuU)
@@ -123,28 +108,3 @@ Below is a list of LLVM resources available outside the official online document
 - https://llvm.org/doxygen/classllvm_1_1MachineInstrBuilder.html
 - <https://github.com/banach-space/llvm-tutor>
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
-
--   **LLVM IR**
-    -   _”LLVM IR Tutorial-Phis,GEPs and other things, ohmy!”_, V.Bridgers, F. Piovezan, EuroLLVM, ([slides](https://llvm.org/devmtg/2019-04/slides/Tutorial-Bridgers-LLVM_IR_tutorial.pdf), [video](https://www.youtube.com/watch?v=m8G_S5LwlTo&feature=youtu.be))
-    -   _"Mapping High Level Constructs to LLVM IR"_, M. Rodler ([link](https://mapping-high-level-constructs-to-llvm-ir.readthedocs.io/en/latest/))
--   **Examples in LLVM**
-    -   Control Flow Graph simplifications: [llvm/examples/IRTransforms/](https://github.com/llvm/llvm-project/tree/release/13.x/llvm/examples/IRTransforms)
-    -   Hello World Pass: [llvm/lib/Transforms/Hello/](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/Transforms/Hello)
-    -   Good Bye World Pass: [llvm/examples/Bye/](https://github.com/llvm/llvm-project/tree/release/13.x/llvm/examples/Bye)
--   **LLVM Pass Development**
-    -   _"Writing an LLVM Optimization"_, Jonathan Smith [video](https://www.youtube.com/watch?v=MagR2KY8MQI&t)
-    -   _"Getting Started With LLVM: Basics "_, J. Paquette, F. Hahn, LLVM Dev Meeting 2019 [video](https://www.youtube.com/watch?v=3QQuhL-dSys&t=826s)
-    -   _"Writing an LLVM Pass: 101"_, A. Warzyński, LLVM Dev Meeting 2019 [video](https://www.youtube.com/watch?v=ar7cJl2aBuU)
-    -   _"Writing LLVM Pass in 2018"_, Min-Yih Hsu [blog](https://medium.com/@mshockwave/writing-llvm-pass-in-2018-preface-6b90fa67ae82)
-    -   _"Building, Testing and Debugging a Simple out-of-tree LLVM Pass"_ Serge Guelton, Adrien Guinet, LLVM Dev Meeting 2015 ([slides](https://llvm.org/devmtg/2015-10/slides/GueltonGuinet-BuildingTestingDebuggingASimpleOutOfTreePass.pdf), [video](https://www.youtube.com/watch?v=BnlG-owSVTk&index=8&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21))
--   **Legacy vs New Pass Manager**
-    -   _"New PM: taming a custom pipeline of Falcon JIT"_, F. Sergeev, EuroLLVM 2018 ([slides](http://llvm.org/devmtg/2018-04/slides/Sergeev-Taming%20a%20custom%20pipeline%20of%20Falcon%20JIT.pdf), [video](https://www.youtube.com/watch?v=6X12D46sRFw))
-    -   _"The LLVM Pass Manager Part 2"_, Ch. Carruth, LLVM Dev Meeting 2014 ([slides](https://llvm.org/devmtg/2014-10/Slides/Carruth-TheLLVMPassManagerPart2.pdf), [video](http://web.archive.org/web/20160718071630/http://llvm.org/devmtg/2014-10/Videos/The%20LLVM%20Pass%20Manager%20Part%202-720.mov))
-    -   _”Passes in LLVM, Part 1”_, Ch. Carruth, EuroLLVM 2014 ([slides](https://llvm.org/devmtg/2014-04/PDFs/Talks/Passes.pdf), [video](https://www.youtube.com/watch?v=rY02LT08-J8))
--   **LLVM Based Tools Development**
-    -   _"Introduction to LLVM"_, M. Shah, Fosdem 2018, [link](http://www.mshah.io/fosdem18.html)
-    -   _"Building an LLVM-based tool. Lessons learned"_, A. Denisov, [blog](https://lowlevelbits.org/building-an-llvm-based-tool.-lessons-learned/), [video](https://www.youtube.com/watch?reload=9&v=Yvj4G9B6pcU)
-
-
-
-
