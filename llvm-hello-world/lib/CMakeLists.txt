@@ -52,9 +52,15 @@ foreach(plugin ${LLVM_TUTOR_PLUGINS}) # traverse each item in the LLVM_TUTOR_PLU
     # loaded and resolved at runtime, these errors are false positives.
     # This behaviour can be modified via the '-undefined' OS X linker flag as
     # follows.
+
+    # CMakeの使い方（その２）
+    # https://qiita.com/shohirose/items/637f4b712893764a7ec1
+    # プラットフォーム・コンパイラによってオプションを変更する
+    # CMakeにはプラットフォーム・コンパイラを識別するための変数が用意されているのでif...elseを使って簡単に実現できます。
+
     target_link_libraries(
-      ${plugin}
-      "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>"
+            ${plugin} "$<$<PLATFORM_ID:Linux>:-shared>"
+                      "$<$<PLATFORM_ID:Darwin>:-undefined dynamic_lookup>"
     )
 
 endforeach()

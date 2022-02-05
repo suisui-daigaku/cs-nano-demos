@@ -128,27 +128,16 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 
+
+
 #===============================================================================
 # 4. ADD SUB-TARGETS
 # Doing this at the end so that all definitions and link/include paths are
 # available for the sub-projects.
 #===============================================================================
 add_subdirectory(HelloWorld)
+
 # -------------------------------------
 add_subdirectory(lib)
 #add_subdirectory(tools)
 #add_subdirectory(test)
-
-
-# -----------------------------------------------------------------------------------------------
-# OTHER CODE (NOT USED)
-# -----------------------------------------------------------------------------------------------
-# Use the command llvm-config to find LLVM install prefix....
-# execute_process(COMMAND llvm-config --prefix
-#                RESULT_VARIABLE STATUS
-#                OUTPUT_VARIABLE LT_LLVM_INSTALL_DIR
-#                OUTPUT_STRIP_TRAILING_WHITESPACE
-#                ERROR_QUIET)
-# if(STATUS AND NOT STATUS EQUAL 0)
-#   message(FATAL_ERROR "LLVM may be not installed as llvm-config is not a valid command.")
-# endif()

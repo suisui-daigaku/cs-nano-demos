@@ -26,6 +26,7 @@ namespace {
                 }
             }
 
+            //
             for (auto func : toDelete){
                 func->eraseFromParent();
             }
