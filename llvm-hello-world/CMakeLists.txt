@@ -3,6 +3,7 @@
 # LLVM Tutor: https://github.com/banach-space/llvm-tutor/blob/main/CMakeLists.txt
 # LLVM CSCD70: https://github.com/UofT-EcoSystem/CSCD70/blob/2021S/Assignment1-Introduction_to_LLVM/FunctionInfo/CMakeLists.txt
 # LLVM Pathces : https://github.com/intel/llvm-patches/blob/master/CMakeLists.txt
+# LLVM Cmake https://netcan.github.io/2020/08/07/%E5%A6%82%E4%BD%95%E4%B8%BAClang%E7%BC%96%E8%AF%91%E5%99%A8%E5%86%99%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%87%8D%E6%9E%84/
 # SGX Example: 
 # SGX CMake : https://github.com/xzhangxa/SGX-CMake/blob/master/sample/CMakeLists.txt
 # ==============================================================================
@@ -66,6 +67,7 @@ list(APPEND CMAKE_PREFIX_PATH "${LT_LLVM_INSTALL_DIR}/lib/cmake/llvm/")
 
 # LLVM configuration for using CMake 
 find_package(LLVM 14 REQUIRED CONFIG)
+find_package(Clang REQUIRED CONFIG)
 
 # LLVM version checking...
 if(NOT "14" VERSION_EQUAL "${LLVM_VERSION_MAJOR}")
@@ -84,12 +86,14 @@ message("LLVM STATUS:
   Targets     ${LLVM_TARGETS_TO_BUILD}"
 )
 
-#  Now set the header and library paths:
+# LLVM include header files
 #  (https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_SYSROOT.html)
+#  https://netcan.github.io/2020/08/07/%E5%A6%82%E4%BD%95%E4%B8%BAClang%E7%BC%96%E8%AF%91%E5%99%A8%E5%86%99%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%87%8D%E6%9E%84/
 include_directories(SYSTEM ${LLVM_INCLUDE_DIRS})
-link_directories(${LLVM_LIBRARY_DIRS})
 add_definitions(${LLVM_DEFINITIONS})
 
+# LLVM binary executable files
+link_directories(${LLVM_LIBRARY_DIRS})
 
 #===============================================================================
 # 3. LLVM-TUTOR BUILD CONFIGURATION
@@ -136,7 +140,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 # available for the sub-projects.
 #===============================================================================
 add_subdirectory(HelloWorld)
-
+# 教程中比较有用的 Pass
 # -------------------------------------
 add_subdirectory(lib)
 #add_subdirectory(tools)
