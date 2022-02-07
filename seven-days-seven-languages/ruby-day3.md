@@ -12,6 +12,16 @@
 
 其中 `|row|` 是由 `yield` 产生的 `CsvRow` 对象。
 
+文本文件 `rubycsv.txt` 。
+
+```
+one, two
+lions, tigers
+bears, oh my
+```
+
+代码
+
 ```ruby 
 module ActsAsCsv
     def self.included(base)
