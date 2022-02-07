@@ -42,13 +42,14 @@ make
 
 ---
 
-### To Do list
+### To Do lis
 
 - [ ] Machine Instruction Builder 
 - [ ] CFG
-- [ ] 下次meeting，用一个简单的例子**展示一下IR pass和 backend pass的写法**
-  - [ ] 就展示给我看一下**流程**就可以 
-
+- [ ] 下次meeting，用一个简单的例子**展示一下IR pass和 backend pass的写法**。就展示给我看一下**流程**就可以 
+  - [ ] IR Pass 
+  - [ ] backend pass 
+  
 - [ ] SGX small program  
 - [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
   - [x] HelloWorld - Analysis 
