@@ -38,6 +38,12 @@ Object-oriented means the language supports **encapsulation** (data and behavior
 
 虽然某些编程语言会强调所谓的 “多种写法”  (比如 Ruby) ，但是**最好按照 Style Guide 使用一部分 subset 就可以**了，没必要研究奇淫技巧。规定越多，写起来反而越轻松。
 
+除了看 CFG 以外，还可以看 Standard，比如 C++ Standard, Haskell Report 。
+
+一般看法是 ***Haskell > C++ > Scala > Python*** > Rust > Go 
+
+(Python 库比较多，Scala 可以直接用 Java 库，C++ 也有很多现成开发工具，Haskell 就是并行计算)
+
 #### Ruby 
 
 - [x] [day 1](./ruby-day1.md) 
@@ -70,6 +76,8 @@ Object-oriented means the language supports **encapsulation** (data and behavior
 - [ ] [summary](./scala-summary.md) 
 
 #### Haskell 
+
+Haskell 需要学会范畴论 + Haskell 数据结构 。
 
 [Haskell Style Guide (anu.edu.au)](https://cs.anu.edu.au/courses/comp1100/resources/04-style/)
 
@@ -122,32 +130,6 @@ Object-oriented means the language supports **encapsulation** (data and behavior
 - [ ] [day 3](./clojure-day3.md) 
 
 - [ ] [summary](./clojure-summary.md) 
-
-#### Go
-
-了解 Goruntines 如何解决 concurrence 
-
-- [ ] [day 1](./go-day1.md) 
-
-- [ ] [day 2](./go-day2.md) 
-
-- [ ] [day 3](./go-day3.md) 
-
-- [ ] [summary](./go-summary.md) 
-
-#### Rust 
-
-如何解决 C++ 的类型，concurrence 问题
-
-- [ ] [day 1](./haskll-day1.md) 
-
-- [ ] [day 2](./haskll-day2.md) 
-
-- [ ] [day 3](./haskll-day3.md) 
-
-- [ ] [summary](./haskll-summary.md) 
-
-
 
 
 
