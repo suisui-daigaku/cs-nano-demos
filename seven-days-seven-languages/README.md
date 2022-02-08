@@ -65,12 +65,36 @@ Object-oriented means the language supports **encapsulation** (data and behavior
 
 #### Scala 
 
+Scala 是 Leetcoe 里学习 FP 的唯一选择了，还可以顺序把 《算法4》小红书都实现一遍。
+
+在安装 Scala 需要用到 sbt ，因为是 Jar 软件，可以写无后缀名 (如 `~/sbt`) 的脚本文件在 Command Line 启动。这在 Ubuntu 经常用，比如启动 Matlab 。
+
 [databricks/scala-style-guide: Databricks Scala Coding Style Guide (github.com)](https://github.com/databricks/scala-style-guide)
 
 - [ ] [day 1](./scala-day1.md) 
 - [ ] [day 2](./scala-day2.md) 
 - [ ] [day 3](./scala-day3.md) 
 - [ ] [summary](./scala-summary.md) 
+
+#### C++ 
+
+[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html) 
+
+限制越多，写起来反而越轻松。
+
+- [ ] [day 1](./scala-day1.md) 
+
+- [ ] [day 2](./scala-day2.md) 
+
+- [ ] [day 3](./scala-day3.md) 
+
+- [ ] [summary](./scala-summary.md) 
+
+#### Python 
+
+学习 **CS 61A** .
+
+
 
 #### Haskell 
 
@@ -84,22 +108,6 @@ Haskell 需要学会范畴论 + Haskell 数据结构 。(由于 immutable 和 re
 - [ ] [day 2](./haskll-day2.md) 
 - [ ] [day 3](./haskll-day3.md) 
 - [ ] [summary](./haskll-summary.md)  
-
-#### C++ / CXX
-
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
-
-- [ ] [day 1](./scala-day1.md) 
-
-- [ ] [day 2](./scala-day2.md) 
-
-- [ ] [day 3](./scala-day3.md) 
-
-- [ ] [summary](./scala-summary.md) 
-
-#### Python 
-
-学习 **CS 61A** 
 
 #### Ruby 
 

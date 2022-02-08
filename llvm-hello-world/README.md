@@ -22,14 +22,15 @@ make
 
 ![](https://raw.githubusercontent.com/haohua-li/photo-asset-repo/main/imgs/image-20220201155131404.png)
 
-
 ### CMake Build  
 
-<img src="https://raw.githubusercontent.com/haohua-li/photo-asset-repo/main/imgs/image-20220204202339822.png" alt="image-20220204202339822" style="zoom: 50%;" /> 
+CMake options : `-G "Unix Makefiles"`
 
-还可以在 Environment 处加上`SDKROOT` 
+Build directory : `build`
 
-`SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk`
+Build options: `-- -j 9`
+
+Environment: `CC=/usr/local/bin/clang;CXX=/usr/local/bin/clang++;SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk` 
 
 具体Xcode 的版本号要查，这是 System Libraries. 
 
@@ -38,44 +39,15 @@ make
 1. [《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./docs/write_llvm_ir_generator.md)
 2. 
 
-
-
 ---
-
-### To Do lis
-
-- [ ] Machine Instruction Builder 
-- [ ] CFG
-- [ ] 下次meeting，用一个简单的例子**展示一下IR pass和 backend pass的写法**。就展示给我看一下**流程**就可以 
-  - [ ] IR Pass 
-  - [ ] backend pass 
-  
-- [ ] SGX small program  
-- [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
-  - [x] HelloWorld - Analysis 
-  - [x] OpcodeCounter - Analysis 
-  - [x] InjectFuncCall - Transformation (如果插入函数，每次运行程序都会 HelloWorld) 
-  - [x] StaticCallCounter - Analysis (编译的时候计数)
-  - [ ] DynamicCallCounter - Tranformation (插入计数函数)
-  - [ ] MBASub - Transformation 
-  - [ ] MBAdd - Transformation 
-  - [ ] FindFCmpEq - Analysis 
-  - [ ] ConvertCmpEq - Transformation 
-  - [ ] RIV - Analysis 
-  - [ ] DuplicateBB - CFG 
-  - [ ] MergeBB - CFG 
-- [ ] **backend pass**
-  - [ ] LLVM 如何插入指令(插代码)
-  - [ ] 之后了解 IR
-  - [ ] 比如数据的存储/读取。
-  - [ ] ***插入指令以后，要观察运行状况 (如何检验 LLVM Pass 真的在 Backend 部分给程序插入了指令....)***
-- [ ] LLVM Class 的**模块依赖关系**。
 
  ## LLVM 学习资料
 
 官方的用户手册永远都是最好的参考资料。
-### 大佬们
 
+大佬们
+
+- [Lele's Memo: The LLVM Target Independent Code Generator (cnlelema.github.io)](https://cnlelema.github.io/memo/en/codegen/) LLVM 笔记
 - [Enna1 (Enna1) (github.com)](https://github.com/Enna1) 在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
 - [Andrzej Warzyński](https://github.com/banach-space) 在 ARM 工作的大佬。
 
@@ -109,3 +81,34 @@ make
 - https://llvm.org/doxygen/classllvm_1_1MachineInstrBuilder.html
 - <https://github.com/banach-space/llvm-tutor>
 - LLVM IR opcode:  [llvm-project/Instruction.cpp at release/13.x · llvm/llvm-project (github.com)](https://github.com/llvm/llvm-project/blob/release/13.x/llvm/lib/IR/Instruction.cpp#L338-L417)
+
+---
+
+### To Do list 
+
+- [ ] Machine Instruction Builder 
+- [ ] CFG
+- [ ] 下次meeting，用一个简单的例子**展示一下IR pass和 backend pass的写法**。就展示给我看一下**流程**就可以 
+  - [ ] IR Pass 
+  - [ ] backend pass 
+
+- [ ] SGX small program  
+- [ ] 将 ***LLVM-tutor*** 所有例子全部实现一次 https://github.com/banach-space/llvm-tutor#helloworld-your-first-pass 。每个 Module 的 Legacy 都写一下作业。。。。
+  - [x] HelloWorld - Analysis 
+  - [x] OpcodeCounter - Analysis 
+  - [x] InjectFuncCall - Transformation (如果插入函数，每次运行程序都会 HelloWorld) 
+  - [x] StaticCallCounter - Analysis (编译的时候计数)
+  - [ ] DynamicCallCounter - Tranformation (插入计数函数)
+  - [ ] MBASub - Transformation 
+  - [ ] MBAdd - Transformation 
+  - [ ] FindFCmpEq - Analysis 
+  - [ ] ConvertCmpEq - Transformation 
+  - [ ] RIV - Analysis 
+  - [ ] DuplicateBB - CFG 
+  - [ ] MergeBB - CFG 
+- [ ] **backend pass**
+  - [ ] LLVM 如何插入指令(插代码)
+  - [ ] 之后了解 IR
+  - [ ] 比如数据的存储/读取。
+  - [ ] ***插入指令以后，要观察运行状况 (如何检验 LLVM Pass 真的在 Backend 部分给程序插入了指令....)***
+- [ ] LLVM Class 的**模块依赖关系**。
