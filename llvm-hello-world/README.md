@@ -84,7 +84,7 @@ Environment: `CC=/usr/local/bin/clang;CXX=/usr/local/bin/clang++;SDKROOT=/Applic
 
 ---
 
-### To Do list 
+### To Do list
 
 - [ ] Machine Instruction Builder 
 - [ ] CFG

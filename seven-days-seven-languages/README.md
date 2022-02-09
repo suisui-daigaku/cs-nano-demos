@@ -55,6 +55,10 @@ Object-oriented means the language supports **encapsulation** (data and behavior
 
 ## 编程语言
 
+[netcan/compilingTheory: My course design for compiler theory (Visualization). (github.com)](https://github.com/netcan/compilingTheory)
+
+[rui314/chibicc: A small C compiler (github.com)](https://github.com/rui314/chibicc)
+
 [bekk/seven-languages: Sandbox for Seven Languages in Seven Weeks (github.com)](https://github.com/bekk/seven-languages)
 
 [antlr/grammars-v4: Grammars written for ANTLR v4; expectation that the grammars are free of actions. (github.com)](https://github.com/antlr/grammars-v4) 各种语言的 BNF 形式 (对于写 Scanner 和 Parser 有很大作用)，特别是 Lexical Analysis 要仔细读。虽然某些编程语言会强调所谓的 “多种写法”  (比如 Ruby) ，但是**最好按照 Style Guide 使用一部分 subset 就可以**了，没必要研究奇淫技巧。规定越多，写起来反而越轻松。除了看 CFG 以外，还可以看 Standard，比如 C++ Standard, Haskell Report 。
@@ -93,8 +97,6 @@ Scala 是 Leetcoe 里学习 FP 的唯一选择了，还可以顺序把 《算法
 #### Python 
 
 学习 **CS 61A** .
-
-
 
 #### Haskell 
 
