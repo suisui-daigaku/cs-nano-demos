@@ -33,7 +33,8 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
         PrintfArgTy, 
         /*IsVarArgs*/true 
     );
-    
+
+    // 因为 Linker 只有一个 global namespace, 只要名字对上标准库的名字，就能 link 了。
     FunctionCallee Printf = M.getOrInsertFunction("printf", PrintfTy);
     // Set attributes as per inferLibFuncAttributes in BuildLibCalls.cpp
     Function *PrintfF = dyn_cast<Function>(Printf.getCallee()); 
