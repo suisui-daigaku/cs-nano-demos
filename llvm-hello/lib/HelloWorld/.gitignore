@@ -1,0 +1,3 @@
+# ignore the Cmake build tool 
+
+build/

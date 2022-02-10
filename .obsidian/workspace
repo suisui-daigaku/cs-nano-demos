@@ -7,12 +7,8 @@
         "id": "c2e029bb962c172e",
         "type": "leaf",
         "state": {
-          "type": "markdown",
-          "state": {
-            "file": "llvm-hello-world/docs/write_llvm_ir_generator.md",
-            "mode": "source",
-            "source": false
-          }
+          "type": "empty",
+          "state": {}
         }
       }
     ],
@@ -69,7 +65,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "llvm-hello-world/docs/write_llvm_ir_generator.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
