@@ -1,11 +1,12 @@
 
 add_subdirectory(HelloWorld)
 
-# add_subdirectory(Analysis)
-# add_subdirectory(Transforms)
+add_subdirectory(Analysis)
+add_subdirectory(Transforms)
 # add_subdirectory(Target)
 
 
+# --------------------------------------------------------------
 # # THE LIST OF PLUGINS AND THE CORRESPONDING SOURCE FILES
 # # ======================================================
 # set(LLVM_TUTOR_PLUGINS
