@@ -37,10 +37,11 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
     // 因为 Linker 只有一个 global namespace, 只要名字对上标准库的名字，就能 link 了。
     FunctionCallee Printf = M.getOrInsertFunction("printf", PrintfTy);
     // Set attributes as per inferLibFuncAttributes in BuildLibCalls.cpp
+    // (要看 <stdio.h> 里main printf 的 attribute, 保证 declaration 一致)
     Function *PrintfF = dyn_cast<Function>(Printf.getCallee()); 
     PrintfF->setDoesNotThrow();
     PrintfF->addParamAttr(0, Attribute::NoCapture); 
-    PrintfF->addParamAttr(0, Attribute::ReadOnly); 
+    PrintfF->addParamAttr(0, Attribute::ReadOnly);
 
     // STEP 2: Inject a global variable that will hold the printf format string
     // ----------------------------------------------------------------
@@ -64,7 +65,7 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
         // (由于 getFirstInsertionPt 返回的是 iterator, 需要解引用)
         IRBuilder<> Builder(&*F.getEntryBlock().getFirstInsertionPt()); 
 
-        // Inject a global variable that contains the function name (from Const to Value)
+        // Inject a global variable that contains the function name
         llvm::Value *FuncName = dyn_cast<llvm::Value>(Builder.CreateGlobalStringPtr(F.getName()));
         // Printf requires i8*, but PrintfFormatStrVar is an array: [n x i8]. Add a cast: [n x i8] -> i8*
         llvm::Value *FormatStrPtr =

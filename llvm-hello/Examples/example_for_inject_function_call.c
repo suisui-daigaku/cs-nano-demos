@@ -20,7 +20,6 @@ int fez(int a, int b, int c){
     return (a + bar(a, b) * 2 + c * 3); 
 }
 
-
 int main(int argc, char *argv[]){
     int a = 123; 
     int ret = 0; 
