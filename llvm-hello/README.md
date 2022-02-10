@@ -2,18 +2,25 @@
 
 写小作业是最快的学习方法。
 
-## 疑问
-- 看看 InjectFuncCall 里面一堆不会，为什么指针类型创建到类型的指针，String 的只要指针的话，原来的对象在哪里。。。。LLVM 的 doc 也太简洁了。。。
-- 为什么 LLVM 不能统计 indirect call 的次数 ? (这里 indirect call 指 function pointer, 去看看 `getCalledFunction` 源码研究一下，就像以前学 ***OMPL*** 的时候，去看源码)
+## Objectives 
 
-### 如何运行
-```
-mkdir build & cd build 
-cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
-make
-```
+- 学会 LLVM IR pass 
+- 学会 LLVM Test 
+
+(LLVM Backend 无法 out-of-tree , 所以这个小作业只能止步 LLVM IR 了)
+
+## 推荐资料
+
+- [Building, Testing and Debugging a Simple out-of-tree LLVM Pass](https://llvm.org/devmtg/2015-10/slides/GueltonGuinet-BuildingTestingDebuggingASimpleOutOfTreePass.pdf)
+- [Getting Started/Tutorials — LLVM 15.0.0git documentation](https://llvm.org/docs/GettingStartedTutorials.html)
+- [LLVM Tutorial: Table of Contents](https://llvm.org/docs/tutorial/index.html)
+- [LLVM Programmer’s Manual](https://llvm.org/docs/ProgrammersManual.html)
+- [Writing an LLVM Pass — LLVM 13 documentation](https://llvm.org/docs/WritingAnLLVMPass.html)
+- [banach-space/llvm-tutor: A collection of out-of-tree LLVM passes for teaching and learning (github.com)](https://github.com/banach-space/llvm-tutor)
+- [Writing an LLVM Backend — LLVM 15.0.0git documentation](https://llvm.org/docs/WritingAnLLVMBackend.html)
 
 ### 安装 LLVM 
+
 不知道为什么 Homebrew 的安装下来不能运行。
 就自己从 Github 下载 source code build, 没想到很多坑。
 比如要同时启动 `Clang` 还有一堆 STL 和 Runtime libraries, 还有 Release 和 Debug 等等。
@@ -22,7 +29,11 @@ make
 
 ![](https://raw.githubusercontent.com/haohua-li/photo-asset-repo/main/imgs/image-20220201155131404.png)
 
-### CMake Build  
+```
+mkdir build & cd build 
+cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
+make
+```
 
 CMake options : `-G "Unix Makefiles"`
 
@@ -36,14 +47,9 @@ Environment: `CC=/usr/local/bin/clang;CXX=/usr/local/bin/clang++;SDKROOT=/Applic
 
 ## 小作业
 
-1. [《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./docs/write_llvm_ir_generator.md)
-2. 
+[《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./LLVM_Core_Libraries_Book/write_llvm_ir_generator.md)
 
----
-
- ## LLVM 学习资料
-
-官方的用户手册永远都是最好的参考资料。
+ ## 其他
 
 大佬们
 
@@ -51,7 +57,7 @@ Environment: `CC=/usr/local/bin/clang;CXX=/usr/local/bin/clang++;SDKROOT=/Applic
 - [Enna1 (Enna1) (github.com)](https://github.com/Enna1) 在字节工作的大佬，主攻编译原理，他最主要学习方法就是**看 LLVM 源码**。
 - [Andrzej Warzyński](https://github.com/banach-space) 在 ARM 工作的大佬。
 
-### 更多资料
+其他参考资料
 
 - [Radhika Ghosal | Writing a MachineFunctionPass in LLVM (kharghoshal.xyz)](https://www.kharghoshal.xyz/blog/writing-machinefunctionpass)
 - [Writing an LLVM Backend — LLVM 15.0.0git documentation](https://llvm.org/docs/WritingAnLLVMBackend.html)
