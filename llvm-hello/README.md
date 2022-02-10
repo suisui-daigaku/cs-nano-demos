@@ -6,8 +6,8 @@
 
 - 学会 LLVM IR pass 
 - 学会 LLVM Test 
-
-(LLVM Backend 无法 out-of-tree , 所以这个小作业只能止步 LLVM IR 了)
+- 学会 Git Submodule 
+- 学会 LLVM backend 
 
 ## 推荐资料
 
