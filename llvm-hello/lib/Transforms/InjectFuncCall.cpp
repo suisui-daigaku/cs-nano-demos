@@ -1,5 +1,13 @@
-#include "llvm-hello/Transforms/InjectFuncCall.h"
+/**********************************************************************************
+ *      cd Examples
+ *      clang -O0 -S -emit-llvm ./example_for_inject_function_call.c -o  ./example_for_inject_function_call.ll
+ *      cd ../build
+ *      opt -S -enable-new-pm=0 -load ./lib/libInjectFuncCall.dylib -legacy-inject-func-call ../Examples/example_for_inject_function_call.ll -o injected_function_bin
+ *      lli injected_function_bin
+ **********************************************************************************/
 
+
+#include "llvm-hello/Transforms/InjectFuncCall.h"
 #include "llvm/IR/IRBuilder.h"
 
 using namespace llvm; 
@@ -24,8 +32,9 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
         IntegerType::getInt32Ty(CTX), 
         PrintfArgTy, 
         /*IsVarArgs*/true 
-    ); 
-    FunctionCallee Printf = M.getOrInsertFunction("printf", PrintfTy); 
+    );
+    
+    FunctionCallee Printf = M.getOrInsertFunction("printf", PrintfTy);
     // Set attributes as per inferLibFuncAttributes in BuildLibCalls.cpp
     Function *PrintfF = dyn_cast<Function>(Printf.getCallee()); 
     PrintfF->setDoesNotThrow();
@@ -36,7 +45,7 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
     // ----------------------------------------------------------------
     // 生成一个 String 的常量
     llvm::Constant *printfFormatStr = llvm::ConstantDataArray::getString(
-        CTX, "(llvm-tutor) Hello from: %s\n(llvm-tutor)   number of arguments: %d\n"
+        CTX, "(llvm-tutor) Hello from: %s\n(llvm-tutor) number of arguments: %d\n"
     ); 
     // 在 Module 里面创建一个空值
     llvm::Constant *printfFormatStrVar = M.getOrInsertGlobal(
@@ -61,8 +70,8 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
             Builder.CreatePointerCast(printfFormatStrVar, PrintfArgTy, "formatStr");
         // The following is visible only if you pass -debug on the command line
         // *and* you have an assert build.
-        LLVM_DEBUG(dbgs() << " Injecting call to printf inside " << F.getName()
-                      << "\n");
+        // LLVM_DEBUG(dbgs() << " Injecting call to printf inside " << F.getName() << "\n");
+
         // Finally,, inject a call to printf 
         Builder.CreateCall(
             Printf, {FormatStrPtr, FuncName, Builder.getInt32(F.arg_size())});    
