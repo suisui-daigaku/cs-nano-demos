@@ -51,11 +51,11 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
     // 在 Module 里面创建一个空值
     llvm::Constant *printfFormatStrVar = M.getOrInsertGlobal(
         "printfFormatStr", printfFormatStr->getType()
-    ); 
-    // 把值复制过去 (注意Initializer指等号右边的初始值) 疑问? 为什么只复制指针就够了?  
+    );
+    // const 的值必须要初始化 (const 的 global variable 都是 compile time 就能确定的)。
     dyn_cast<GlobalVariable>(printfFormatStrVar)->setInitializer(printfFormatStr); 
 
-    // STEP 3: For each function in the module, inject a call to printf
+    // STEP 3: For each function in the module, inject a call to printf `call i32 (i8*, ...) @printf`
     // ----------------------------------------------------------------
     for (auto &F : M){
         if (F.isDeclaration()) continue; // declaration 不会执行，不要插入。
@@ -64,18 +64,17 @@ bool LegacyInjectFuncCall::runOnModule(Module& M){
         // (由于 getFirstInsertionPt 返回的是 iterator, 需要解引用)
         IRBuilder<> Builder(&*F.getEntryBlock().getFirstInsertionPt()); 
 
-        // Inject a global variable that contains the function name
-        auto FuncName = Builder.CreateGlobalStringPtr(F.getName());
+        // Inject a global variable that contains the function name (from Const to Value)
+        llvm::Value *FuncName = dyn_cast<llvm::Value>(Builder.CreateGlobalStringPtr(F.getName()));
         // Printf requires i8*, but PrintfFormatStrVar is an array: [n x i8]. Add a cast: [n x i8] -> i8*
         llvm::Value *FormatStrPtr =
             Builder.CreatePointerCast(printfFormatStrVar, PrintfArgTy, "formatStr");
-        // The following is visible only if you pass -debug on the command line
-        // *and* you have an assert build.
+        // The following is visible only if you pass -debug on the command line *and* you have an assert build.
         // LLVM_DEBUG(dbgs() << " Injecting call to printf inside " << F.getName() << "\n");
 
-        // Finally,, inject a call to printf 
+        // Finally, inject a call to printf  `CALL F` in the assembly code.
         Builder.CreateCall(
-            Printf, {FormatStrPtr, FuncName, Builder.getInt32(F.arg_size())});    
+            Printf, {FormatStrPtr, FuncName, Builder.getInt32(F.arg_size())});
         InsertedAtLeastOnePrintf = true;
     }
 
