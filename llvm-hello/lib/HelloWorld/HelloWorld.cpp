@@ -20,7 +20,7 @@ struct HelloWorld : public FunctionPass{
     static char ID; // the ID address used by LLVM to identify a pass (so the intilization value does not matter)
     HelloWorld() : FunctionPass(ID) {} 
     // the default behavior of an FunctionPass 
-    virtual bool runOnFunction(Function &F) override{
+    bool runOnFunction(Function &F) override{
         errs() << ">>>> The Legacy PM <<<<\n"; 
         visitor(F); 
         return false; // this is an Analysis Pass, to return false as we don't modify the IR unit. 

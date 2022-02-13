@@ -47,7 +47,13 @@ Environment: `CC=/usr/local/bin/clang;CXX=/usr/local/bin/clang++;SDKROOT=/Applic
 
 ## 小作业
 
-[《Get Started with LLVM core Libraries》 -  *Writing a custom LLVM IR generator*](./LLVM_Core_Libraries_Book/write_llvm_ir_generator.md)
+[*Get Started with LLVM core Libraries* -  Writing a custom LLVM IR generator](./_LLVMCoreLibrariesBook/write_llvm_ir_generator.md)
+
+[为 New Pass Manager 开发一个 Pass](./_Homeworks/write_an_pass_npm.md) 
+
+
+
+
 
  ## 其他
 
