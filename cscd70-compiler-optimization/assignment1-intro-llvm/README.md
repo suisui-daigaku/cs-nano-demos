@@ -4,9 +4,25 @@
 
 ---
 
+## Dependencies 
+
+- `clang` 
+- llvm (the `llvm` in the llvm-project)
+- `cmake`
+- `lit`  
+  - `lit` is distributed by Pypi instead LLVM official repostory. 
+
+## Makefile 
+
 ```bash
 mkdir build & cd build 
 CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
+make
 ```
 
 Note that **macOS** will not allow undefined symbols in compile time (but at runtime, these undefined symbols could be meaningful as LLVM allows us to dynamically load passes), so we have to add `-undefined dynamic_lookup` to the target flag. See more in `FunctionInfo/lib/CMakeLists.txt `
+
+
+
+
+
