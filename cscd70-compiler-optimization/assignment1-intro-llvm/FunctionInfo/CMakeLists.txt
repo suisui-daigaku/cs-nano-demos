@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.12.0)
 project(FunctionInfo)
+ 
+set(LT_LLVM_INSTALL_DIR "" CACHE PATH "LLVM installation directory")
+list(APPEND CMAKE_PREFIX_PATH "${LT_LLVM_INSTALL_DIR}/lib/cmake/llvm/")
 
-set(LLVM_VERSION "12" CACHE STRING "LLVM Version")
-set(LLVM_VERSION_SUFFIX "-${LLVM_VERSION}")
+find_package(LLVM 14 REQUIRED CONFIG)
+find_package(Clang REQUIRED CONFIG)
+include_directories(SYSTEM ${LLVM_INCLUDE_DIRS})
+add_definitions(${LLVM_DEFINITIONS})
+link_directories(${LLVM_LIBRARY_DIRS})
+set(CMAKE_CXX_STANDARD 14 CACHE STRING "")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdiagnostics-color=always -Wall -Werror -Wno-unused-function")
 
-# Obtain the build flags from `llvm-config --cxxflags` and forward them to
-# variable CMAKE_CXX_FLAGS.
-execute_process(COMMAND llvm-config${LLVM_VERSION_SUFFIX} --cxxflags
-                OUTPUT_VARIABLE LLVM_CXXFLAGS
-                OUTPUT_STRIP_TRAILING_WHITESPACE)
-set(CMAKE_CXX_FLAGS "${LLVM_CXXFLAGS} -Wall -Werror")
-# set(CMAKE_CXX_CLANG_TIDY clang-tidy${LLVM_VERSION_SUFFIX})
 
 add_subdirectory(lib)  # Build the shared library libFunctionInfo.so.
-
 include(CTest)
 enable_testing()
 add_subdirectory(test)
