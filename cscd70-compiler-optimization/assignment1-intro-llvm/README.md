@@ -14,6 +14,8 @@
 
 ## Makefile 
 
+其中 `DLT_LLVM_INSTALL_DIR` 为 LLVM 的安装位置。
+
 ```bash
 mkdir build & cd build 
 CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ cmake -DLT_LLVM_INSTALL_DIR="/usr/local" ..
@@ -21,6 +23,28 @@ make
 ```
 
 Note that **macOS** will not allow undefined symbols in compile time (but at runtime, these undefined symbols could be meaningful as LLVM allows us to dynamically load passes), so we have to add `-undefined dynamic_lookup` to the target flag. See more in `FunctionInfo/lib/CMakeLists.txt `
+
+## Testing 
+
+```cpp
+make test 
+```
+
+If CTest report errors 
+
+```
+>> The following tests FAILED:
+>>	  1 - FunctionInfoTest (Failed)
+>> Errors while running CTest
+```
+
+Then see what happens to `ctest` . 
+
+```
+ctest -R FunctionInfoTest -VV
+```
+
+
 
 
 
