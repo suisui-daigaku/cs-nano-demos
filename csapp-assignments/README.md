@@ -7,12 +7,6 @@ https://github.com/zhwhong/Bufbomb_CSAPP
 
 
 
-这是本神书，因为编程的时候经常会遇到 ABI, calling convention 等等的死规定。
-
-很少有一本书能全面的介绍这些磨人的细节。CSAPP 就是这样一本全面介绍计算机细节的书。
-
-
-
 ## Useful Resource 
 
 - C++ 和 C 的区别 [The Secret Life of C++ ](c-and-cpp-overview.md)

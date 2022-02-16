@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "cs-csapp/README.md",
+            "file": "csapp-assignments/README.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cs-csapp/README.md",
+                "file": "csapp-assignments/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,12 +89,12 @@
   },
   "active": "c2e029bb962c172e",
   "lastOpenFiles": [
-    "cs-csapp/README.md",
-    "cs-csapp/notes/usage-general-purpose-register.md",
-    "cs-csapp/notes/x64.md",
-    "cs-csapp/notes/image-20220209202605109.png",
-    "cs-csapp/notes/DbexT.gif",
-    "cs-csapp/notes/c-and-cpp-overview.md",
+    "csapp-assignments/README.md",
+    "csapp-assignments/notes/usage-general-purpose-register.md",
+    "csapp-assignments/notes/x64.md",
+    "csapp-assignments/notes/image-20220209202605109.png",
+    "csapp-assignments/notes/DbexT.gif",
+    "csapp-assignments/notes/c-and-cpp-overview.md",
     "cs-csapp/resources/google-cpp-style.md",
     "llvm-hello-world/docs/write_llvm_ir_generator.md",
     "llvm-hello-world/README.md",
