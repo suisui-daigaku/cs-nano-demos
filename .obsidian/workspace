@@ -7,8 +7,12 @@
         "id": "c2e029bb962c172e",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "cs-csapp/README.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -65,6 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "cs-csapp/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -84,15 +89,15 @@
   },
   "active": "c2e029bb962c172e",
   "lastOpenFiles": [
+    "cs-csapp/README.md",
+    "cs-csapp/notes/usage-general-purpose-register.md",
+    "cs-csapp/notes/x64.md",
+    "cs-csapp/notes/image-20220209202605109.png",
+    "cs-csapp/notes/DbexT.gif",
+    "cs-csapp/notes/c-and-cpp-overview.md",
+    "cs-csapp/resources/google-cpp-style.md",
     "llvm-hello-world/docs/write_llvm_ir_generator.md",
     "llvm-hello-world/README.md",
-    "llvm-hello-world/Examples/README.md",
-    "cmake-exercises/README.md",
-    "cmake-exercises/Pasted image 20220202150334.png",
-    "numerical-method/root-finding.md",
-    "your-own-scheme-compiler/README.md",
-    "LIT-exercises/README.md",
-    "your-own-c-compiler/README.md",
-    "llvm-hello-world/Examples/未命名.md"
+    "llvm-hello-world/Examples/README.md"
   ]
 }

@@ -4,5 +4,6 @@
   "promptDelete": false,
   "showUnsupportedFiles": true,
   "newFileLocation": "current",
-  "attachmentFolderPath": "./附件"
+  "attachmentFolderPath": "./附件",
+  "alwaysUpdateLinks": true
 }
