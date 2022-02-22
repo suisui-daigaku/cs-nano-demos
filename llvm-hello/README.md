@@ -1,6 +1,10 @@
 # LLVM Pass 小作业
 
-写小作业是最快的学习方法。
+写小作业是最快的学习方法
+
+This is the tutorial for **LLVM IR Pass** 
+
+The tutorial for **LLVM backend Pass** is at [here](../llvm-hello-world-backend/README.md) 
 
 ## Objectives 
 

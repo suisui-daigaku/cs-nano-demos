@@ -1,5 +1,7 @@
 # LLVM Hello World Backend Pass 
 
+## Get Started 
+
 In `lib/Target/X86/` directory, create a pass `X86MachineCountPass.cpp` (the header file is optional, but if it is an analysis pass, it can be used by other passes if there is a header file). 
 
 ```cpp
@@ -98,10 +100,72 @@ Or create a Clion CMake profile and then ***Build -> Build Project*** to debug t
 Test if the llvm works properly 
 
 ```bash
-~/llvm-project/llvm/cmake-build-release/llc --version 
+~/llvm-project/llvm/cmake-build-release/bin/llc --version 
 ```
 
+## Run Your Pass 
 
+The input assembly code `example_for_call_count.c`
+
+```c
+#include <stdio.h>
+
+void foo() { }
+void bar() {foo(); }
+void fez() {bar(); }
+
+int main() {
+  foo();
+  bar();
+  fez();
+
+  int ii = 0;
+  for (ii = 0; ii < 10; ii++)
+    foo();
+
+  return 0;
+}
+```
+
+To see the **Help** manual 
+
+```bash
+clang --help | grep -e "-c"
+```
+
+or `man` to have a nice documentation. 
+
+```bash
+man clang
+```
+
+Read the book [International Conference on Security and Privacy in Communication Networks ... - Google 图书](https://books.google.com.au/books?id=423_CgAAQBAJ&pg=PA333&lpg=PA333&dq=–march%3Dx86+llc&source=bl&ots=3EH8no4d9p&sig=ACfU3U1NPhKa9GWsn1DoTP-Xnr8JsegZ9Q&hl=zh-CN&sa=X&ved=2ahUKEwj0jc6GnpL2AhURlNgFHU9BBj0Q6AF6BAgbEAM#v=onepage&q=–march%3Dx86 llc&f=false)
+
+You must put all flag in front of the source file. 
+
+compile the program to LLVM IR (don't use the driver, `-emit-llvm` flag must be added). 
+
+```bash
+clang -emit-llvm -g -O0 -S -o example_for_call_count.ll example_for_call_count.c 
+```
+
+and generate the X86 code by using the new backend (without any flags).
+
+```bash
+~/llvm-project/llvm/cmake-build-release/bin/llc example_for_call_count.ll
+```
+
+To specify the target, `-march` 
+
+```
+~/llvm-project/llvm/cmake-build-release/bin/llc -march=x86-64 -o example_for_call_count.s example_for_call_count.ll
+```
+
+To see where our pass got inserted in the pass pipeline
+
+```bash
+~/llvm-project/llvm/cmake-build-release/bin/llc -debug-pass=Structure example_for_call_count.ll
+```
 
 
 
