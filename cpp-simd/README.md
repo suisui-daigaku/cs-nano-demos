@@ -152,6 +152,10 @@ Intrinsics are C functions and procedures for ***inserting assembly language int
 The **intrinsic** development guide in Intel: 
 https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
 
+(这个 Intel 手册还挺漂亮的)。
+
+[How to Write Fast Numerical Code (ethz.ch)](https://acl.inf.ethz.ch/teaching/fastcode/2021/slides/07-simd-avx.pdf)
+
 
 
 ## 小作业 Homeworks 
