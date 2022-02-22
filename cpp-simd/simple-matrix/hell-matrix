@@ -1,0 +1,175 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.build_version macos, 12, 0	sdk_version 12, 1
+	.section	__TEXT,__literal8,8byte_literals
+	.p2align	3                               ## -- Begin function main
+LCPI0_0:
+	.quad	0x4010000000000000              ## double 4
+LCPI0_1:
+	.quad	0x4008000000000000              ## double 3
+LCPI0_2:
+	.quad	0x4000000000000000              ## double 2
+LCPI0_3:
+	.quad	0x3ff0000000000000              ## double 1
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	_main
+	.p2align	4, 0x90
+_main:                                  ## @main
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	subq	$512, %rsp                      ## imm = 0x200
+	movq	___stack_chk_guard@GOTPCREL(%rip), %rax
+	movq	(%rax), %rax
+	movq	%rax, -8(%rbp)
+	movl	$0, -396(%rbp)
+	movl	%edi, -400(%rbp)
+	movq	%rsi, -408(%rbp)
+	movl	$2, -412(%rbp)
+	movl	$2, -416(%rbp)
+	movl	$0, -420(%rbp)
+	movsd	LCPI0_3(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -48(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -40(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -32(%rbp)
+	movsd	LCPI0_3(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -24(%rbp)
+	movsd	LCPI0_3(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -80(%rbp)
+	movsd	LCPI0_2(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -72(%rbp)
+	movsd	LCPI0_1(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -64(%rbp)
+	movsd	LCPI0_0(%rip), %xmm0            ## xmm0 = mem[0],zero
+	movsd	%xmm0, -56(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -112(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -104(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -96(%rbp)
+	xorps	%xmm0, %xmm0
+	movsd	%xmm0, -88(%rbp)
+	leaq	-112(%rbp), %rax
+	movq	%rax, -376(%rbp)
+	movq	-376(%rbp), %rax
+	movapd	(%rax), %xmm0
+	movapd	%xmm0, -448(%rbp)
+	leaq	-112(%rbp), %rax
+	addq	$16, %rax
+	movq	%rax, -384(%rbp)
+	movq	-384(%rbp), %rax
+	movapd	(%rax), %xmm0
+	movapd	%xmm0, -464(%rbp)
+	movl	$0, -420(%rbp)
+LBB0_1:                                 ## =>This Inner Loop Header: Depth=1
+	cmpl	$2, -420(%rbp)
+	jge	LBB0_4
+## %bb.2:                               ##   in Loop: Header=BB0_1 Depth=1
+	movl	-420(%rbp), %eax
+	addl	%eax, %eax
+	cltq
+	leaq	-48(%rbp,%rax,8), %rax
+	movq	%rax, -392(%rbp)
+	movq	-392(%rbp), %rax
+	movapd	(%rax), %xmm0
+	movapd	%xmm0, -480(%rbp)
+	movslq	-420(%rbp), %rax
+	leaq	-80(%rbp,%rax,8), %rax
+	movq	%rax, -312(%rbp)
+	movq	-312(%rbp), %rax
+	movsd	(%rax), %xmm0                   ## xmm0 = mem[0],zero
+	movsd	%xmm0, -320(%rbp)
+	movsd	-320(%rbp), %xmm0               ## xmm0 = mem[0],zero
+	movddup	%xmm0, %xmm0                    ## xmm0 = xmm0[0,0]
+	movapd	%xmm0, -336(%rbp)
+	movapd	-336(%rbp), %xmm0
+	movapd	%xmm0, -496(%rbp)
+	movslq	-420(%rbp), %rax
+	leaq	-64(%rbp,%rax,8), %rax
+	movq	%rax, -344(%rbp)
+	movq	-344(%rbp), %rax
+	movsd	(%rax), %xmm0                   ## xmm0 = mem[0],zero
+	movsd	%xmm0, -352(%rbp)
+	movsd	-352(%rbp), %xmm0               ## xmm0 = mem[0],zero
+	movddup	%xmm0, %xmm0                    ## xmm0 = xmm0[0,0]
+	movapd	%xmm0, -368(%rbp)
+	movapd	-368(%rbp), %xmm0
+	movapd	%xmm0, -512(%rbp)
+	movapd	-448(%rbp), %xmm1
+	movapd	-480(%rbp), %xmm2
+	movapd	-496(%rbp), %xmm0
+	movapd	%xmm2, -192(%rbp)
+	movapd	%xmm0, -208(%rbp)
+	movapd	-192(%rbp), %xmm0
+	mulpd	-208(%rbp), %xmm0
+	movapd	%xmm1, -256(%rbp)
+	movapd	%xmm0, -272(%rbp)
+	movapd	-256(%rbp), %xmm0
+	addpd	-272(%rbp), %xmm0
+	movapd	%xmm0, -448(%rbp)
+	movapd	-464(%rbp), %xmm1
+	movapd	-480(%rbp), %xmm2
+	movapd	-512(%rbp), %xmm0
+	movapd	%xmm2, -224(%rbp)
+	movapd	%xmm0, -240(%rbp)
+	movapd	-224(%rbp), %xmm0
+	mulpd	-240(%rbp), %xmm0
+	movapd	%xmm1, -288(%rbp)
+	movapd	%xmm0, -304(%rbp)
+	movapd	-288(%rbp), %xmm0
+	addpd	-304(%rbp), %xmm0
+	movapd	%xmm0, -464(%rbp)
+## %bb.3:                               ##   in Loop: Header=BB0_1 Depth=1
+	movl	-420(%rbp), %eax
+	addl	$1, %eax
+	movl	%eax, -420(%rbp)
+	jmp	LBB0_1
+LBB0_4:
+	leaq	-112(%rbp), %rax
+	movapd	-448(%rbp), %xmm0
+	movq	%rax, -120(%rbp)
+	movapd	%xmm0, -144(%rbp)
+	movapd	-144(%rbp), %xmm0
+	movq	-120(%rbp), %rax
+	movapd	%xmm0, (%rax)
+	leaq	-112(%rbp), %rax
+	addq	$16, %rax
+	movapd	-464(%rbp), %xmm0
+	movq	%rax, -152(%rbp)
+	movapd	%xmm0, -176(%rbp)
+	movapd	-176(%rbp), %xmm0
+	movq	-152(%rbp), %rax
+	movapd	%xmm0, (%rax)
+	movsd	-112(%rbp), %xmm0               ## xmm0 = mem[0],zero
+	movsd	-96(%rbp), %xmm1                ## xmm1 = mem[0],zero
+	movsd	-104(%rbp), %xmm2               ## xmm2 = mem[0],zero
+	movsd	-88(%rbp), %xmm3                ## xmm3 = mem[0],zero
+	leaq	L_.str(%rip), %rdi
+	movb	$4, %al
+	callq	_printf
+	movq	___stack_chk_guard@GOTPCREL(%rip), %rax
+	movq	(%rax), %rax
+	movq	-8(%rbp), %rcx
+	cmpq	%rcx, %rax
+	jne	LBB0_6
+## %bb.5:
+	xorl	%eax, %eax
+	addq	$512, %rsp                      ## imm = 0x200
+	popq	%rbp
+	retq
+LBB0_6:
+	callq	___stack_chk_fail
+	ud2
+	.cfi_endproc
+                                        ## -- End function
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:                                 ## @.str
+	.asciz	"%g, %g\n%g, %g\n"
+
+.subsections_via_symbols
