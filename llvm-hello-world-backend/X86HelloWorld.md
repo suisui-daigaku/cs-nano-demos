@@ -90,7 +90,7 @@ To see if llvm works properly
 
 ```bash
 # don't install this llvm, otherwises, it will pollute the original llvm. 
-~/llvm-project/llvm/build/llc 
+~/llvm-project/llvm/cmake-build-release/bin/llc  
 ```
 
 Or create a Clion CMake profile and then ***Build -> Build Project*** to debug the LLVM. 
@@ -100,7 +100,7 @@ Or create a Clion CMake profile and then ***Build -> Build Project*** to debug t
 Test if the llvm works properly 
 
 ```bash
-~/llvm-project/llvm/cmake-build-release/bin/llc --version 
+~/llvm-project/llvm/cmake-build-release/bin/llc   --version 
 ```
 
 ## Run Your Pass 
