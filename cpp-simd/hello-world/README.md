@@ -6,6 +6,10 @@
 
 [PKUFlyingPig/CS61C-labs: my implementation for the CS61C labs in 2020 summer version (github.com)](https://github.com/PKUFlyingPig/CS61C-labs)
 
+[CS 61C (berkeley.edu)](https://inst.eecs.berkeley.edu/~cs61c/su20/#by-week)
+
+[Lab 8: SIMD Intrinsics and Unrolling (berkeley.edu)](https://inst.eecs.berkeley.edu/~cs61c/sp12/labs/08/)
+
 ---
 
 The `main.cpp`

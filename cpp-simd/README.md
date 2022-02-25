@@ -12,6 +12,7 @@
 - [Intrinsic function - Wikipedia](https://en.wikipedia.org/wiki/Intrinsic_function)
 - [SIMD/Overview - MozillaWiki](https://wiki.mozilla.org/SIMD/Overview)
 - [CourSys - SIMD Code Generation in the LLVM Back-End (sfu.ca)](https://coursys.sfu.ca/2018sp-cmpt-489-x1/pages/BackEndSIMD)
+- [Lab 8: SIMD Intrinsics and Unrolling (berkeley.edu)](https://inst.eecs.berkeley.edu/~cs61c/sp12/labs/08/)
 
 ## Flynn's Taxonomy
 
