@@ -8,9 +8,9 @@
 
 int main(int argc, char *argv[]){
     // allocate A, B, C aligned on 16-byte boundaries 
-    inline __attribute__((aligned(16))) double A[4]; 
-    inline __attribute__((aligned(16))) double B[4];
-    inline __attribute__((aligned(16))) double C[4];
+    __attribute__((aligned(16))) double A[4]; 
+    __attribute__((aligned(16))) double B[4];
+    __attribute__((aligned(16))) double C[4];
 
     const int N = 2; 
     const int M = 2; 
