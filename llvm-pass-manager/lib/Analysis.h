@@ -1,6 +1,7 @@
 #include <vector>
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Pass.h" 
+#include "llvm/IR/Function.h"
 
 
 using namespace llvm;

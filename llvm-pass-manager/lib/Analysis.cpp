@@ -8,7 +8,9 @@ void Analysis::getAnalysisUsage(AnalysisUsage &AU) const {
 }
 
 bool Analysis::runOnModule(Module &M) {
-  outs() << "Analysis" << "\n";
+  outs() << "\n----------------------------------------------\n"; 
+  outs() << ">>>>>>>>>>> Analysis <<<<<<<<<<<<"; 
+  outs() << "\n----------------------------------------------\n"; 
 
   // pretend as if we have gathered some information here
   Stats.push_back(1);

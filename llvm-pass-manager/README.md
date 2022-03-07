@@ -21,12 +21,12 @@ make
 Transformation `Transform.cpp`
 
 ```bash
-opt --enable-new-pm=0 -load ./build/lib/libPassManagerHelloWorld.dylib -transform -o example_for_call_count.bin example_for_call_count.ll
+opt --enable-new-pm=0 -load ./lib/libPassManagerHelloWorld.dylib -transform -o ../example_for_call_count.bin ../example_for_call_count.ll
 ```
 
-AnotherTransform `AnotherTransform.cpp`
+To see how the analysis results from `Analysis.cpp` can be reserved, load `Transform.cpp` and `AnotherTransform.cpp`. 
 
 ```bash
-opt --enable-new-pm=0 -load ./build/lib/libPassManagerHelloWorld.dylib -another-transform -o example_for_call_count.bin example_for_call_count.ll
+opt --enable-new-pm=0 -load ./lib/libPassManagerHelloWorld.dylib -transform -another-transform -o ../example_for_call_count.bin ../example_for_call_count.ll
 ```
 
