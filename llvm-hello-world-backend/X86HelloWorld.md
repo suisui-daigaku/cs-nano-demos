@@ -80,7 +80,9 @@ mkdir build && cd build
 
 # build the LLVM alone 
 # 	(without building other subprojects... specify compiler and system SDK(the SDK depends on the system version))
-CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE="Release"
+# SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
+
+CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE="Release"
 
 # build (use all cores in the laptop). 
 cmake --build . -j $(nproc)
