@@ -39,30 +39,51 @@ But for developing a simple OS, we only need to specify a generic X86 architectu
 But now, I know need X86 assembly code 
 
 ```bash
-clang HelloWorld.ll -S -o HelloWorld.asm -O3 -mllvm --x86-asm-syntax=intel
+clang HelloWorld.ll -S -o HelloWorld.s -O3 -mllvm --x86-asm-syntax=intel
+```
+
+Or use LLVM static compiler to generare assembly code (`-m` is the parameter to LLVM and `arch` is used to identify target archiecture). 
+
+```bash
+clang HelloWorld.c -O3 -S -emit-llvm -march=x86-64
+llc -filetype=asm --x86-asm-syntax=[intel 或者 att] HelloWorld.ll
 ```
 
 ---
 
-## Assembling and Linking 
+## Assembling
 
-To assembly code 
+To assembling X86 assembly code, you can use `as`, `nasm`
+
+[Linux assemblers: A comparison of GAS and NASM - IBM Developer](https://developer.ibm.com/articles/l-gas-nasm/)
 
 ```bash
-clang HelloWorld.asm -S -o HelloWorld.obj
+as HelloWorld.s 
 ```
 
-The `-S` here means "Only run preprocess, compile, and assemble steps" without linking. 
+or the LLVM static compiler `ll` (but it only support `ll` assembly inputs, it means if you manually write X86 code, you have to run assemblers like `as` or `nasm`). 
 
-Or without linking 
+[c++ - How to generate machine code with llvm - Stack Overflow](https://stackoverflow.com/questions/13464259/how-to-generate-machine-code-with-llvm)
+
+[llc - LLVM static compiler — LLVM 15.0.0git documentation](https://llvm.org/docs/CommandGuide/llc.html)
 
 ```bash
-clang HelloWorld.asm -o HelloWorld
+llc -filetype=obj HelloWorld.ll
 ```
 
-Linking (but nothing to link in this case) to executable 
+## Linking
+
+The last stop of the journey ! The clang will joint all object files into a single executable. 
 
 ```bash
-clang HelloWorld.obj -o main
+clang HelloWorld.o -o HelloWorld
+```
+
+## Objdump
+
+We can also inspect the assembly code. 
+
+```bash
+objdump -d a.out
 ```
 

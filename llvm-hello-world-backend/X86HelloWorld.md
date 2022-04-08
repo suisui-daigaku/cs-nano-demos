@@ -72,18 +72,30 @@ see the blog here [LLVM安装 (haohua-li.github.io)](https://haohua-li.github.io
 
 (assume the llvm has been built, hence, you don't have to enable any subprojects). 
 
-I do the testing in my git clone (`~` is the user home directory). 
+Navigate to the LLMV directory (not the `llvm-project` giant project),
 
 ```bash
 cd ~/llvm-project/llvm 
 mkdir build && cd build
+```
 
+Run CMake to only build the `llvm` project (Don't waste time on other sub-projects)
+
+```bash
 # build the LLVM alone 
 # 	(without building other subprojects... specify compiler and system SDK(the SDK depends on the system version))
 # SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
 
-CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE="Release"
+CC=/usr/local/bin/clang CXX=/usr/local/bin/clang++ cmake .. -G Ninja -DCMAKE_BUILD_TYPE="Release"
+```
 
+If you see the following error, don't panic. Delete file `CMakeCache.txt` and the directory `CMakeFiles`. 
+
+![image-20220408101548344](image-20220408101548344.png)
+
+Build LLVM. 
+
+```bash
 # build (use all cores in the laptop). 
 cmake --build . -j $(nproc)
 ```
