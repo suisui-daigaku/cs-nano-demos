@@ -1,0 +1,89 @@
+diff --git a/llvm/lib/Target/X86/CMakeLists.txt b/llvm/lib/Target/X86/CMakeLists.txt
+index a2816f6e5..bd034270e 100644
+--- a/llvm/lib/Target/X86/CMakeLists.txt
++++ b/llvm/lib/Target/X86/CMakeLists.txt
+@@ -24,6 +24,7 @@ endif()
+ add_public_tablegen_target(X86CommonTableGen)
+ 
+ set(sources
++  HelloWorldNoopInserter.cpp
+   X86AsmPrinter.cpp
+   X86AvoidTrailingCall.cpp
+   X86CallFrameOptimization.cpp
+diff --git a/llvm/lib/Target/X86/HelloWorldNoopInserter.cpp b/llvm/lib/Target/X86/HelloWorldNoopInserter.cpp
+new file mode 100644
+index 000000000..e3952f1c2
+--- /dev/null
++++ b/llvm/lib/Target/X86/HelloWorldNoopInserter.cpp
+@@ -0,0 +1,34 @@
++#include "X86.h"
++#include "llvm/CodeGen/MachineBasicBlock.h"
++#include "llvm/CodeGen/MachineFunctionPass.h"
++#include "MCTargetDesc/X86MCTargetDesc.h"
++#include "llvm/CodeGen/TargetInstrInfo.h"
++
++using namespace llvm; 
++
++
++namespace {
++class HelloWorldNoopInserter : public MachineFunctionPass {
++public:
++  static char ID;
++  HelloWorldNoopInserter() : MachineFunctionPass(ID) {}
++  bool runOnMachineFunction(MachineFunction &MF) override;
++};
++} // namespace
++
++
++char HelloWorldNoopInserter::ID = 0;
++// WARNING: to avoid 'out-of-line' declaration error, we have to 
++//          include the "X86.h" header. 
++FunctionPass *llvm::createHelloWorldNoopInserterPass() {
++  return new HelloWorldNoopInserter();
++}
++
++
++bool HelloWorldNoopInserter::runOnMachineFunction(llvm::MachineFunction &MF) {
++    const llvm::TargetInstrInfo &TII = *MF.getSubtarget().getInstrInfo();
++    MachineBasicBlock& BB = *MF.begin();
++    // llvm::BuildMI(BB, BB.begin(), llvm::DebugLoc(), TII.get(llvm::X86::NOOP));
++    return true;
++}
++
+diff --git a/llvm/lib/Target/X86/X86.h b/llvm/lib/Target/X86/X86.h
+index eba5b6ce7..d231233ef 100644
+--- a/llvm/lib/Target/X86/X86.h
++++ b/llvm/lib/Target/X86/X86.h
+@@ -14,6 +14,7 @@
+ #ifndef LLVM_LIB_TARGET_X86_X86_H
+ #define LLVM_LIB_TARGET_X86_X86_H
+ 
++#include "llvm/IR/DerivedTypes.h"
+ #include "llvm/Support/CodeGen.h"
+ 
+ namespace llvm {
+@@ -154,6 +155,10 @@ FunctionPass *createX86LoadValueInjectionRetHardeningPass();
+ FunctionPass *createX86SpeculativeLoadHardeningPass();
+ FunctionPass *createX86SpeculativeExecutionSideEffectSuppression();
+ 
++//
++FunctionPass *createHelloWorldNoopInserterPass(); 
++
++
+ void initializeEvexToVexInstPassPass(PassRegistry &);
+ void initializeFixupBWInstPassPass(PassRegistry &);
+ void initializeFixupLEAPassPass(PassRegistry &);
+diff --git a/llvm/lib/Target/X86/X86TargetMachine.cpp b/llvm/lib/Target/X86/X86TargetMachine.cpp
+index ee8cff3e0..2fc9b16a7 100644
+--- a/llvm/lib/Target/X86/X86TargetMachine.cpp
++++ b/llvm/lib/Target/X86/X86TargetMachine.cpp
+@@ -585,6 +585,9 @@ void X86PassConfig::addPreEmitPass2() {
+     addPass(createEHContGuardCatchretPass());
+   }
+   addPass(createX86LoadValueInjectionRetHardeningPass());
++
++  // playground... 
++  addPass(createHelloWorldNoopInserterPass()); 
+ }
+ 
+ bool X86PassConfig::addPostFastRegAllocRewrite() {
