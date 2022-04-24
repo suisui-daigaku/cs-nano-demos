@@ -1,0 +1,5 @@
+# ignore the shit in MacOS
+.DS_Store
+
+./*.bin
+vclSIMD.bin.dSYM/Contents/Info.plist

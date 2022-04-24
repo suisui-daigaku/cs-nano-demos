@@ -18,3 +18,5 @@ _deps
 llvm-hello-world/LLVM_Core_Libraries_Book/toy
 llvm-hello-world/LLVM_Core_Libraries_Book/toy.dSYM/Contents/Info.plist
 llvm-hello-world/LLVM_Core_Libraries_Book/toy.dSYM/Contents/Resources/DWARF/toy
+cpp-simd/avx256-simd/vclSIMD.bin.dSYM/Contents/Info.plist
+cpp-simd/avx256-simd/vclSIMD.bin.dSYM/Contents/Resources/DWARF/vclSIMD.bin
