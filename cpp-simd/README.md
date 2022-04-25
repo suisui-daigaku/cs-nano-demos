@@ -1,5 +1,13 @@
 # SIMD for C++
 
+## 小作业 Homeworks 
+
+- [x] [a simple AVX Tutorial](./avx256-simd/README.md) 
+- [ ] [Shuffle the Array - LeetCode](https://leetcode.com/problems/shuffle-the-array/)
+- [ ] [Kids With the Greatest Number of Candies - LeetCode](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
+- [ ] [Minimum Number of People to Teach - LeetCode](https://leetcode.com/problems/minimum-number-of-people-to-teach/)
+- [ ] [Median of Two Sorted Arrays - LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
 ## 参考资料
 
 - Computer Organization and Design The Hardware Software Interface (RISC-V Edition) 
@@ -51,8 +59,6 @@ sysctl -n machdep.cpu.brand_string
 
 比如 macbook pro 2019 款在 https://ark.intel.com/content/www/us/en/ark/products/191045/intel-core-i79750h-processor-12m-cache-up-to-4-50-ghz.html 
 
-![image-20220220152348881](image-20220220152348881.png)
-
 在 Instruction Set  那一栏可以看到 
 
 - Instruction Set : 
@@ -82,8 +88,6 @@ sysctl -n machdep.cpu.brand_string
 
 A few extended instructions are in SEE2 CPU. 
 
-![image-20220220174740701](image-20220220174740701.png)
-
 From the book *Computer Organization and Design The Hardware Software Interface (RISC-V Edition)* by David A. Patterson and John L. Hennessy. 
 
 The vector instructions are for **load/store**, **calculation** and **comparision**.   
@@ -107,15 +111,7 @@ But SIMD usually works with **wider registers (e.g. 128-bit, 256-bit.. )** and S
 >
 > ___from the book Chapter 3.7 *Computer Organization and Design: the hardware and software interface (RISCV edition)*
 
-![image-20220220161627501](image-20220220161627501.png)
-
 (single precision floating point number 32 bit, double precision floating point number 64 bit). 
-
-The vectorized instructions add and multiply are shown below 
-
-![image-20220220161904345](image-20220220161904345.png)
-
-
 
 There is a natural connecttion between **LLVM IR** and SIMD registers. 
 
@@ -160,30 +156,6 @@ https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
 
 [Alignment | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/cpp/alignment-cpp-declarations?view=msvc-170)
 
-The data are identified by their addresses in memory.
-
-An address is said to be aligned to `X` if its alignment is `Xn+0`.
-
-A single datum also has a size. **We call a datum *naturally aligned* if its address is aligned to its size.**
-
-For example, an 8-byte floating-point datum is naturally aligned if the address used to identify it has an 8-byte alignment.
-
-
-
-X86_64体系架构上**通用寄存器的大小为64位（即8个字节）**。
-
-所谓的XMM寄存器，是由SSE（Streaming SIMD Extensions）指令集所引入的。它们一开始仅为128位。自从X86平台上的CPU开始支持AVX（Advanced Vector Extensions）指令集后（2011年），XMM寄存器便升级为256位，并更名为YMM寄存器。**原本使用XMM寄存器的指令，现将使用YMM寄存器的低128位。**
-
-由于 vectorization 需要把整一段连续的内存读进 Register 里面， 所以需要内存对齐。
-
-![img](56cb8c99ce8a80d1c510ef50122616f2.png)
-
-注意到内存地址如果以**16进制表示**。如果要求32位对齐，只需要看**倒数第二位是否是偶数** (有没有多出一个16)。
-
-内存对齐需要**首地址是32的倍数**其**连续的区域** (可以通过 `sizeof(__m256)/sizeof(double)` 判断可以连续处理多少个)。
-
-
-
 #### Compiler-time Memory Alignment 
 
 [从Eigen向量化谈内存对齐 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/93824687)
@@ -197,16 +169,6 @@ Intrinsic function 是属于预编译指令，只能在 compile-time 时进行�
 #### Runtime Memory Alignment 
 
 [从Eigen向量化谈内存对齐 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/93824687)
-
-
-
-
-
-
-
-
-
-
 
 ## ABI 
 
@@ -227,22 +189,6 @@ To enable AVX in ABI, we need some flags
 ```
 clang++ main.cpp -mavx -mavx2
 ```
-
-问题 
-
-- [ ] TODO: 什么是 ABI ？？？
-
-
-
-
-
-## 小作业 Homeworks 
-
-- [x] [Hello World (unrolling, SIMD)](./hello-world/README.md)
-- [ ] [Shuffle the Array - LeetCode](https://leetcode.com/problems/shuffle-the-array/)
-- [ ] [Kids With the Greatest Number of Candies - LeetCode](https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/)
-- [ ] [Minimum Number of People to Teach - LeetCode](https://leetcode.com/problems/minimum-number-of-people-to-teach/)
-- [ ] [Median of Two Sorted Arrays - LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
 ## 大作业 Assignments 
 
