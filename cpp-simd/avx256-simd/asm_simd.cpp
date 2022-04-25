@@ -14,10 +14,8 @@ int main(){
 
     // printf("%lld\n", maxofthree(1, -4, -7));
     avx256Add(C, A, B); 
-    printf("[%lf, ", C[0]); 
-    printf("%lf, ", C[1]); 
-    printf("%lf, ", C[2]); 
-    printf("%lf]\n", C[3]); 
+
+    printf("[%lf, %lf, %lf, %lf]\n", C[0], C[1], C[2], C[3]); 
     
     return 0; 
 }

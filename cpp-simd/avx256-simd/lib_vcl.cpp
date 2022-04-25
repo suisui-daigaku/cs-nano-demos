@@ -1,22 +1,19 @@
+#include <cstdio>
 #include "vcl/vectorclass.h"
-#include <iostream>
+
 
 using namespace std; 
 
 
 int main(){
-    Vec8d A = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0}; 
-    Vec8d B = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0}; 
+    Vec4d A = {1.0, 2.0, 3.0, 4.0}; 
+    Vec4d B = {1.0, 2.0, 3.0, 4.0}; 
 
-    Vec8d C = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+    Vec4d C = {0.0, 0.0, 0.0, 0.0};
 
     C = A + B; 
 
-    std::cout << "["; 
-    for (int i = 0; i < 8; i++){
-        std::cout << C[i] << ", "; 
-    }
-    std::cout << "]\n"; 
+    printf("[%lf, %lf, %lf, %lf]\n", C[0], C[1], C[2], C[3]); 
 
-    return 0; 
+    return 0;
 }

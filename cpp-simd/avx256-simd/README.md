@@ -22,7 +22,6 @@ Intrinsic 头文件区别 https://docs.microsoft.com/en-us/cpp/intrinsics/x86-in
   - [酷站推荐 - officedaytime.com - x86/x64 SIMD SSE-AVX512 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/338277575)
 - Mixing C++ and Assmebly
   - [AVX512 (2 of 3): Programming AVX512 in 3 Different Ways - YouTube](https://www.youtube.com/watch?v=I3efQKLgsjM)
-  - 
 
 ---
 

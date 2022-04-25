@@ -9,5 +9,7 @@ int main(){
 
     C = _mm256_add_pd(A, B); 
 
+    
+
     return 0; 
 }

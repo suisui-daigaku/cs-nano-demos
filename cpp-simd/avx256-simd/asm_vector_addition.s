@@ -21,7 +21,6 @@
 #    ret                             # the max will be in eax
 
 
-
 # The parameters: https://cs61.seas.harvard.edu/site/2021/Asm/
 # AVX Registers: https://en.wikipedia.org/wiki/Advanced_Vector_Extensions
 #                        C            A            B

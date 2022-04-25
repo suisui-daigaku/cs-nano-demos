@@ -10,6 +10,9 @@
 
 ## 参考资料
 
+- **C++ Vectorization [chryswoods.com | Part 2: AVX Intrinsics](https://chryswoods.com/vector_c++/immintrin.html)**
+  - 良心资料
+
 - Computer Organization and Design The Hardware Software Interface (RISC-V Edition) 
   - Chapter 3.7 
   - Chapter 6 
