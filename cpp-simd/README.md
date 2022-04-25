@@ -8,10 +8,20 @@
 - [ ] [Minimum Number of People to Teach - LeetCode](https://leetcode.com/problems/minimum-number-of-people-to-teach/)
 - [ ] [Median of Two Sorted Arrays - LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 
-## 参考资料
+## 推荐资料
 
 - **C++ Vectorization [chryswoods.com | Part 2: AVX Intrinsics](https://chryswoods.com/vector_c++/immintrin.html)**
   - 良心资料
+
+- [x86 intrinsics list | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/intrinsics/x86-intrinsics-list?view=msvc-170)
+  - 另一个良心资料，配合上一个使用
+
+- [x86/x64 SIMD Instruction List (SSE to AVX512) (officedaytime.com)](https://officedaytime.com/simd512e/)
+- [Intel® Intrinsics Guide](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#text=_mm256_set1_pd)
+
+后面的两个属于比较高阶的资料，要有一定基础才能读懂。
+
+## 其他参考资料
 
 - Computer Organization and Design The Hardware Software Interface (RISC-V Edition) 
   - Chapter 3.7 
