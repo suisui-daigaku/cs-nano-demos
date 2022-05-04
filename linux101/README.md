@@ -1,10 +1,10 @@
 # Linux 101
 
-蓝桥 Linux 入门
+[Linux 基础入门_Linux - 蓝桥云课 (lanqiao.cn)](https://www.lanqiao.cn/courses/1)
 
-## Basics 
+[Linux 运维新手入门课_Linux - 蓝桥云课 (lanqiao.cn)](https://www.lanqiao.cn/courses/1403)
 
-### Terminal/Console/Typewriter
+## Terminal/Console/Typewriter
 
 [Terminals, Consoles & Shells Explained... - Sab's Blog (sebastiangogola.com)](https://sebastiangogola.com/terminals-consoles-shells-explained/)
 
@@ -27,7 +27,7 @@ In conclusion, **Terminal** is a software emulated-teletype, it can send and rec
 - Local : pseudo-teletype **(PTY, PTS, TTY)** 
 - Remote : [PuTTY](https://www.ssh.com/ssh/putty/)
 
-### Sesstion 
+## Sesstion 
 
 The connection ***between a terminal and the server is called a sesstion*** (think of a terminal is the client, and the operating system or the desired application is the server. In fact, the client-server model is used more frequently than we though in our computer). 
 
@@ -50,7 +50,7 @@ If you open another terminal, and type `tty` again
 
 Not surprising, right?  
 
-### Terminal Multiplexor
+## Terminal Multiplexor
 
 [Home · tmux/tmux Wiki (github.com)](https://github.com/tmux/tmux/wiki)
 
@@ -68,7 +68,7 @@ We want to open another terminal which conncects to the same server.
 >
 > From https://www.sciencedirect.com/topics/engineering/multiplexors 
 
-### Shell
+## Shell
 
 [Terminals, Consoles & Shells Explained... - Sab's Blog (sebastiangogola.com)](https://sebastiangogola.com/terminals-consoles-shells-explained/)
 
@@ -96,3 +96,19 @@ uname -r
 The script file `show_kernel_version.sh` (in fact, the extension name is not important, since `#!` token will tell the shell which shell to use). 
 
 <img src="image-20220504205520230.png" alt="image-20220504205520230" style="zoom: 50%;" />
+
+This is all about Linux 101. 
+
+Learn more **Linux utilities** by `man` and `--help` or `-h` commands. 
+
+[What's the difference betwen the single dash and double dash flags on shell commands? - Server Fault](https://serverfault.com/questions/387935/whats-the-difference-betwen-the-single-dash-and-double-dash-flags-on-shell-comm)
+
+> A single hyphen can be followed by multiple single-character flags. A double hyphen prefixes a single, multicharacter option.
+>
+> ```
+> tar -h 
+> tar --help
+> ```
+
+Keep in mind,  **Linux utilities** are not a part of Linux. 
+
