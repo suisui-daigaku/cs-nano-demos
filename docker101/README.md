@@ -10,3 +10,7 @@ Read https://github.com/randoruf/cs-nano-projects/tree/main/linux101/README.md
 
 and  https://github.com/randoruf/cs-nano-projects/blob/main/docker101/os-linux/README.md
 
+and https://github.com/randoruf/cs-nano-projects/blob/main/docker101/example-mosh-js/README.md
+
+
+

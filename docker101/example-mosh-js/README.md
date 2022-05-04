@@ -27,8 +27,7 @@ docker image ls
 
 Run our image as a container 
 
-
-
 ```bash
+docker run hello-docker 
 ```
 
