@@ -6,7 +6,7 @@
 
 ## Linux 
 
-See Linux101 
+See https://github.com/randoruf/cs-nano-projects/tree/main/linux101
 
 ## Alpine, BusyBox & Musl Libc 
 
