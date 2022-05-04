@@ -1,3 +1,0 @@
-3.217912e-02 Fibonacci.c
-4.127979e-02 Loop.c
-4.281998e-04 Loop.c.ll
