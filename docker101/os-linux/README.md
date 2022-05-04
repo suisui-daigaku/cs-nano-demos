@@ -40,6 +40,10 @@ To exit the sesstion, type `exit` or press ***ctrl+d*** (***ctrl + c*** to inter
 
 Now check again by typing `docker ps`, and see what container we have. 
 
+<img src="image-20220504213839372.png" alt="image-20220504213839372" style="zoom:50%;" />
+
+Once the process has completed, there is no container any more. 
+
 > We could remove the container by `docker rm`
 
 ## Alpine, BusyBox & Musl Libc 
