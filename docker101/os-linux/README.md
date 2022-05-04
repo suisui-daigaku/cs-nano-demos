@@ -8,6 +8,40 @@
 
 See https://github.com/randoruf/cs-nano-projects/tree/main/linux101
 
+Download the Ubuntu image 
+
+```bash
+docker pull ubuntu:20.04
+```
+
+And check out the images 
+
+```
+docker image ls
+```
+
+<img src="image-20220504211437761.png" alt="image-20220504211437761" style="zoom:50%;" />
+
+To launch the Ubuntu container 
+
+```bash
+docker run -ti ubuntu:20.04 /bin/bash
+```
+
+(`t` means termianl or tty, and `i` means interative mode. Then `/bin/bash` is the first prorgam to run after entering Ubuntu)
+
+If you open another terminal and type `docker ps`, you will inmediately know ***what is a container***.
+
+The container is a running instance/process of an image. 
+
+![image-20220504211702171](image-20220504211702171.png)
+
+To exit the sesstion, type `exit` or press ***ctrl+d*** (***ctrl + c*** to interrupt the sesstion). 
+
+Now check again by typing `docker ps`, and see what container we have. 
+
+> We could remove the container by `docker rm`
+
 ## Alpine, BusyBox & Musl Libc 
 
 > 使用 Docker，读者只需要一个命令就能快速获取一个 Linux 发行版镜像。
@@ -38,5 +72,5 @@ ubuntu              latest        b39b81afc8ca      188.3 MB
 centos              latest        8efe422e6104      210 MB
 ```
 
-From the book 《docker 从入门到实践》 
+From the book [《docker 从入门到实践》](https://yeasy.gitbook.io/docker_practice/)
 
