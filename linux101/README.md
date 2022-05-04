@@ -112,3 +112,21 @@ Learn more **Linux utilities** by `man` and `--help` or `-h` commands.
 
 Keep in mind,  **Linux utilities** are not a part of Linux. 
 
+## User and Groups 
+
+> ***NOTE***:
+>
+> User is not the same concept in 'user space'
+
+- `root` account with the highest privilege, which starts with `#`
+- normal user account starts with `$`
+
+```
+root:/# 
+hello:/$  
+```
+
+***Docker Tutorial for Beginners***
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pTFZFxd4hOI?start=1789" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

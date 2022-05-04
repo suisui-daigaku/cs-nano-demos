@@ -44,7 +44,21 @@ Now check again by typing `docker ps`, and see what container we have.
 
 Once the process has completed, there is no container any more. 
 
-> We could remove the container by `docker rm`
+But for the debugging purpose (sometimes, if there are bugs in the image, the container will exit immediately due to interrupt signals), the containers will not be deleted automatically. 
+
+```bash
+docker ps -a
+```
+
+![image-20220504221512543](image-20220504221512543.png)
+
+We could remove the container by `docker rm` manually. 
+
+Or with `-it` and `--rm` to automatically remove the container 
+
+```bash
+docker run -ti --rm ubuntu:20.04 /bin/bash
+```
 
 ## Alpine, BusyBox & Musl Libc 
 
