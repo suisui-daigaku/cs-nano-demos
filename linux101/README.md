@@ -126,7 +126,86 @@ root:/#
 hello:/$  
 ```
 
+## File System 
+
+[【Programming with Mosh】Docker Tutorial for Beginners - YouTube](https://www.youtube.com/watch?v=pTFZFxd4hOI)
+
+<img src="image-20220504224417366.png" alt="image-20220504224417366" style="zoom: 33%;" />
+
+Keep in mind, 
+
+> ***Everything is a file in Linux*** (including ***running processes***, device, directory, network socket, pipe)
+
+- `/` root directory 
+  - `/bin/` binary program 
+  - `/boot/` booting 
+  - `/dev/` device 
+  - `/etc/` editable text configuration 
+  - `/root/`  
+  - `/home/`
+  - `/lib/` system library like glibc
+  - `/var/` variables (somethings that are updated frequently, like log file)
+  - `/proc/` running processes (Linux abstracts the running processes as files)
+
+## Off the Topic
+
+### Basic Commands
+
 ***Docker Tutorial for Beginners***
 
+[Docker Tutorial for Beginners - YouTube](https://www.youtube.com/watch?v=pTFZFxd4hOI)
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pTFZFxd4hOI?start=1789" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The current working directory
+
+```bash
+pwd
+```
+
+### Text 
+
+- vim 
+- cat 
+- less 
+- head
+- tail 
+
+#### Redirect stdio and stdout
+
+[Docker Tutorial for Beginners - YouTube](https://www.youtube.com/watch?v=pTFZFxd4hOI)
+
+[bash - What does the < (left chevron / triangle bracket) do? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/283374/what-does-the-left-chevron-triangle-bracket-do)
+
+```
+grep "something" < /path/to/input.file > /path/to/output.file 
+```
+
+#### Pipe 
+
+[Piping in Unix or Linux - GeeksforGeeks](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)
+
+### Package Manager 
+
+When you install a new software, the package manager will first search the name in the local database and then pull the software from the remote server. 
+
+In docker, you may encounter an error while installing `nano`
+
+```bash
+apt install vim
+```
+
+<img src="image-20220504223507419.png" alt="image-20220504223507419" style="zoom:50%;" />
+
+It seems to be impossible. https://www.youtube.com/watch?v=pTFZFxd4hOI
+
+But this error teaches us how the package manager works. 
+
+To solve the problem, we need to first update the ***local database*** 
+
+```
+apt update
+```
+
+For more details, read https://wiki.debian.org/SourcesList and open `/etc/apt/sources.list` . 
 

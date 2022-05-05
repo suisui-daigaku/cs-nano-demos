@@ -28,7 +28,7 @@ To launch the Ubuntu container
 docker run -ti ubuntu:20.04 /bin/bash
 ```
 
-(`t` means termianl or tty, and `i` means interative mode. Then `/bin/bash` is the first prorgam to run after entering Ubuntu)
+(`t` means termianl or tty, and `i` means interative mode. Then `/bin/bash` is the first prorgam to run after entering Ubuntu. We must also include the ***tag*** , as there may be multiple versions of Ubuntu). 
 
 If you open another terminal and type `docker ps`, you will inmediately know ***what is a container***.
 
