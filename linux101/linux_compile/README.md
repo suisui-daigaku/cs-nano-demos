@@ -48,7 +48,7 @@
 # 要不要都可以
 apt-get install build-essential
 
-# 制作 deb 包需要的工作
+# 制作 deb 包需要的工具(比如 make-kpkg)
 apt-get install fakeroot kernel-package
 
 # ncurses 就是在 menuconfig 界面
@@ -58,7 +58,8 @@ apt-get install libncurses5-dev
 tar -xvJf linux-3.12.tar.xz
 
 # 复制当前 kernel 的配置文件(这个看个人需求, 一般 /boot/ 有好几个 kernel, 没有就从新开始)
-cp /boot/config-`uname –r`.config
+# 被复制的文件叫 .config
+cp /boot/config-`uname –r` .config
 
 # 或者可以是 make oldconfig (如果之前的 kernel 版本不一样)
 make menuconfig
@@ -66,15 +67,15 @@ make menuconfig
 # 清楚已有的包
 make-kpkg clean
 
-# 自己看一下就懂了
-export CONCURRENCY_LEVEL=3
+# 会生成三个文件(initrd, image, header)(8核编译，这些在 -help 都能找到答案)
+# 其中 intrd 用于引导, image 是压缩的镜像文件, header 是系统
+# fakeroot make-kpkg --append-to-version "-customkernel" --revision "1" --initrd kernel_image kernel_headers -j8 
 
-# 看一下就知道了，会在目录下生成 Linux 内核的镜像 和 header
-# (此命令可能会变，以Debian的 adminstrator handbook 为准)
-make deb-pkg LOCALVERSION=-customkernel KDEB_PKGVERSION=$(make kernelversion)_1
+
 
 # 看一下就知道了
-dpkg -i linux-image-3.12.0-customkernel_1_i386.deb linux-headers-3.12.0-customkernel_1_i386.deb
+ls ../*deb 
+dpkg -i your_package.deb
 
 # 如果有生成 Image, 可以安装到 /boot 下，然后加一下启动菜单
 # 要删掉已经安装的 kernel 同理, 直接删掉镜像即可。
@@ -84,7 +85,23 @@ update-grub
 reboot 
 ```
 
+如果要单独生成一个 Linux Header ，就要在 `make deb-pkg` 上面做文章。
 
+可以看一看 `--help` 是怎么做的。
+
+比如 [Ubuntu Manpage: make-kpkg - build Debian kernel packages from Linux kernel sources](http://manpages.ubuntu.com/manpages/focal/man1/make-kpkg.1.html)
+
+现在知道 Ubuntu 20.04 也有这个工具 `make-kpkg` 
+
+[What is the path to the kernel headers so I can install vmware? - Ask Ubuntu](https://askubuntu.com/questions/40979/what-is-the-path-to-the-kernel-headers-so-i-can-install-vmware)
+
+Step 3 : The path to the kernel headers is then
+
+```
+/usr/src/linux-headers-$(uname -r)/include
+```
+
+这就是 linux-header 的位置 ()
 
 
 
