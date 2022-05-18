@@ -40,7 +40,9 @@
 
 - [使用fakeroot模拟root权限执行程序 (kghost.info)](https://blog.kghost.info/2011/02/11/使用fakeroot模拟root权限执行程序/)
 - [O'Reilly Japan - ハッカー秘伝のテクニック100選 Binary Hacks (oreilly.co.jp)](https://www.oreilly.co.jp/books/4873112885/)
-- [8.10. Compiling a Kernel (debian-handbook.info)](https://debian-handbook.info/browse/squeeze/sect.kernel-compilation.html)
+- [8.10. Compiling a Kernel (debian-handbook.info)](https://debian-handbook.info/browse/stable/sect.kernel-compilation.html#sect.kernel-build)
+
+遇到什么事情都可以看看 debian 的书 https://debian-handbook.info/get/
 
 ```shell
 # 要不要都可以
@@ -55,35 +57,28 @@ apt-get install libncurses5-dev
 # 解压
 tar -xvJf linux-3.12.tar.xz
 
-
 # 复制当前 kernel 的配置文件(这个看个人需求, 一般 /boot/ 有好几个 kernel, 没有就从新开始)
 cp /boot/config-`uname –r`.config
-
 
 # 或者可以是 make oldconfig (如果之前的 kernel 版本不一样)
 make menuconfig
 
-
 # 清楚已有的包
 make-kpkg clean
-
 
 # 自己看一下就懂了
 export CONCURRENCY_LEVEL=3
 
-
 # 看一下就知道了，会在目录下生成 Linux 内核的镜像 和 header
-# 至于 append to version 和 revision 都是在后面的后缀，可以不管。
-fakeroot make-kpkg --append-to-version "-customkernel" --revision "1" --initrd kernel_image kernel_headers
-
+# (此命令可能会变，以Debian的 adminstrator handbook 为准)
+make deb-pkg LOCALVERSION=-customkernel KDEB_PKGVERSION=$(make kernelversion)_1
 
 # 看一下就知道了
 dpkg -i linux-image-3.12.0-customkernel_1_i386.deb linux-headers-3.12.0-customkernel_1_i386.deb
 
-
 # 如果有生成 Image, 可以安装到 /boot 下，然后加一下启动菜单
+# 要删掉已经安装的 kernel 同理, 直接删掉镜像即可。
 update-grub
-
 
 # 重启
 reboot 
