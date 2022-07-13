@@ -1,9 +1,11 @@
 #include "llvm-hello/Analysis/DynamicCallCounter.h"
-// ---- 
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+#include "llvm/IR/LegacyPassManager.h"
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/Transforms/Utils/ModuleUtils.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/Pass.h"
+#include "llvm/Support/raw_ostream.h"
 
 using namespace llvm;
 
@@ -30,7 +32,9 @@ Constant *CreateGlobalCounter(Module &M, std::string GlobalVarName) {
 //-----------------------------------------------------------------------------
 // DynamicCallCounter implementation
 //-----------------------------------------------------------------------------
-bool LegacyDynamicCallCounter::runOnModule(Module &M) {
+bool DynamicCallCounter::runOnModule(Module &M) {
+  llvm::outs() << "[DynamicCallCounter] \n"; 
+
   bool Instrumented = false;
 
   // Function name <--> IR variable that holds the call counter
@@ -162,8 +166,10 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
   // Finally, insert return instruction
   Builder.CreateRetVoid();
 
-  // STEP 5: Call `printf_wrapper` at the very end of this module
+  // STEP 5: append the PrintfWrapperF to the destructor 
+  // (note that the constructor and destructor would not appear in the assembly code).  
   appendToGlobalDtors(M, PrintfWrapperF, /*Priority=*/0);
+
   return true;
 }
 
@@ -172,10 +178,22 @@ bool LegacyDynamicCallCounter::runOnModule(Module &M) {
 //-----------------------------------------------------------------------------
 // Legacy PM Registration
 //-----------------------------------------------------------------------------
-char LegacyDynamicCallCounter::ID = 0;
+char DynamicCallCounter::ID = 0;
 // Register the pass - required for (among others) opt
-static RegisterPass<LegacyDynamicCallCounter>
+static RegisterPass<DynamicCallCounter>
     X(/*PassArg=*/"legacy-dynamic-cc",
       /*Name=*/"LegacyDynamicCallCounter",
       /*CFGOnly=*/false,
       /*is_analysis=*/false);
+
+//-----------------------------------------------------------------------------
+// Register to the RegisterStandardPasses
+// (before any optimizations)
+//-----------------------------------------------------------------------------
+static RegisterStandardPasses Y(
+    PassManagerBuilder::EP_EarlyAsPossible,
+    [](const PassManagerBuilder &Builder,
+        legacy::PassManagerBase &PM) { 
+          PM.add(new DynamicCallCounter()); 
+        }
+    );

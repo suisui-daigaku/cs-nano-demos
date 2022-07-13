@@ -5,14 +5,14 @@
 #include "llvm/IR/Module.h"
 #include "llvm/IR/IRBuilder.h"
 
-
 //------------------------------------------------------------------------------
 // Legacy PM interface
 //------------------------------------------------------------------------------
-struct LegacyDynamicCallCounter : public llvm::ModulePass {
+struct DynamicCallCounter : public llvm::ModulePass {
     static char ID; 
-    LegacyDynamicCallCounter() : llvm::ModulePass(ID) {}
+    DynamicCallCounter() : llvm::ModulePass(ID) {}
     bool runOnModule(llvm::Module& M) override;  
 }; 
+
 
 #endif 

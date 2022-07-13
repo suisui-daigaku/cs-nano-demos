@@ -1,61 +1,57 @@
-; ModuleID = 'example_for_call_count.c'
-source_filename = "example_for_call_count.c"
+; ModuleID = './Examples/example_for_call_count.c'
+source_filename = "./Examples/example_for_call_count.c"
 target datalayout = "e-m:o-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-apple-macosx12.0.0"
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
 define void @foo() #0 {
-entry:
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
 define void @bar() #0 {
-entry:
   call void @foo()
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
 define void @fez() #0 {
-entry:
   call void @bar()
   ret void
 }
 
 ; Function Attrs: noinline nounwind optnone ssp uwtable
 define i32 @main() #0 {
-entry:
-  %retval = alloca i32, align 4
-  %p = alloca void (...)*, align 8
-  %ii = alloca i32, align 4
-  store i32 0, i32* %retval, align 4
+  %1 = alloca i32, align 4
+  %2 = alloca void (...)*, align 8
+  %3 = alloca i32, align 4
+  store i32 0, i32* %1, align 4
   call void @foo()
   call void @bar()
   call void @fez()
-  store void (...)* bitcast (void ()* @foo to void (...)*), void (...)** %p, align 8
-  %0 = load void (...)*, void (...)** %p, align 8
-  call void (...) %0()
-  store i32 0, i32* %ii, align 4
-  store i32 0, i32* %ii, align 4
-  br label %for.cond
+  store void (...)* bitcast (void ()* @foo to void (...)*), void (...)** %2, align 8
+  %4 = load void (...)*, void (...)** %2, align 8
+  call void (...) %4()
+  store i32 0, i32* %3, align 4
+  store i32 0, i32* %3, align 4
+  br label %5
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load i32, i32* %ii, align 4
-  %cmp = icmp slt i32 %1, 10
-  br i1 %cmp, label %for.body, label %for.end
+5:                                                ; preds = %9, %0
+  %6 = load i32, i32* %3, align 4
+  %7 = icmp slt i32 %6, 10
+  br i1 %7, label %8, label %12
 
-for.body:                                         ; preds = %for.cond
+8:                                                ; preds = %5
   call void @foo()
-  br label %for.inc
+  br label %9
 
-for.inc:                                          ; preds = %for.body
-  %2 = load i32, i32* %ii, align 4
-  %inc = add nsw i32 %2, 1
-  store i32 %inc, i32* %ii, align 4
-  br label %for.cond, !llvm.loop !6
+9:                                                ; preds = %8
+  %10 = load i32, i32* %3, align 4
+  %11 = add nsw i32 %10, 1
+  store i32 %11, i32* %3, align 4
+  br label %5, !llvm.loop !6
 
-for.end:                                          ; preds = %for.cond
+12:                                               ; preds = %5
   ret i32 0
 }
 
@@ -64,11 +60,11 @@ attributes #0 = { noinline nounwind optnone ssp uwtable "frame-pointer"="all" "m
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 !llvm.ident = !{!5}
 
-!0 = !{i32 2, !"SDK Version", [2 x i32] [i32 12, i32 1]}
+!0 = !{i32 2, !"SDK Version", [2 x i32] [i32 12, i32 3]}
 !1 = !{i32 1, !"wchar_size", i32 4}
 !2 = !{i32 7, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 1}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"clang version 14.0.0 (https://github.com/llvm/llvm-project.git e7298464c5d004a119583cdb8a120dc3d968508d)"}
+!5 = !{!"Homebrew clang version 13.0.1"}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
