@@ -1,0 +1,1 @@
+clang -flegacy-pass-manager -Xclang -load -Xclang ../build/lib/libHelloWorldPass.so for_bar.c 
