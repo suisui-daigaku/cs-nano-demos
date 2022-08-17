@@ -1,0 +1,29 @@
+#include "llvm/Pass.h"
+#include "llvm/IR/Function.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Transforms/IPO/PassManagerBuilder.h"
+using namespace llvm;
+
+namespace {
+  struct HelloWorldPass : public FunctionPass {
+    static char ID;
+    HelloWorldPass() : FunctionPass(ID) {}
+
+    virtual bool runOnFunction(Function &F) {
+      errs() << "[HelloWorld Pass]: a function called " << F.getName() << "!\n";
+      return false;
+    }
+  };
+}
+
+char HelloWorldPass::ID = 0;
+
+// This is the core interface for pass plugins. It guarantees that 'opt' will
+// recognize LegacyHelloWorld when added to the pass pipeline on the command
+// line, i.e.  via '--legacy-hello-world'
+static llvm::RegisterPass<HelloWorldPass>
+    X("legacy-hello-world", "Hello World Pass",
+      true, // This pass doesn't modify the CFG => true
+      false // This pass is not a pure analysis pass => false
+    );
