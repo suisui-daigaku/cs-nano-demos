@@ -18,18 +18,6 @@ namespace {
 }
 
 char HelloWorldPass::ID = 0;
-
-// Update, October 17, 2014
-//    Automatically enable the pass: https://www.cs.cornell.edu/~asampson/blog/clangpass.html
-// static void _registerSkeletonPass(const PassManagerBuilder &, legacy::PassManagerBase &PM) {
-//   PM.add(new HelloWorldPass());
-// }
-// static RegisterStandardPasses
-//   RegisterMyPass(
-//     PassManagerBuilder::EP_EarlyAsPossible, 
-//     _registerSkeletonPass
-//   );
-
 // Or use the lambda function to make things cleanner.... 
 // add the HelloWorldPass to the optimization pipleline 
 //  https://llvm.org/docs/WritingAnLLVMPass.html#basic-code-required
