@@ -11,11 +11,9 @@ brew install llvm
 Build the project 
 
 ```
-mkdir build 
-cd build 
-cmake -G Ninja ..
-ninja 
-cd ..
+mkdir build && cd build 
+cmake ..
+make 
 ```
 
 ### Use the Plugin 
