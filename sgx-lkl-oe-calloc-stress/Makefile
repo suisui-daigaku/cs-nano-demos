@@ -1,5 +1,4 @@
-SGXLKL_DISK_TOOL=/home/nelly/sgx-lkl/tools/sgx-lkl-disk
-SGXLKL_STARTER=/home/nelly/sgx-lkl/build/sgx-lkl-run-oe
+SGXLKL_STARTER=../../build/sgx-lkl-run-oe
 
 EXECUTION_TIMEOUT=12000
 SGXLKL_ENV=SGXLKL_VERBOSE=1 SGXLKL_KERNEL_VERBOSE=1
@@ -8,7 +7,7 @@ SGXLKL_HW_PARAMS=--hw-debug
 # ---------------------------------------------------
 PROG_NAME=heapstress
 # ---------------------------------------------------
-IMG_NAME=haohua-test/$(PROG_NAME)
+IMG_NAME=randoruf-test/$(PROG_NAME)
 ROOT_FS=$(PROG_NAME).img
 ALPINE_TAR=$(PROG_NAME).tar.gz
 ALPINE_CONTAINER_CID=$(PROG_NAME).cid
@@ -54,7 +53,7 @@ run: run-hw
 ###############
 
 run-hw: ${ROOT_FS}
-	SGXLKL_STACK_SIZE=8388608 SGXLKL_CMDLINE="-mem=128mb" SGXLKL_TRACE_MMAP=1 SGXLKL_ETHREADS=1 SGXLKL_OE_HEAP_PAGE_COUNT=100000 $(SGXLKL_STARTER) $(SGXLKL_HW_PARAMS) $(ROOT_FS) /heapstress
+	SGXLKL_STACK_SIZE=8388608 SGXLKL_CMDLINE="-mem=128mb" SGXLKL_TRACE_MMAP=1 SGXLKL_ETHREADS=1 $(SGXLKL_STARTER) $(SGXLKL_HW_PARAMS) $(ROOT_FS) /heapstress
 
 # ----------------------------------------------------------------
 clean:

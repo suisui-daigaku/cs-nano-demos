@@ -1,6 +1,6 @@
-FROM haohua/llvm-toolchain-strongbox
+FROM alpine:3.16
 
-RUN apk add --no-cache libstdc++ musl-dev 
+RUN apk add --no-cache build-base musl-dev
 ADD *.c /
-RUN clang -DPAGES_COUNT=512000 -g -o heapstress calloc_stress.c
+RUN gcc -DPAGES_COUNT=512000 -g -o heapstress calloc_stress.c
 
