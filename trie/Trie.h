@@ -19,4 +19,5 @@ public:
     void insert(const std::string& Prefix); 
     bool search(const std::string& Prefix);
     bool startsWith(const std::string& Prefix); 
+    bool hasPrefix(const std::string &Word); 
 }; 

@@ -1,16 +1,37 @@
 #include "Trie.h"
 #include <fstream>
 #include <iostream>
+#include <system_error>
 
 int main(){
+    std::cout << ">>=========== Trie Test ===========<<\n"; 
+
     Trie trie;
-    std::ifstream infile("test/words.txt"); 
-    if (infile.is_open()) {
-        std::string funcName;
-        while (std::getline(infile, funcName)){
-            trie.insert(funcName); 
+    std::ifstream infilePrefix("inputs/en_prefix.txt"); 
+    if (infilePrefix.is_open()) {
+        std::string prefix;
+        while (std::getline(infilePrefix, prefix)){
+            trie.insert(prefix); 
         }
-        infile.close(); 
+        infilePrefix.close(); 
+    }else{
+        std::cerr << "ERROR\n"; 
+        return 1; 
     }
-    std::cout << trie.search("something") << "\n"; 
+
+    std::ifstream infileWords("inputs/en_words.txt"); 
+    if (infileWords.is_open()) {
+        std::string word;
+        while (std::getline(infileWords, word)){
+            if (trie.hasPrefix(word)){
+                std::cout << word << "\n"; 
+            }
+        }
+        infileWords.close(); 
+    }else{
+        std::cerr << "ERROR\n"; 
+        return 1; 
+    }
+
+    std::cout << ">>=================================<<\n"; 
 }

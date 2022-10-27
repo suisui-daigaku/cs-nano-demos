@@ -1,5 +1,6 @@
 #include "Trie.h"
 #include <algorithm>
+#include <string>
 
 Trie::TrieNode::~TrieNode(){
     for (auto Itr = Children.begin(); Itr != Children.end(); Itr++){
@@ -51,3 +52,18 @@ bool Trie::startsWith(const std::string &Prefix){
     }
     return true; 
 }
+
+
+bool Trie::hasPrefix(const std::string &Word){
+    TrieNode *Node = Root; 
+    for (char Ch : Word){
+        if (!Node->Children.count(Ch)){
+            break;
+        }
+        Node = Node->Children[Ch]; 
+    }
+    return Node->IsEnd; 
+}
+
+// abcdefg
+// abc 
