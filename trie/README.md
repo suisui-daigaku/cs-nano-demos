@@ -1,6 +1,6 @@
 # Trie 
 
-A small toy. 
+A small toy used for find some file path with certain prefix. 
 
 Please point out the mistakes. 
 
