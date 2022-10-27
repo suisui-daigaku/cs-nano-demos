@@ -130,17 +130,17 @@ Trie/fast:
 .PHONY : Trie/fast
 
 #=============================================================================
-# Target rules for targets named trie-test
+# Target rules for targets named trie-test-en-words
 
 # Build rule for target.
-trie-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 trie-test
-.PHONY : trie-test
+trie-test-en-words: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 trie-test-en-words
+.PHONY : trie-test-en-words
 
 # fast build rule for target.
-trie-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test.dir/build.make CMakeFiles/trie-test.dir/build
-.PHONY : trie-test/fast
+trie-test-en-words/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-en-words.dir/build.make CMakeFiles/trie-test-en-words.dir/build
+.PHONY : trie-test-en-words/fast
 
 #=============================================================================
 # Target rules for targets named trie-test-openssl-lib
@@ -179,6 +179,30 @@ Trie.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trie.dir/build.make CMakeFiles/Trie.dir/Trie.cpp.s
 .PHONY : Trie.cpp.s
 
+test-en-words.o: test-en-words.cpp.o
+.PHONY : test-en-words.o
+
+# target to build an object file
+test-en-words.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-en-words.dir/build.make CMakeFiles/trie-test-en-words.dir/test-en-words.cpp.o
+.PHONY : test-en-words.cpp.o
+
+test-en-words.i: test-en-words.cpp.i
+.PHONY : test-en-words.i
+
+# target to preprocess a source file
+test-en-words.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-en-words.dir/build.make CMakeFiles/trie-test-en-words.dir/test-en-words.cpp.i
+.PHONY : test-en-words.cpp.i
+
+test-en-words.s: test-en-words.cpp.s
+.PHONY : test-en-words.s
+
+# target to generate assembly for a file
+test-en-words.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-en-words.dir/build.make CMakeFiles/trie-test-en-words.dir/test-en-words.cpp.s
+.PHONY : test-en-words.cpp.s
+
 test-openssl-lib.o: test-openssl-lib.cpp.o
 .PHONY : test-openssl-lib.o
 
@@ -203,30 +227,6 @@ test-openssl-lib.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-openssl-lib.dir/build.make CMakeFiles/trie-test-openssl-lib.dir/test-openssl-lib.cpp.s
 .PHONY : test-openssl-lib.cpp.s
 
-test.o: test.cpp.o
-.PHONY : test.o
-
-# target to build an object file
-test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test.dir/build.make CMakeFiles/trie-test.dir/test.cpp.o
-.PHONY : test.cpp.o
-
-test.i: test.cpp.i
-.PHONY : test.i
-
-# target to preprocess a source file
-test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test.dir/build.make CMakeFiles/trie-test.dir/test.cpp.i
-.PHONY : test.cpp.i
-
-test.s: test.cpp.s
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test.dir/build.make CMakeFiles/trie-test.dir/test.cpp.s
-.PHONY : test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -236,17 +236,17 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Trie"
-	@echo "... trie-test"
+	@echo "... trie-test-en-words"
 	@echo "... trie-test-openssl-lib"
 	@echo "... Trie.o"
 	@echo "... Trie.i"
 	@echo "... Trie.s"
+	@echo "... test-en-words.o"
+	@echo "... test-en-words.i"
+	@echo "... test-en-words.s"
 	@echo "... test-openssl-lib.o"
 	@echo "... test-openssl-lib.i"
 	@echo "... test-openssl-lib.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
 .PHONY : help
 
 

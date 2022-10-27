@@ -7,7 +7,9 @@ int main(){
     std::cout << ">>=========== Trie Test ===========<<\n"; 
 
     Trie trie;
-    trie.insert("crypto/"); 
+    trie.insert("crypto/rsa/");
+    trie.insert("crypto/aes/"); 
+    trie.insert("crypto/sha/"); 
    
 
     std::ifstream infileWords("inputs/openssl_filename.txt"); 
