@@ -142,6 +142,19 @@ trie-test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test.dir/build.make CMakeFiles/trie-test.dir/build
 .PHONY : trie-test/fast
 
+#=============================================================================
+# Target rules for targets named trie-test-openssl-lib
+
+# Build rule for target.
+trie-test-openssl-lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 trie-test-openssl-lib
+.PHONY : trie-test-openssl-lib
+
+# fast build rule for target.
+trie-test-openssl-lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-openssl-lib.dir/build.make CMakeFiles/trie-test-openssl-lib.dir/build
+.PHONY : trie-test-openssl-lib/fast
+
 Trie.o: Trie.cpp.o
 .PHONY : Trie.o
 
@@ -165,6 +178,30 @@ Trie.s: Trie.cpp.s
 Trie.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trie.dir/build.make CMakeFiles/Trie.dir/Trie.cpp.s
 .PHONY : Trie.cpp.s
+
+test-openssl-lib.o: test-openssl-lib.cpp.o
+.PHONY : test-openssl-lib.o
+
+# target to build an object file
+test-openssl-lib.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-openssl-lib.dir/build.make CMakeFiles/trie-test-openssl-lib.dir/test-openssl-lib.cpp.o
+.PHONY : test-openssl-lib.cpp.o
+
+test-openssl-lib.i: test-openssl-lib.cpp.i
+.PHONY : test-openssl-lib.i
+
+# target to preprocess a source file
+test-openssl-lib.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-openssl-lib.dir/build.make CMakeFiles/trie-test-openssl-lib.dir/test-openssl-lib.cpp.i
+.PHONY : test-openssl-lib.cpp.i
+
+test-openssl-lib.s: test-openssl-lib.cpp.s
+.PHONY : test-openssl-lib.s
+
+# target to generate assembly for a file
+test-openssl-lib.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trie-test-openssl-lib.dir/build.make CMakeFiles/trie-test-openssl-lib.dir/test-openssl-lib.cpp.s
+.PHONY : test-openssl-lib.cpp.s
 
 test.o: test.cpp.o
 .PHONY : test.o
@@ -200,9 +237,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Trie"
 	@echo "... trie-test"
+	@echo "... trie-test-openssl-lib"
 	@echo "... Trie.o"
 	@echo "... Trie.i"
 	@echo "... Trie.s"
+	@echo "... test-openssl-lib.o"
+	@echo "... test-openssl-lib.i"
+	@echo "... test-openssl-lib.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

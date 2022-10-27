@@ -8,5 +8,8 @@ set(CMAKE_CXX_STANDARD 11)
 add_library(Trie Trie.cpp)
 
 # Add definition for the cmake-tutorial binary
-add_executable(trie-test test)
-target_link_libraries(trie-test Trie)
+add_executable(trie-test-en-words test-en-words.cpp)
+target_link_libraries(trie-test-en-words Trie)
+
+add_executable(trie-test-openssl-lib test-openssl-lib.cpp)
+target_link_libraries(trie-test-openssl-lib Trie)
