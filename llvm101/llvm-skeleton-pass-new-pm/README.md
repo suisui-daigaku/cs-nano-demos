@@ -33,7 +33,9 @@ More details at <https://stackoverflow.com/questions/56156520/gfortran-error-ld-
 ## Build the Plugin 
 
 ```
-cmake .
+mkdir build 
+cd build 
+cmake ..
 make
 ```
 
