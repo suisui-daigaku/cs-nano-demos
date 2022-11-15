@@ -9,12 +9,10 @@
 //    there's no 'print' method here (every analysis pass should implement it).
 //
 // USAGE:
-//    1. Legacy PM
-//      opt -enable-new-pm=0 -load libHelloWorld.dylib -legacy-hello-world -disable-output `\`
-//        <input-llvm-file>
-//    2. New PM
-//      opt -load-pass-plugin=libHelloWorld.dylib -passes="hello-world" `\`
-//        -disable-output <input-llvm-file>
+//    1. LLVM IR 
+//      opt -load-pass-plugin=libHelloWorld.dylib -passes="hello-world" -disable-output <input-llvm-file>
+//    2. Clang driver 
+//      clang -fpass-plugin=build/libHelloWorld.dylib -Xclang 
 //
 //
 // License: MIT
@@ -64,15 +62,11 @@ struct HelloWorld : PassInfoMixin<HelloWorld> {
 llvm::PassPluginLibraryInfo getHelloWorldPluginInfo() {
   return {LLVM_PLUGIN_API_VERSION, "HelloWorld", LLVM_VERSION_STRING,
           [](PassBuilder &PB) {
-            PB.registerPipelineParsingCallback(
-                [](StringRef Name, FunctionPassManager &FPM,
-                   ArrayRef<PassBuilder::PipelineElement>) {
-                  if (Name == "hello-world") {
-                    FPM.addPass(HelloWorld());
-                    return true;
-                  }
-                  return false;
-                });
+            PB.registerPipelineStartEPCallback(
+              [&](llvm::ModulePassManager &MPM, llvm::OptimizationLevel Level) {
+                MPM.addPass(createModuleToFunctionPassAdaptor(HelloWorld()));
+              }
+            );
           }};
 }
 
