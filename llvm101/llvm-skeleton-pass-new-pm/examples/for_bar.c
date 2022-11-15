@@ -10,21 +10,21 @@
 #include <stdio.h>
 
 void foo() {
-  printf("[foo]\n");
+  printf("((foo))\n");
 }
 
 void bar() {
-  printf("[bar]\n");
+  printf("((bar))\n");
   foo(); 
 }
 
 void fez() {
-  printf("[fez]\n");
+  printf("((fez))\n");
   bar(); 
 }
 
 int main() {
-  printf("[main]\n");
+  printf("((main))\n");
 
   foo();
   bar();
