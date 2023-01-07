@@ -11,6 +11,8 @@ Read
    - <https://stackoverflow.com/a/30169485/11118662>
 
 
+The idea to ignore a singal is to update `%rip`. 
+
 
 ```c
 #define _GNU_SOURCE /* Bring REG_XXX names from /usr/include/sys/ucontext.h */

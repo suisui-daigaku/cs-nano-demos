@@ -4,6 +4,9 @@ Learn the difference between hareware and software fault signals
 
 <https://en.wikipedia.org/wiki/Signal_(IPC)>
 
+
+But `sigaction()` could change the default behavior while a signal is occuring ,the idea to ignore a singal is to update `%rip`. 
+
 ## Software Fault (Singal)
 
 We could ignore the signal (we could do noting in the handler)
