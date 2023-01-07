@@ -1,4 +1,4 @@
-# signal.h
+# signal()
 
 Learn the difference between hareware and software fault signals 
 
