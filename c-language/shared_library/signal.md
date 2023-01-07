@@ -1,6 +1,6 @@
 # signal.h
 
-https://www.techonthenet.com/c_language/standard_library_functions/signal_h/signal.php
+<https://www.techonthenet.com/c_language/standard_library_functions/signal_h/signal.php>
 
 ```c
 /* Example using signal by TechOnTheNet.com */
