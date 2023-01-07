@@ -1,5 +1,37 @@
 # signal.h
 
+Learn the difference between hareware and software fault signals 
+
+<https://en.wikipedia.org/wiki/Signal_(IPC)>
+
+## Software Fault (Singal)
+
+We could ignore the signal (we could do noting in the handler)
+
+```c
+void signal_handler(int signo){
+    printf("[ERROR-HANDLER] Caught the signal, will handle it now\n");
+    
+}
+
+int main(void)
+{
+    signal(SIGSYS, signal_handler);
+    raise(SIGSYS);   
+
+    printf(" ~(^-^)~ : done without errors\n"); 
+    return 0;
+}
+
+```
+
+
+## Hardware Fault (Signal)
+
+The hardware faults usually can not be ignored (we must do somethings in the handler). 
+
+We could have a try by deleting the `exit(SIGSEGV);` statement. 
+
 <https://www.techonthenet.com/c_language/standard_library_functions/signal_h/signal.php>
 
 ```c
