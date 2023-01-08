@@ -1,5 +1,11 @@
 # sigaction()
 
+
+可以看一看 sgx-step 
+
+- 仅使用 `signal` <https://github.com/jovanbulck/sgx-step/blob/v1.4.0/app/aep-redirect/main.c>
+- 使用 `sigaction` <https://github.com/jovanbulck/sgx-step/blob/master/app/aep-redirect/main.c>
+
 change the default actions of a specific signals. 
 
 (for example, ignore a hardware error.)
