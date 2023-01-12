@@ -1,4 +1,8 @@
+#ifdef __APPLE__
 #define _XOPEN_SOURCE
+#else
+#define _GNU_SOURCE
+#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -16,11 +20,8 @@ static void sigill_handler(int sig, siginfo_t* si, void* data){
     printf("[[ signal handler ]]: Caught SIGSEGV, addr %p, RIP 0x%llx\n", si->si_addr, uc->uc_mcontext->__ss.__rip); 
 #ifdef __APPLE__
     uc->uc_mcontext->__ss.__rip += WRFSBASE_LEN;
-#elif __linux__
-    uc->uc_mcontext.gregs[REG_RIP] += RDFSBASE_LEN;
 #else
-    printf("making support for Windows is a nightmare ...\n"); 
-    exit(1); 
+    uc->uc_mcontext.gregs[REG_RIP] += RDFSBASE_LEN;
 #endif
 }
 
