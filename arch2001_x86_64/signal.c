@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 
+
 void signal_handler(int signo){
     printf("[ERROR-HANDLER] Caught the signal, will handle it now\n");
     
@@ -9,9 +10,7 @@ void signal_handler(int signo){
 
 int main(void)
 {
-    signal(SIGSYS, signal_handler);
-    raise(SIGSYS);   
-
+    signal(SIGILL, signal_handler);
     printf(" ~(^-^)~ : end of program. \n"); 
     return 0;
 }
