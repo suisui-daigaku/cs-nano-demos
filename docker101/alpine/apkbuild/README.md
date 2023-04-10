@@ -14,6 +14,8 @@ https://www.matthewparris.org/build-an-alpine-package/
 
 Building / consuming alpine Linux packages inside containers and images https://itsufficient.me/blog/alpine-build 
 
+Alpine Linux Porting (一點一?) https://ithelp.ithome.com.tw/articles/10269919
+
 [TOC]
 
 ## Exmaple 1: Reposerve 
@@ -133,7 +135,7 @@ Copy the public key generated in previous steps in apk keys' directory, then ins
 
 ```bash
 cp /home/packager/.abuild/*.rsa.pub /etc/apk/keys/
-apk add /home/packager/packages/3.17/main/x86_64/reposerve-0.5.0-r0.apk
+apk add /home/packager/packages/3.16/main/x86_64/reposerve-0.5.0-r0.apk
 ```
 
 Now verify the package works 
@@ -191,3 +193,8 @@ git clone --branch 3.16-stable https://github.com/alpinelinux/aports.git
 > **Note**: 此处可能需要代理。推荐使用 HTTP 协议的代理。
 > 详细搜索 macOS terminal socks5 http proxy 设置。
 
+There are some macros in musl 
+
+- `"$BOOTSTRAP"`
+- `"$CARCH"`
+- 
