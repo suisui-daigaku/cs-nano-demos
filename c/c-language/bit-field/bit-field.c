@@ -1,7 +1,20 @@
 #include <stdint.h>
 #include <stdio.h>
 
-
+void printBits(size_t const size, void const * const ptr)
+{
+    unsigned char *b = (unsigned char*) ptr;
+    unsigned char byte;
+    int i, j;
+    
+    for (i = size-1; i >= 0; i--) {
+        for (j = 7; j >= 0; j--) {
+            byte = (b[i] >> j) & 1;
+            printf("%u", byte);
+        }
+    }
+    puts("");
+}
 
 typedef struct _exit_info_t
 {
@@ -24,8 +37,20 @@ int main(){
     printf("Intial: 0x%x\n", get_unsigned_from_exitinfo(&exinfo)); 
 
     exinfo.valid = 1; 
-    printf("Set Valid Bit:  0x%x\n", get_unsigned_from_exitinfo(&exinfo)); 
-    printf("%d\n", (get_unsigned_from_exitinfo(&exinfo) >> 31) & 1); 
+    printf("Set Valid Bit:  0x%x\n", get_unsigned_from_exitinfo(&exinfo) >> 31); 
+    exinfo.valid = 0; 
+
+    exinfo.exit_type = 0b110; 
+    printf("Set EXIT_TYPE: 0x%x\n", (get_unsigned_from_exitinfo(&exinfo) >> 8) & (0x7));
+    exinfo.exit_type = 0; 
+
+    exinfo.vector = 0xff; 
+    printf("Set Vector: 0x%x\n", (get_unsigned_from_exitinfo(&exinfo) & (0xff))); 
+    exinfo.vector = 0; 
+
+    printf("\n=========================================================\n");
+
+    uint32_t exinfo_u = 0x306; // 001100000110
 
 }
 
