@@ -3,7 +3,7 @@
 
 
 int init_pstate_dir_status(){
-    const char path[] = "/sys/devices/system/cpu/intel_pstate"; 
+    const char path[] = "/System/Applications"; 
     printf("[ sgx-step ] opening path at %s ...\n", path); 
     struct stat sb;
     int err = stat(path, &sb);
@@ -24,6 +24,11 @@ int has_pstate(void){
 
 int main(){
     printf("has_pstate: %d\n", has_pstate()); 
+    printf("has_pstate: %d\n", has_pstate()); 
+    printf("has_pstate: %d\n", has_pstate()); 
+    printf("has_pstate: %d\n", has_pstate());     
+    printf("has_pstate: %d\n", has_pstate()); 
+    printf("has_pstate: %d\n", has_pstate());     
     printf("has_pstate: %d\n", has_pstate()); 
 }
 
