@@ -1,0 +1,7 @@
+
+
+image: 
+	docker build -t "mmap_lab" .
+	
+run:
+	docker run -it --rm --mount type=bind,source=$(shell pwd),target="/home/mmap_lab" --entrypoint /bin/sh "mmap_lab"
