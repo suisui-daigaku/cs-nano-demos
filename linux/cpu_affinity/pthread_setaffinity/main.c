@@ -1,14 +1,10 @@
-#include <stdlib.h>
+#define _GNU_SOURCE
+#include <stdio.h>
 #include <pthread.h>
-#include <unistd.h>
-#include <math.h>
-#include <errno.h>
+#include <stdlib.h>
 #include <sched.h>
-
-
-
-void CPU_ZERO(cpu_set_t *set);
-void CPU_SET(int cpu, cpu_set_t *set);
+#include <errno.h>
+#include <math.h>
 
 
 #define handle_error_en(en, msg)\

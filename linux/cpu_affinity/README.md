@@ -133,12 +133,20 @@ pthread_join(th2, NULL);
 
 ### Putting everything together.
 
+
+```
+gcc hello.c -lpthread -lm
+```
+
 ```c
-#include <stdlib.h>
+#define _GNU_SOURCE
+#include <stdio.h>
 #include <pthread.h>
-#include <unistd.h>
-#include <math.h>
+#include <stdlib.h>
+#include <sched.h>
 #include <errno.h>
+#include <math.h>
+
 
 #define handle_error_en(en, msg)\
     do { errno = en; perror(msg); exit(EXIT_FAILURE);} while (0);
