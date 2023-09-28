@@ -12,13 +12,20 @@
 
 void *cpu_intensive_function(void *args){
     float x = 1.5f;
-    while (1)
+//    while (1)
     {
         x *= sin(x) / atan(x) * tanh(x) * sqrt(x);
     }
+
+    char *message;
+    message = (char *) args;
+    printf("%s \n", message);
 }
 
 int main(){
+
+    char *message1 = "Thread 1";
+    char *message2 = "Thread 2";
 
     // create a cpu set with core 1
     cpu_set_t cpuset_1;
@@ -36,18 +43,16 @@ int main(){
     int ret2;
     
     /* initialize threads */
-    ret1 = pthread_create(&th1, NULL, cpu_intensive_function, NULL);
-    ret2 = pthread_create(&th2, NULL, cpu_intensive_function, NULL);
+    ret1 = pthread_create(&th1, NULL, cpu_intensive_function, (void*) message1);
+    ret2 = pthread_create(&th2, NULL, cpu_intensive_function, (void*) message2);
     
     /* Set the affinity to thread 1*/
     int s1 = pthread_setaffinity_np(th1, sizeof(cpu_set_t), &cpuset_1);
-    if (s1 != 0)
-        handle_error_en(s1, "pthread_set_affinity_np, s1");
+    if (s1 != 0) handle_error_en(s1, "pthread_set_affinity_np, s1");
     
     /*set the affinity to thread 2*/
     int s2 = pthread_setaffinity_np(th2, sizeof(cpu_set_t), &cpuset_2);
-    if (s2 != 0)
-        handle_error_en(s2, "pthread_set_affinity_np, s2");
+    if (s2 != 0) handle_error_en(s2, "pthread_set_affinity_np, s2");
     
     // wait for the threads to terminate.
     pthread_join(th1, NULL);
