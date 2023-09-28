@@ -1,44 +1,79 @@
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
+#include <stdlib.h>
 #include <sched.h>
+#include <errno.h>
+#include <math.h>
+#include <fcntl.h>
 
-/*
- * Glibc: Pthread - Setting Cpu Affinity - Linux https://girishjoshi.io/post/glibc-pthread-cpu-affinity-linux/
-*/
+int fd_step = -1, fd_mem = -1;
 
-int sched_getcpu(void);
+#define handle_error_en(en, msg)\
+    do { errno = en; perror(msg); exit(EXIT_FAILURE);} while (0);
 
-void *print_message_function( void *ptr );
+void mem_open( void ){
+    if (fd_mem == -1)
+    {
+        fd_mem = open("/dev/mem", O_RDWR); 
+        if (fd_mem < 0){
+            printf("[[ ERROR ]]\n"); 
+            exit(1); 
+        }
+        printf("[[ NOTE ]]: /dev/mem opened!\n");
+    }
+}
+
+void *cpu_intensive_function_thread_1(void *args){
+    mem_open(); 
+    char *message;
+    message = (char *) args;
+    printf("%s \n", message);
+}
+
+
+void *cpu_intensive_function_thread_2(void *args){
+    char *message;
+    message = (char *) args;
+    printf("%s \n", message);
+}
+
 
 int main(){
-    pthread_t thread1, thread2;
+
     char *message1 = "Thread 1";
     char *message2 = "Thread 2";
-    int  iret1, iret2;
 
-    /* Create independent threads each of which will execute function */
-    iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
-    iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
+    // create a cpu set with core 1
+    cpu_set_t cpuset_1;
+    CPU_ZERO(&cpuset_1);
+    CPU_SET(1, &cpuset_1);
+    
+    // create a cpu set with core 2
+    cpu_set_t cpuset_2;
+    CPU_ZERO(&cpuset_2);
+    CPU_SET(2, &cpuset_2);
+    
+    pthread_t th1;
+    pthread_t th2;
+    int ret1;
+    int ret2;
+    
+    /* initialize threads */
+    ret1 = pthread_create(&th1, NULL, cpu_intensive_function_thread_1, (void*) message1);
+    ret2 = pthread_create(&th2, NULL, cpu_intensive_function_thread_2, (void*) message2);
+    
+    /* Set the affinity to thread 1*/
+    int s1 = pthread_setaffinity_np(th1, sizeof(cpu_set_t), &cpuset_1);
+    if (s1 != 0) handle_error_en(s1, "pthread_set_affinity_np, s1");
+    
+    /*set the affinity to thread 2*/
+    int s2 = pthread_setaffinity_np(th2, sizeof(cpu_set_t), &cpuset_2);
+    if (s2 != 0) handle_error_en(s2, "pthread_set_affinity_np, s2");
+    
+    // wait for the threads to terminate.
+    pthread_join(th1, NULL);
+    pthread_join(th2, NULL);
 
-    /* Wait till threads are complete before main continues. Unless we  */
-    /* wait we run the risk of executing an exit which will terminate   */
-    /* the process and all threads before the threads have completed.   */
-    pthread_join( thread1, NULL);
-    pthread_join( thread2, NULL); 
-
-    printf("Thread 1 on cpu %d\n", sched_getcpu());
-    printf("Thread 2 returns: %d\n",sched_getcpu());
-    return 0; 
+    return 0;
 }
-
-void *print_message_function( void *ptr ){
-    char *message;
-    message = (char *) ptr;
-    printf("%s \n", message);
-    return ptr; 
-}
-
-
-
-
