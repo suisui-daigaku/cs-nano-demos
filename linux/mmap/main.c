@@ -17,7 +17,7 @@ void mem_open( void ){
     {
         fd_mem = open("/dev/mem", O_RDWR); 
         if (fd_mem < 0){
-            printf("[[ ERROR ]]\n"); 
+            printf("[[ ERROR ]] virtual mem is not avaliable! \n"); 
             exit(1); 
         }
         printf("[[ NOTE ]]: /dev/mem opened!\n");
