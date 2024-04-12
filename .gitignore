@@ -22,3 +22,4 @@ cpp-simd/avx256-simd/vclSIMD.bin.dSYM/Contents/Resources/DWARF/vclSIMD.bin
 cpp-simd/avx256-simd/asmSIMD.bin.dSYM/Contents/Info.plist
 *.bin
 *.plist
+*.out
