@@ -30,12 +30,12 @@ for item in data:
     # Parse the HTML content of the page with BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
     # title 
-    title = soup.find('div', {'data-gu-name':'headline'})
-    h1_title = title.find('h1')
     try:
+        title = soup.find('div', {'data-gu-name':'headline'})
+        h1_title = title.find('h1')
         output.write('## ' + str(item['position']) + ', ' + h1_title.get_text() + '\n\n')
     except: 
-        output.write('>' + 'None\n\n')
+        output.write('## ' + str(item['position']) + 'None\n\n')
     # link
     output.write(item['link'] + '\n\n')
     # summary 
@@ -53,7 +53,6 @@ for item in data:
     except: 
          output.write('None\n\n')
     print(item["position"], item["title"])
-    break
 
 output.close()
 
