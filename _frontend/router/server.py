@@ -54,9 +54,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 
                 # Determine which file the browser is asking for
                 if path == '/':
-                    target_file = os.path.join(filepath, 'index.html')
+                    target_file = filepath + '/index.html'
                 else:
-                    target_file = os.path.join(filepath, path.lstrip('/'))
+                    target_file = filepath + path
                 
                 # 在开发过程中，浏览器可能会请求不存在的.well-known/appspecific/com.chrome.devtools.json静态资源，导致服务端返回404警告
                 if not path.startswith('/.well-known/'):
