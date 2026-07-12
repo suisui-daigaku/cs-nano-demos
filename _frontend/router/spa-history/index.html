@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS History Router</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        nav { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ccc; }
+        a { margin-right: 15px; text-decoration: none; color: #d946ef; font-weight: bold; }
+        #app { padding: 20px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" data-link>Home</a>
+        <a href="/about" data-link>About Us</a>
+        <a href="/dashboard" data-link>Dashboard</a>
+    </nav>
+
+    <div id="app"></div>
+
+    <script>
+        // 3. Define the routes
+        const routes = {
+            '/': '<h2>🏠 Home</h2><p>Welcome to the History API single-page app!</p>',
+            '/about': '<h2>ℹ️ About Us</h2><p>Look at that clean URL in the address bar.</p>',
+            '/dashboard': '<h2>📊 Dashboard</h2><p>Here is your secret data.</p>'
+        };
+
+        // 4. The Router Function: Renders content based on current path
+        const router = () => {
+            // Get the current path (e.g., "/about")
+            const currentPath = window.location.pathname;
+
+            // Find the matching content, or show a 404
+            const content = routes[currentPath] || '<h2>404</h2><p>Page Not Found.</p>';
+
+            // Inject into the DOM
+            document.getElementById('app').innerHTML = content;
+            
+            console.log(`Rendered path: ${currentPath}`);
+        };
+
+        // 5. The Navigation Function: Changes the URL silently
+        const navigateTo = (url) => {
+            // pushState takes 3 arguments: (stateObject, title, url)
+            history.pushState(null, null, url);
+            
+            // After changing the URL, we manually call the router to update the screen
+            router();
+        };
+
+        // 6. Set up Event Listeners when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Hijack all clicks on the page
+            document.body.addEventListener("click", e => {
+                // If the clicked element has the "data-link" attribute...
+                if (e.target.matches("[data-link]")) {
+                    e.preventDefault(); // Stop the browser from doing a hard reload
+                    navigateTo(e.target.href); // Run our custom navigation function
+                }
+            });
+
+            // Listen for the Back/Forward buttons
+            // (pushState does NOT trigger an event, but the browser's back button triggers 'popstate')
+            window.addEventListener("popstate", router);
+
+            // Run the router once on initial page load
+            router();
+        });
+    </script>
+
+</body>
+</html>

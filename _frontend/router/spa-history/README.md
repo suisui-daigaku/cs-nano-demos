@@ -6,8 +6,6 @@ Today, modern frameworks (React Router, Vue Router) default to the **Browser His
 
 Hash routers are fantastic because they **require zero server configuration**. They work perfectly even if you just open the HTML file directly from your hard drive.
 
-### Hash or History 
-
 - Hash 
   - under IE 9 
   - static web page also okay 
@@ -18,3 +16,10 @@ Hash routers are fantastic because they **require zero server configuration**. T
   - need server/backend configuration 
   - seo required 
   - bussiness level application 
+
+### Implement a Router using History API 
+
+Unlike the Hash Router, which relies on a URL quirk, the History API Router is the modern standard used by frameworks like React, Vue, and Angular. It gives you clean URLs (like localhost:3000/about) without the # symbol.
+
+To make this work, we have to use JavaScript to manually hijack all link clicks, stop the browser's default behavior, and use `history.pushState()` to change the URL silently.
+

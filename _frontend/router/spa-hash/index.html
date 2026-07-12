@@ -1,27 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>The Web Directory - Home</title>
-    <script src="hash.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS Hash Router</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        nav { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ccc; }
+        a { margin-right: 15px; text-decoration: none; color: blue; }
+        #app { padding: 20px; background: #f4f4f4; border-radius: 8px; }
+    </style>
 </head>
-<body bgcolor="#FFFFFF" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
-        <center>
-            <h1>
-                <font color="#FF0000">
-                    <i>The Web Directory!</i>
-                </font>
-            </h1>
-            <p>[ <a href="index.html">Home</a> | <a href="#news">News</a> | <a href="#sports">Sports</a> | <a href="mailto:nobody@example.com">Email Us</a> ]</p>
-            <hr width="80%" size="2">
-        </center>
-        <div id="content"></div>
-        
-        <center><hr width="80%" size="2">
-            <p>
-                <font size="-1">Best viewed in Netscape Navigator 3.0 at 800x600 resolution.</font>
-            </p>
-            <p>
-                You are visitor number: <b>0 0 4 2 1</b>
-            </p>
-            </center>
+<body>
+
+    <nav>
+        <a href="#/">Home</a>               <!-- the header's name is / (an anchor)-->
+        <a href="#/about">About Us</a>      <!-- the header's name is /about -->
+        <a href="#/settings">Settings</a>   <!-- the header's name is /settings -->
+    </nav>
+
+    <div id="app"></div>
+
+    <script>
+        // 3. Define your routes and the HTML content for each
+        const routes = {
+            '#/': '<h2>🏠 Home</h2><p>Welcome to the single-page app!</p>',
+            '#/about': '<h2>ℹ️ About Us</h2><p>We built this router from scratch.</p>',
+            '#/settings': '<h2>⚙️ Settings</h2><p>Adjust your preferences here.</p>'
+        };
+
+        // 4. The Router Function
+        function router() {
+            // Get the current hash from the URL (e.g., "#/about"). 
+            // If there is no hash, default to "#/"
+            let currentHash = window.location.hash || '#/';
+
+            // Find the matching HTML content, or show a 404 message
+            let content = routes[currentHash] || '<h2>404</h2><p>Page Not Found.</p>';
+
+            // Inject the content into the viewport
+            document.getElementById('app').innerHTML = content;
+            
+            console.log(`Mapsd to: ${currentHash}`);
+        }
+
+        // 5. Listen for URL changes
+        window.addEventListener('hashchange', router);
+
+        // 6. Run the router once when the page first loads
+        window.addEventListener('DOMContentLoaded', router);
+    </script>
+
 </body>
 </html>
