@@ -17,6 +17,7 @@ If you are running a local development server (like VS Code Live Server or Node.
 
 * **Base URL:** `http://127.0.0.1:5500/` or `http://localhost:3000/`
 * **Navigating to "About":** `http://127.0.0.1:5500/#/about`
+  * Or in full `http://127.0.0.1:5500/index.html#/about`
 
 **Note**: The URL Breakdown
 
@@ -93,11 +94,3 @@ Notice how the `window.addEventListener('hashchange', ...)` tells the browser ex
 </body>
 </html>
 ```
-
-### Why use this over the modern History API?
-
-Today, modern frameworks (React Router, Vue Router) default to the **Browser History API** instead of Hash routing because it allows for clean URLs without the `#` (e.g., `localhost:3000/about`). However, History API routers require special configuration on your web server so that it doesn't try to actually look for a folder named `/about` when the user refreshes the page.
-
-Hash routers are fantastic because they **require zero server configuration**. They work perfectly even if you just open the HTML file directly from your hard drive.
-
-Does this clear up how the hash prevents the browser from reloading the page, or would you like to see how to pass dynamic data (like a user ID) through these hash routes?
