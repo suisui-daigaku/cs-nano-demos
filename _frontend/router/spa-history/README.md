@@ -18,5 +18,3 @@ Hash routers are fantastic because they **require zero server configuration**. T
   - need server/backend configuration 
   - seo required 
   - bussiness level application 
-
-### 

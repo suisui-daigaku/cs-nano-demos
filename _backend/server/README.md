@@ -13,9 +13,10 @@
 
 ### Python 版本
 
-```
+Option 1: Python (From Scratch using Sockets)
+While Python has a built-in one-liner to start a server (python -m http.server), writing one using the raw socket library reveals the actual mechanics of a web server.
 
-```
+Save this as server.py and run it with python [server.py](./server.py).
 
 
 ### C版本
