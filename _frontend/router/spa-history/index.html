@@ -68,7 +68,7 @@
             // (pushState does NOT trigger an event, but the browser's back button triggers 'popstate')
             window.addEventListener("popstate", router);
 
-            // Run the router once on initial page load
+            // Run the router once on initial page load （首次页面读取时，运行router一次）
             router();
         });
     </script>
